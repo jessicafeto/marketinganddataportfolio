@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<title>Ritual Concept: Marketing Analytics Dashboard | Jessica Feto</title>
+<meta name="description" content="Concept case study: consolidating paid media and email performance for a subscription vitamin brand modelled on Ritual into one analytics dashboard. Unsolicited concept project not affiliated with or endorsed by Ritual." />
+
+
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/ritual.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TKEPZ4H77"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8TKEPZ4H77');
+  </script>
+</head>
+<body class="rt-page">
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Jessica <span>Feto</span></a>
+    <div class="nav-links">
+      <a href="index.html#about"><span class="nav-text">About</span></a>
+      <a href="index.html#work"><span class="nav-text">Work</span></a>
+      <a href="index.html#skills"><span class="nav-text">Skills</span></a>
+      <a href="index.html#results"><span class="nav-text">Results</span></a>
+      <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a href="index.html#work" class="back-link">&larr; Back to all projects</a>
+    <span class="rt-brandmark"><span class="dot"></span> Ritual &middot; Concept project</span>
+    <span class="eyebrow">Case study 07 Marketing analytics dashboard (concept project)</span>
+    <h1>One dashboard, three platforms, and an answer to "is this working?"</h1>
+    <p class="lede">
+      A self-directed concept case study built around Ritual's subscription vitamin business
+      model not real client work. After rebuilding paid media (case study 05) and email
+      lifecycle (case study 06) for this concept brand, the next problem was reporting: three
+      platforms, three different definitions of "revenue", and no single place to ask whether
+      any of it was actually working.
+    </p>
+    <div class="case-meta">
+      <div class="meta-item">
+        <span>Sector</span>
+        <strong>DTC / e-commerce subscription wellness &amp; supplements</strong>
+      </div>
+      <div class="meta-item">
+        <span>Brand</span>
+        <strong>Ritual (concept project not affiliated)</strong>
+      </div>
+      <div class="meta-item">
+        <span>Role</span>
+        <strong>Marketing analytics lead (concept)</strong>
+      </div>
+      <div class="meta-item">
+        <span>Tools</span>
+        <strong>Looker Studio / Power BI demoed here with Chart.js</strong>
+      </div>
+    </div>
+    <div class="rt-disclaimer">
+      <strong>About this case study:</strong> Ritual is a real subscription vitamin &amp;
+      supplement brand. This project is unsolicited concept work created for portfolio purposes
+      the dashboard, KPIs and figures below are illustrative, built from a modelled
+      dataset. It is not affiliated with, commissioned by, or endorsed by Ritual, and does not
+      represent Ritual's actual data, strategy or results.
+    </div>
+  </div>
+</header>
+
+<!-- 2. Challenge / Brief -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">01 The brief</span>
+      <h2>Three platforms, three stories.</h2>
+      <p>
+        With paid media running across Meta and Google (case study 05) and a lifecycle email
+        programme live in Klaviyo (case study 06), each platform had its own dashboard, its own
+        definition of "revenue", and its own idea of which channel deserved credit for a sale.
+        Answering a simple question "is the business healthier this month than last?"
+        meant manually pulling numbers from three places and reconciling them by hand.
+        The brief: build one dashboard that consolidates all three sources into a small set of
+        KPIs everyone agrees on.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Objective -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">02 The objective</span>
+      <h2>Three goals for the dashboard.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Consolidate three data sources</h3>
+        <p>Bring Meta Ads, Google Ads and Klaviyo data into one view, with a consistent revenue definition across all three.</p>
+      </div>
+      <div class="card">
+        <h3>Standardise on core KPIs</h3>
+        <p>Agree on a small set of metrics blended CAC, revenue by channel, ROAS, email's share of revenue that mean the same thing wherever they appear.</p>
+      </div>
+      <div class="card">
+        <h3>Cut monthly reporting time to minutes</h3>
+        <p>Replace a manual, multi-platform pull-and-reconcile process with a dashboard that's ready whenever someone asks "how are we doing?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Your Role -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">03 My role</span>
+      <h2>Defining the KPIs, then building the view.</h2>
+      <p>
+        In this concept role as marketing analytics lead, I defined the standardised KPI set
+        across paid media and email, modelled the underlying dataset that ties the three
+        platforms together, and built the consolidated dashboard demoed here with
+        Chart.js, designed to translate directly into Looker Studio or Power BI.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Strategy -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">04 Strategy</span>
+      <h2>One dashboard, four KPIs everyone trusts.</h2>
+      <p>
+        The two pillars: bring the data together in one place, and agree on what the numbers
+        actually mean before building any charts.
+      </p>
+    </div>
+    <div class="grid grid-2">
+      <div class="rt-pillar-card">
+        <span class="rt-pillar-num">A</span>
+        <h3>One dashboard, three data sources</h3>
+        <p>
+          Modelled a unified dataset combining Meta Ads, Google Ads and Klaviyo performance data
+          on a common monthly cadence so blended CAC, channel revenue and email
+          performance could all be viewed against the same timeline.
+        </p>
+      </div>
+      <div class="rt-pillar-card">
+        <span class="rt-pillar-num">B</span>
+        <h3>Standardised KPI definitions</h3>
+        <p>
+          Settled on four core KPIs blended CAC, revenue by channel, ROAS by channel, and
+          email's share of revenue with a single agreed definition for each, so the same
+          number means the same thing whether it's viewed by the marketing, finance or
+          leadership team.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Execution -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">05 Execution</span>
+      <h2>From three exports to one view.</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Modelling a unified dataset</h3>
+        <p>Built a six-month modelled dataset combining blended CAC, revenue by channel (Paid Social, Paid Search, Organic/Direct, Email), ROAS by channel, and email's share of revenue all on the same monthly timeline.</p>
+      </div>
+      <div class="card">
+        <h3>Defining the four core KPIs</h3>
+        <p>Agreed definitions for blended CAC (total spend &divide; new subscribers across all paid channels), revenue by channel, ROAS by channel, and email's share of total revenue the metrics that show up throughout case studies 05 and 06.</p>
+      </div>
+      <div class="card">
+        <h3>Building the consolidated view</h3>
+        <p>Built the dashboard itself demoed here with Chart.js, but designed as a Looker Studio / Power BI layout: a top-line CAC trend, a channel revenue breakdown, ROAS by channel, and the email revenue-share trend that ties case studies 05 and 06 together.</p>
+      </div>
+      <div class="card">
+        <h3>From manual pull to standing report</h3>
+        <p>Replaced what would previously have been a manual end-of-month export from three platforms with a dashboard that's always current turning a roughly one-day reporting task into a 15-minute review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Visual Assets / Dashboard -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">06 The dashboard</span>
+      <h2>Blended CAC, channel revenue, ROAS and email share in one view.</h2>
+      <p>Built with Chart.js for this demo; designed to translate directly into a Looker Studio or Power BI layout.</p>
+    </div>
+    <div class="rt-charts">
+      <div class="rt-chart-card full" style="height: 360px;">
+        <canvas id="chart-rt-cac"></canvas>
+      </div>
+      <div class="rt-chart-note">
+        <strong>Blended CAC fell from £46 to £29</strong> across the six-month window modelled
+        here the headline number from case study 05's funnel restructure, now tracked
+        alongside revenue and email performance rather than in a separate platform.
+      </div>
+      <div class="rt-chart-card">
+        <canvas id="chart-rt-roas"></canvas>
+      </div>
+      <div class="rt-chart-card">
+        <canvas id="chart-rt-email-share"></canvas>
+      </div>
+      <div class="rt-chart-card full" style="height: 380px;">
+        <canvas id="chart-rt-channel-revenue"></canvas>
+      </div>
+      <div class="rt-chart-note">
+        <strong>Email's modelled share of revenue nearly tripled</strong>, from around 9% to
+        almost 24% the same lifecycle programme from case study 06, now visible
+        side-by-side with paid channel revenue rather than in Klaviyo's own dashboard.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Results & Metrics -->
+<section id="results" class="dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">07 Results</span>
+      <h2>What one consolidated view changed.</h2>
+      <p>
+        These figures are illustrative for this concept project, modelled on what consolidating
+        three platforms into one dashboard could plausibly achieve not Ritual's real
+        results.
+      </p>
+    </div>
+    <div class="grid grid-4">
+      <div class="stat-card">
+        <strong>4</strong>
+        <span>Data sources consolidated</span>
+        <p>Meta Ads, Google Ads, Klaviyo &amp; the modelled subscriber dataset</p>
+      </div>
+      <div class="stat-card">
+        <strong>~1 day &rarr; 15 min</strong>
+        <span>Monthly reporting time</span>
+        <p>Modelled reduction from a manual multi-platform pull</p>
+      </div>
+      <div class="stat-card">
+        <strong>4</strong>
+        <span>Core KPIs standardised</span>
+        <p>Blended CAC, channel revenue, ROAS, email revenue share</p>
+      </div>
+      <div class="stat-card">
+        <strong>9% &rarr; 24%</strong>
+        <span>Email share of revenue</span>
+        <p>Modelled in case study 06, tracked here alongside paid channels</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Learnings -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">08 Learnings</span>
+      <h2>What I'd carry into a real consolidated dashboard.</h2>
+    </div>
+    <ul class="learnings-list">
+      <li>
+        <span class="num">01</span>
+        <div>
+          <h3>Agree on KPI definitions before building any charts.</h3>
+          <p>The hardest part of this project wasn't the dashboard itself it was deciding what "revenue by channel" and "blended CAC" actually mean when three platforms each have their own attribution model. Getting that agreement first made the dashboard itself straightforward.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div>
+          <h3>A consolidated view makes connections visible that siloed dashboards hide.</h3>
+          <p>Seeing blended CAC fall (case study 05) at the same time as email's revenue share climbed (case study 06) made it possible to ask whether the two were related a question that's invisible if you're only looking at Meta Ads Manager or Klaviyo in isolation.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div>
+          <h3>Chart.js is a good prototyping tool, but the real destination is Looker Studio or Power BI.</h3>
+          <p>Building this demo in Chart.js made it fast to iterate on which charts actually answered the brief's questions. The layout and KPI definitions are designed to carry over directly into a connected, auto-refreshing Looker Studio or Power BI dashboard for a real brand.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div>
+          <h3>Next time, I'd add the CRM segmentation data from case study 04 into the same view.</h3>
+          <p>This dashboard combines paid media and email, but the subscriber segments from case study 04 (Founding Subscribers, Building the Habit, Tried It Once, Paused &amp; Lapsed) aren't represented here yet. Adding segment-level revenue would complete the picture across all three concept projects.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 10. Tools & Skills + Next -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">09 Tools &amp; skills</span>
+      <h2>What I used to get this done.</h2>
+    </div>
+    <div style="margin-bottom:56px;">
+      <span class="tag rt-sage">Chart.js</span>
+      <span class="tag rt-gold">Looker Studio / Power BI (concept layout)</span>
+      <span class="tag rt-sage">KPI design</span>
+      <span class="tag">Data modelling</span>
+      <span class="tag">Cross-platform reporting</span>
+      <span class="tag">Marketing analytics</span>
+      <span class="tag">Dashboard design</span>
+      <span class="tag">DTC / subscription e-commerce</span>
+    </div>
+    <div class="case-next">
+      <div>
+        <div class="case-next-label">Next project</div>
+        <h2>See the UK launch content strategy &rarr;</h2>
+      </div>
+      <a href="hauslabs-social.html" class="btn btn-primary">View case study 08</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Jessica Feto. Ritual is a real brand; this case study is an unsolicited concept project created for portfolio purposes and is not affiliated with, commissioned by, or endorsed by Ritual. intellimation.ai case studies reflect real consulting work completed via Noova Data Ltd.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="ritual-crm.html">CRM Segmentation</a>
+      <a href="intellimation-linkedin.html">LinkedIn Strategy</a>
+      <a href="intellimation-gtm.html">GTM Collateral</a>
+      <a href="intellimation-events.html">Event Marketing</a>
+      <a href="ritual-paid-media.html">Paid Media</a>
+      <a href="ritual-email.html">Email Lifecycle</a>
+      <a href="ritual-dashboard.html">Analytics Dashboard</a>
+      <a href="hauslabs-social.html">Social Strategy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="assets/js/ritual-dashboard.js"></script>
+
+</body>
+</html>

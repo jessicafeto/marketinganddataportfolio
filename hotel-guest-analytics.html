@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<title>Hotel Guest Analytics &amp; Segmentation Customer Retention Concept · Jessica Feto</title>
+<meta name="description" content="Concept project: segmenting hotel guests by behaviour and spend to identify retention and revenue opportunities. Python, RFM analysis, and Power BI dashboard." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Hotel Guest Analytics & Segmentation · Jessica Feto" />
+<meta property="og:description" content="Segmenting hotel guests by behaviour and value using RFM analysis and Python identifying which guests to retain, reward, and win back." />
+<meta property="og:type" content="article" />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TKEPZ4H77"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8TKEPZ4H77');
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/intellimation.css">
+</head>
+<body class="in-page">
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Jessica <span>Feto</span></a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a href="index.html#work" class="back-link">&larr; Back to all projects</a>
+    <span class="in-brandmark" style="background:rgba(15,110,90,0.08); color:#0f6e5a;"><span class="dot" style="background:#0f6e5a;"></span> Hospitality &middot; Concept Project</span>
+    <span class="eyebrow">Customer Analytics Concept</span>
+    <h1>Segmented Hotel Guests by Behaviour and Value to Reveal Retention and Revenue Opportunities</h1>
+    <p class="lede">
+      Using the Kaggle Hotel Booking Demand dataset (119,000+ real hotel bookings), this concept project applies RFM segmentation to identify a hotel property's most valuable guest types who books most frequently, who spends the most, and who is most at risk of not returning. The output is a Power BI dashboard designed to support revenue management and CRM decisions.
+    </p>
+    <div class="case-meta">
+      <div class="meta-item">
+        <span>Type</span>
+        <strong>Concept project public dataset</strong>
+      </div>
+      <div class="meta-item">
+        <span>Sector</span>
+        <strong>Hospitality / Hotels</strong>
+      </div>
+      <div class="meta-item">
+        <span>Tools</span>
+        <strong>Python · Power BI · RFM Analysis</strong>
+      </div>
+      <div class="meta-item">
+        <span>Output</span>
+        <strong>Segmentation model · Power BI dashboard</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Why this project -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">01 Why this project</span>
+      <h2>Hotels have more customer data than almost any other business. Most don't use it well.</h2>
+      <p>
+        A hotel property has a complete picture of its guests: booking frequency, lead time, length of stay, room type, spend, cancellation behaviour, and channel origin. Most of this data sits in a PMS or booking system and is never used for customer-level segmentation despite being a goldmine for retention and revenue decisions.
+      </p>
+      <p>
+        This project applies the same RFM (Recency, Frequency, Monetary) segmentation framework used in retail and e-commerce CRM to a hospitality dataset producing guest segments that directly inform CRM strategy, loyalty programme design, and targeted outreach.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Dataset & Approach -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">02 Dataset &amp; approach</span>
+      <h2>119,390 hotel bookings. Two property types. Real cancellation behaviour.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Dataset</h3>
+        <p>Kaggle Hotel Booking Demand dataset 119,390 rows of real hotel booking records across a city hotel and a resort hotel. Includes booking date, lead time, stay duration, room type, ADR (average daily rate), market segment, cancellation status, and more.</p>
+      </div>
+      <div class="card">
+        <h3>RFM segmentation</h3>
+        <p>Recency (days since last booking), Frequency (number of bookings), and Monetary (total spend) scores calculated per guest. Guests grouped into five segments: Champions, Loyalists, Potential Loyalists, At-Risk, and Churned.</p>
+      </div>
+      <div class="card">
+        <h3>Power BI dashboard</h3>
+        <p>Interactive dashboard showing segment distribution, ADR by segment, cancellation rate by segment, and booking channel breakdown. Designed to answer: where is revenue at risk, and which guests should receive CRM outreach first?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Segments -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">03 Guest segments</span>
+      <h2>Five segments. Five different CRM responses.</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">01</span>
+        <h3>Champions</h3>
+        <p>Highest frequency, most recent, highest spend. These guests book without prompting and rarely cancel. Priority: acknowledge loyalty, offer early access, avoid over-discounting.</p>
+      </div>
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">02</span>
+        <h3>Loyalists</h3>
+        <p>Frequent, recent, and high-value not quite Champions but close. Priority: move them into Champion territory with targeted offers and loyalty programme visibility.</p>
+      </div>
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">03</span>
+        <h3>Potential Loyalists</h3>
+        <p>Recent bookings but not yet frequent. Priority: second-stay incentive (post-checkout email with returning guest offer) to build the repeat behaviour.</p>
+      </div>
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">04</span>
+        <h3>At-Risk</h3>
+        <p>Previously frequent or high-spend guests who haven't booked recently. Priority: win-back campaign personalised outreach referencing their previous stays.</p>
+      </div>
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">05</span>
+        <h3>Churned</h3>
+        <p>No bookings in a long period, low frequency. Priority: low-cost re-engagement campaign (seasonal offer) or accept churn and reallocate spend to higher-value segments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tools & Skills -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">04 Tools &amp; skills</span>
+      <h2>What this project demonstrates.</h2>
+    </div>
+    <div style="margin-bottom:32px;">
+      <span class="tag in-navy">Python (pandas, scikit-learn)</span>
+      <span class="tag in-navy">RFM analysis</span>
+      <span class="tag in-navy">Customer segmentation</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">Retention strategy</span>
+      <span class="tag">CRM strategy</span>
+      <span class="tag">Revenue management thinking</span>
+      <span class="tag">Hospitality analytics</span>
+      <span class="tag">Data storytelling</span>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:24px 28px; margin-bottom:56px;">
+      <p style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); margin:0 0 10px;">Why hospitality analytics matters</p>
+      <p style="font-size:0.9rem; color:var(--text-light); margin:0; line-height:1.6;">Customer segmentation is one of the highest-ROI activities a hotel, restaurant, or hospitality group can invest in it determines who gets loyalty perks, who gets win-back emails, and where CRM budget should focus. This project demonstrates the ability to take raw booking data and turn it into segment-specific action plans that a marketing or revenue team can act on immediately.</p>
+    </div>
+    <div class="case-next">
+      <div>
+        <div class="case-next-label">More work</div>
+        <h2>See all projects &rarr;</h2>
+      </div>
+      <a href="index.html#work" class="btn btn-primary">Back to all projects</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">JF</span>
+        <p class="footer-tagline">Marketing &amp; Data Analytics<br>Portfolio · London, UK</p>
+        <a href="mailto:codesxjessica@gmail.com" class="footer-email">codesxjessica@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Navigate</p>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#work">Case Studies</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Connect</p>
+        <ul class="footer-nav">
+          <li><a href="https://linkedin.com/in/jessicafeto" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/jessicafeto" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="mailto:codesxjessica@gmail.com">Email Me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Jessica Feto. Concept project using the Kaggle Hotel Booking Demand public dataset.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.querySelector('.navbar');
+  if(nav) window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 60); }, {passive:true});
+})();
+(function(){
+  var btn = document.querySelector('.nav-hamburger');
+  var links = document.querySelector('.nav-links');
+  if(!btn||!links) return;
+  btn.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    });
+  });
+})();
+</script>
+</body>
+</html>

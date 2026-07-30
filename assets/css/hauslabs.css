@@ -1,0 +1,333 @@
+/* ============================================================
+   Haus Labs concept case study — project-specific styles
+   Layered on top of style.css
+
+   Haus Labs by Lady Gaga is a real cosmetics brand sold
+   exclusively at Sephora in the UK. This case study is
+   unsolicited concept / spec work — not affiliated with,
+   commissioned by, or endorsed by Haus Labs, Lady Gaga,
+   Haus Beauty LLC, or Sephora. This palette is an ORIGINAL
+   design "inspired by" the brand's high-glam, futuristic
+   noir-and-chrome aesthetic — it does not reproduce Haus
+   Labs' actual logo, brand assets, or visual identity.
+   ============================================================ */
+
+:root {
+  --hl-noir: #16151B;
+  --hl-noir-light: #322E3C;
+  --hl-magenta: #E91E63;
+  --hl-magenta-light: #FCE4ED;
+  --hl-magenta-dark: #A1144A;
+  --hl-chrome: #C9CCD4;
+  --hl-chrome-light: #EEF0F4;
+  --hl-chrome-dark: #5A5F6B;
+  --hl-violet: #8B5CF6;
+  --hl-violet-light: #EDE5FE;
+  --hl-violet-dark: #5B30B5;
+}
+
+.hl-page {
+  background: var(--bg);
+}
+
+/* ------------------------------------------------------------
+   Brand badge shown above case study titles
+   ------------------------------------------------------------ */
+.hl-brandmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: var(--hl-noir);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.hl-brandmark .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hl-magenta);
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------
+   Concept / disclosure notice
+   ------------------------------------------------------------ */
+.hl-disclaimer {
+  background: var(--hl-chrome-light);
+  border: 1px solid var(--hl-chrome);
+  border-radius: var(--radius);
+  padding: 16px 22px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin: 24px 0 0;
+  max-width: 760px;
+}
+
+.hl-disclaimer strong {
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------
+   Tag variants
+   ------------------------------------------------------------ */
+.tag.hl-magenta {
+  background: var(--hl-magenta-light);
+  color: var(--hl-magenta-dark);
+}
+
+.tag.hl-chrome {
+  background: var(--hl-chrome-light);
+  color: var(--hl-chrome-dark);
+}
+
+.tag.hl-violet {
+  background: var(--hl-violet-light);
+  color: var(--hl-violet-dark);
+}
+
+/* ------------------------------------------------------------
+   Pillar / strategy cards
+   ------------------------------------------------------------ */
+.hl-pillar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow);
+  height: 100%;
+}
+
+.hl-pillar-card .hl-pillar-num {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--hl-magenta);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.hl-pillar-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.hl-pillar-card p {
+  color: var(--text-light);
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   Visual mockup frames — creator brief / measurement mockups
+   ------------------------------------------------------------ */
+.hl-visual-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--white);
+  height: 100%;
+}
+
+.hl-visual-frame .hl-frame-top {
+  background: var(--hl-noir);
+  color: #FFFFFF;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.hl-visual-frame .hl-frame-top .hl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hl-magenta);
+}
+
+.hl-visual-frame .hl-frame-body {
+  padding: 26px;
+}
+
+.hl-visual-frame .hl-frame-body h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.hl-visual-frame .hl-frame-body p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.hl-visual-frame .hl-frame-body .hl-stat-row {
+  display: flex;
+  gap: 22px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.hl-visual-frame .hl-frame-body .hl-stat-row .hl-stat strong {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.hl-visual-frame .hl-frame-body .hl-stat-row .hl-stat span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+}
+
+/* ------------------------------------------------------------
+   Content calendar table
+   ------------------------------------------------------------ */
+.hl-calendar-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: auto;
+  box-shadow: var(--shadow);
+  background: var(--white);
+  height: 100%;
+}
+
+.hl-calendar {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.hl-calendar th {
+  background: var(--hl-noir);
+  color: #FFFFFF;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.hl-calendar td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-light);
+  vertical-align: top;
+}
+
+.hl-calendar tr:last-child td {
+  border-bottom: none;
+}
+
+.hl-calendar td strong {
+  color: var(--ink);
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.9rem;
+}
+
+.hl-calendar td:first-child {
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------
+   Mock post concept cards
+   ------------------------------------------------------------ */
+.hl-creative {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hl-creative-media {
+  background: linear-gradient(135deg, var(--hl-noir) 0%, var(--hl-noir-light) 55%, var(--hl-magenta) 100%);
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 18px;
+}
+
+.hl-creative-caption {
+  padding: 14px 16px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  background: var(--white);
+  flex: 1;
+}
+
+.hl-creative-caption strong {
+  color: var(--ink);
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.hl-creative-caption .hl-pillar-label {
+  display: inline-block;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  background: var(--hl-magenta-light);
+  color: var(--hl-magenta-dark);
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------
+   Homepage project-card visual for the Haus Labs case study
+   ------------------------------------------------------------ */
+.project-card .project-visual.hl-visual {
+  background: linear-gradient(135deg, #16151B 0%, #3A2E45 50%, #E91E63 100%);
+}
+
+.project-card .project-visual .hl-mark {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  border: 3px solid var(--hl-chrome);
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  padding: 12px;
+}

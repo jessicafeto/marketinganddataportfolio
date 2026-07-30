@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Claude
+.claude/
+.agents/
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.dmg
+
+# Design files
+*.psd
+*.ai
+*.fig
+*.sketch
+
+# Word documents
+*.docx
+
+# Node
+node_modules/
+
+# Logs
+*.log

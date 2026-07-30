@@ -1,0 +1,176 @@
+{
+  "summary": {
+    "analysis_date": "2026-01-15",
+    "total_customers": 1170,
+    "total_orders": 1552,
+    "total_revenue": 51163.48,
+    "overall_repeat_rate": 25.9
+  },
+  "segments": [
+    {
+      "name": "VIP Glow Girls",
+      "customers": 29,
+      "pct_customers": 2.5,
+      "revenue": 3274.33,
+      "pct_revenue": 6.4,
+      "avg_orders": 3.31,
+      "avg_ltv": 112.91
+    },
+    {
+      "name": "Repeat Regulars",
+      "customers": 102,
+      "pct_customers": 8.7,
+      "revenue": 6931.26,
+      "pct_revenue": 13.5,
+      "avg_orders": 2.0,
+      "avg_ltv": 67.95
+    },
+    {
+      "name": "One-and-Done",
+      "customers": 867,
+      "pct_customers": 74.1,
+      "revenue": 27708.15,
+      "pct_revenue": 54.2,
+      "avg_orders": 1.0,
+      "avg_ltv": 31.96
+    },
+    {
+      "name": "At Risk",
+      "customers": 172,
+      "pct_customers": 14.7,
+      "revenue": 13249.74,
+      "pct_revenue": 25.9,
+      "avg_orders": 2.24,
+      "avg_ltv": 77.03
+    }
+  ],
+  "repeat_rate_by_channel": {
+    "Influencer - Macro": 30.8,
+    "Influencer - Micro": 37.6,
+    "Organic & Referral": 37.5,
+    "Paid Social": 14.2
+  },
+  "acquisition_volume_by_channel": {
+    "Paid Social": 522,
+    "Influencer - Micro": 229,
+    "Influencer - Macro": 211,
+    "Organic & Referral": 208
+  },
+  "cac_by_month": {
+    "months": [
+      "Jan 2025",
+      "Feb 2025",
+      "Mar 2025",
+      "Apr 2025",
+      "May 2025",
+      "Jun 2025",
+      "Jul 2025",
+      "Aug 2025",
+      "Sep 2025",
+      "Oct 2025",
+      "Nov 2025",
+      "Dec 2025"
+    ],
+    "Influencer - Macro": [
+      12.46,
+      10.44,
+      13.13,
+      13.41,
+      9.07,
+      10.05,
+      12.19,
+      11.53,
+      11.97,
+      10.72,
+      13.32,
+      13.17
+    ],
+    "Influencer - Micro": [
+      6.07,
+      7.13,
+      6.47,
+      5.14,
+      6.37,
+      5.04,
+      6.88,
+      5.95,
+      5.81,
+      5.32,
+      7.22,
+      5.85
+    ],
+    "Paid Social": [
+      14.49,
+      16.4,
+      19.28,
+      20.89,
+      22.77,
+      24.61,
+      28.48,
+      27.24,
+      28.93,
+      30.39,
+      33.92,
+      36.35
+    ]
+  },
+  "roas_by_channel": {
+    "Influencer - Macro": 2.65,
+    "Influencer - Micro": 5.13,
+    "Paid Social": 1.22
+  },
+  "spend_by_channel": {
+    "Influencer - Macro": 2547.46,
+    "Influencer - Micro": 1434.0,
+    "Paid Social": 13637.13
+  },
+  "revenue_by_channel": {
+    "Influencer - Macro": 6749.55,
+    "Influencer - Micro": 7358.3,
+    "Paid Social": 16674.55
+  },
+  "monthly_revenue": {
+    "months": [
+      "Jan 2025",
+      "Feb 2025",
+      "Mar 2025",
+      "Apr 2025",
+      "May 2025",
+      "Jun 2025",
+      "Jul 2025",
+      "Aug 2025",
+      "Sep 2025",
+      "Oct 2025",
+      "Nov 2025",
+      "Dec 2025"
+    ],
+    "new": [
+      5524.13,
+      3823.8,
+      2679.28,
+      2883.14,
+      2523.83,
+      2411.04,
+      2329.95,
+      2128.54,
+      2500.14,
+      2705.61,
+      4142.59,
+      3751.17
+    ],
+    "returning": [
+      0.0,
+      192.71,
+      1266.34,
+      1637.68,
+      1061.93,
+      1670.01,
+      1341.22,
+      743.97,
+      1083.7,
+      1253.82,
+      1243.76,
+      1310.75
+    ]
+  }
+}

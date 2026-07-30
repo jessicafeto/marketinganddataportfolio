@@ -1,0 +1,583 @@
+/* ===================================================
+   CASE STUDY v2 — Editorial Magazine Layout
+   Shared across all case study pages
+   7 sections: Hero → Challenge → Delivered → Gallery
+                → Results → Reflection → Next
+   =================================================== */
+
+/* ── HERO ─────────────────────────────────────────── */
+.cs2-hero {
+  background: #fff;
+  padding-top: 72px;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+.cs2-hero .container {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 0;
+  align-items: stretch;
+  width: 100%;
+}
+
+.cs2-hero-text {
+  padding: 56px 52px 64px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 72px);
+}
+
+.cs2-hero-top { margin-bottom: 0; }
+
+.cs2-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  margin-bottom: 16px;
+}
+.cs2-back:hover { color: var(--ink); text-decoration: none; }
+
+.cs2-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0;
+}
+
+.cs2-hero-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.cs2-hero h1 {
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.cs2-hero-lede {
+  font-size: 0.94rem;
+  color: var(--text-light);
+  line-height: 1.65;
+  max-width: 480px;
+  margin-bottom: 32px;
+}
+
+.cs2-stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--border-solid);
+}
+.cs2-stat {
+  flex: 1;
+  padding: 20px 24px 20px 0;
+  border-right: 1px solid var(--border-solid);
+}
+.cs2-stat:last-child { border-right: none; }
+.cs2-stat-num {
+  display: block;
+  font-size: clamp(1.4rem, 1.8vw, 1.9rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.cs2-stat-label {
+  display: block;
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cs2-hero-visual {
+  background: #0D0C0A;
+  border-radius: 20px 20px 0 0;
+  margin-top: 40px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── SECTION RHYTHM ───────────────────────────────── */
+.cs2-section-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 18px;
+}
+.cs2-section-label-light {
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── CHALLENGE ─────────────────────────────────────── */
+.cs2-challenge {
+  padding: 96px 0;
+  background: var(--bg-alt);
+}
+.cs2-challenge-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.cs2-challenge-stmt {
+  font-size: clamp(1.15rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 0 0 0;
+}
+.cs2-challenge-right { display: flex; flex-direction: column; gap: 12px; }
+.cs2-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cs2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--border-solid);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.cs2-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── DELIVERED ─────────────────────────────────────── */
+.cs2-delivered {
+  padding: 96px 0;
+  background: #fff;
+}
+.cs2-delivered-head {
+  margin-bottom: 48px;
+}
+.cs2-delivered-head h2 {
+  max-width: 640px;
+}
+.cs2-del-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border-solid);
+  border: 1px solid var(--border-solid);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cs2-del-card {
+  background: #fff;
+  padding: 40px 36px;
+  transition: background 0.2s;
+}
+.cs2-del-card:hover { background: #FAFAFA; }
+.cs2-del-num {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 20px;
+}
+.cs2-del-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.cs2-del-body {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+.cs2-del-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-top: 1px solid var(--border-solid);
+  padding-top: 14px;
+}
+.cs2-del-list li {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+}
+.cs2-del-list li::before {
+  content: '→';
+  color: var(--accent);
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.68rem;
+  margin-top: 1px;
+}
+
+/* ── GALLERY ───────────────────────────────────────── */
+.cs2-gallery {
+  padding: 96px 0;
+  background: var(--bg-alt);
+}
+.cs2-gallery-head {
+  margin-bottom: 36px;
+}
+.cs2-gallery-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 340px 200px;
+  gap: 10px;
+}
+.cs2-gal-main {
+  grid-column: 1;
+  grid-row: 1;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.cs2-gal-side {
+  grid-column: 2;
+  grid-row: 1;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.cs2-gal-wide {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.cs2-gal-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 8px;
+  padding: 0 2px;
+}
+
+/* ── RESULTS ───────────────────────────────────────── */
+.cs2-results {
+  background: #0A0A0A;
+  padding: 96px 0;
+}
+.cs2-results h2 {
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.04em;
+  margin: 16px 0 64px;
+}
+.cs2-results-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 56px;
+}
+.cs2-result {
+  padding: 40px 0;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  padding-right: 32px;
+}
+.cs2-result:last-child { border-right: none; padding-right: 0; }
+.cs2-result-num {
+  display: block;
+  font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.cs2-result-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.cs2-result-note {
+  display: block;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.18);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+.cs2-quote {
+  border-left: 3px solid var(--accent);
+  padding-left: 28px;
+  max-width: 700px;
+}
+.cs2-quote p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.72;
+  font-style: italic;
+  margin: 0 0 10px;
+}
+.cs2-quote cite {
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+  font-style: normal;
+}
+
+/* ── REFLECTION ────────────────────────────────────── */
+.cs2-reflection {
+  padding: 96px 0;
+  background: #fff;
+}
+.cs2-reflection-inner {
+  max-width: 660px;
+}
+.cs2-reflection p {
+  font-size: 1.1rem;
+  line-height: 1.78;
+  color: var(--text-light);
+  font-style: italic;
+  margin: 16px 0 0;
+  letter-spacing: -0.01em;
+}
+
+/* ── NEXT PROJECT ──────────────────────────────────── */
+.cs2-next {
+  padding: 48px 0 96px;
+  background: #fff;
+  border-top: 1px solid var(--border-solid);
+}
+.cs2-next-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 20px;
+}
+.cs2-next-card {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  border: 1px solid var(--border-solid);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.22s;
+  text-decoration: none;
+}
+.cs2-next-card:hover {
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+.cs2-next-content {
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cs2-next-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 14px;
+}
+.cs2-next-card h2 {
+  font-size: clamp(1.15rem, 2vw, 1.7rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.cs2-next-desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: 0 0 36px;
+  line-height: 1.6;
+}
+.cs2-next-visual {
+  background: #0D0C0A;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── DISCLAIMER ────────────────────────────────────── */
+.cs2-disclaimer {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+  border: 1px solid var(--border-solid);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-top: 20px;
+  line-height: 1.55;
+}
+
+/* ── EDITORIAL PANEL BASE ──────────────────────────── */
+.cs2-panel-dark {
+  background: #0D0C0A;
+  width: 100%;
+  height: 100%;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.cs2-panel-light {
+  background: #fff;
+  border: 1px solid var(--border-solid);
+  width: 100%;
+  height: 100%;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cs2-panel-alt {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-solid);
+  width: 100%;
+  height: 100%;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.cs2-panel-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  display: block;
+  margin-bottom: 20px;
+}
+.cs2-panel-label-ink {
+  color: var(--text-muted);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 16px;
+}
+.cs2-panel-num {
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 800;
+  color: #E8E4DE;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+.cs2-panel-word {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: #E8E4DE;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.cs2-panel-sub {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 8px;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .cs2-hero .container {
+    grid-template-columns: 1fr;
+  }
+  .cs2-hero-text {
+    padding: 48px 0 52px;
+    min-height: auto;
+  }
+  .cs2-hero-visual {
+    height: 380px;
+    border-radius: 16px;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+  .cs2-challenge-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .cs2-results-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs2-next-card {
+    grid-template-columns: 1fr;
+  }
+  .cs2-next-visual { height: 220px; }
+}
+
+@media (max-width: 720px) {
+  .cs2-hero { padding-top: 64px; }
+  .cs2-challenge, .cs2-delivered, .cs2-gallery, .cs2-results, .cs2-reflection { padding: 64px 0; }
+  .cs2-next { padding: 40px 0 64px; }
+  .cs2-del-grid { grid-template-columns: 1fr; }
+  .cs2-gallery-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .cs2-gal-main, .cs2-gal-side, .cs2-gal-wide {
+    grid-column: 1;
+    grid-row: auto;
+    height: 240px;
+  }
+  .cs2-results-stats { grid-template-columns: 1fr 1fr; }
+  .cs2-result { padding: 28px 0; }
+  .cs2-result-num { font-size: clamp(2rem, 8vw, 3.5rem); }
+}

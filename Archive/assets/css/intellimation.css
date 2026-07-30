@@ -1,0 +1,199 @@
+/* ============================================================
+   Intellimation AI case studies — project-specific styles
+   Layered on top of style.css
+   BFSI-appropriate navy / steel / gold, on the shared
+   ivory + oxblood premium base.
+   ============================================================ */
+
+:root {
+  --in-navy: #1B2A41;
+  --in-navy-light: #E6EAF1;
+  --in-steel: #5A6B7E;
+  --in-gold: #C9A66B;
+  --in-gold-light: #F3EBDB;
+}
+
+.in-page {
+  background: var(--bg);
+}
+
+/* Client / brand badge shown above case study titles */
+.in-brandmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--in-navy);
+  background: var(--in-navy-light);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.in-brandmark .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--in-gold);
+  display: inline-block;
+}
+
+/* Tag variants for content pillars / verticals */
+.tag.in-navy {
+  background: var(--in-navy-light);
+  color: var(--in-navy);
+}
+
+.tag.in-gold {
+  background: var(--in-gold-light);
+  color: #8A6A2C;
+}
+
+/* Pillar / vertical cards */
+.in-pillar-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow);
+  height: 100%;
+}
+
+.in-pillar-card .in-pillar-num {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--in-gold);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.in-pillar-card h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.in-pillar-card p {
+  color: var(--text-light);
+  font-size: 0.92rem;
+  margin-bottom: 0;
+}
+
+/* Visual mockup frames — LinkedIn post / brochure / event mockups */
+.in-visual-frame {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--white);
+}
+
+.in-visual-frame .in-frame-top {
+  background: var(--in-navy);
+  color: #FFFFFF;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.in-visual-frame .in-frame-top .in-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--in-gold);
+}
+
+.in-visual-frame .in-frame-body {
+  padding: 26px;
+}
+
+.in-visual-frame .in-frame-body h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.in-visual-frame .in-frame-body p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.in-visual-frame .in-frame-body .in-stat-row {
+  display: flex;
+  gap: 22px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.in-visual-frame .in-frame-body .in-stat-row .in-stat strong {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.in-visual-frame .in-frame-body .in-stat-row .in-stat span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+}
+
+/* Timeline used for event marketing case study */
+.in-timeline {
+  display: grid;
+  gap: 0;
+  border-left: 2px solid var(--border);
+  margin-left: 6px;
+}
+
+.in-timeline .in-timeline-item {
+  position: relative;
+  padding: 0 0 32px 28px;
+}
+
+.in-timeline .in-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.in-timeline .in-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+
+.in-timeline .in-timeline-item .in-timeline-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--in-navy);
+  margin-bottom: 6px;
+}
+
+.in-timeline .in-timeline-item h3 {
+  margin-bottom: 6px;
+}
+
+.in-timeline .in-timeline-item p {
+  color: var(--text-light);
+  margin-bottom: 0;
+}

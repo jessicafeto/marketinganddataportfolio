@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="geometricPrecision" text-rendering="optimizeLegibility">
+  <!-- White background -->
+  <rect width="32" height="32" fill="#FFFFFF"/>
+
+  <!-- Burgundy accent bar — top edge, full width -->
+  <rect x="0" y="0" width="32" height="3" fill="#7A1E2E"/>
+
+  <!-- JF monogram — Georgia serif, italic for editorial elegance -->
+  <text
+    x="16"
+    y="24"
+    font-family="Georgia, 'Times New Roman', 'Palatino Linotype', Palatino, serif"
+    font-size="17"
+    font-style="italic"
+    font-weight="normal"
+    fill="#111111"
+    text-anchor="middle"
+    dominant-baseline="auto"
+    letter-spacing="1">JF</text>
+</svg>

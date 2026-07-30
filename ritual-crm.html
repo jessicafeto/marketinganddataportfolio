@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<title>Ritual Concept: CRM Segmentation &amp; Retention | Jessica Feto</title>
+<meta name="description" content="Concept case study: a CRM segmentation and retention analysis modelled on Ritual's subscription vitamin business. Unsolicited concept project not affiliated with or endorsed by Ritual." />
+
+
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/ritual.css">
+</head>
+<body class="rt-page">
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Jessica <span>Feto</span></a>
+    <div class="nav-links">
+      <a href="index.html#about"><span class="nav-text">About</span></a>
+      <a href="index.html#work"><span class="nav-text">Work</span></a>
+      <a href="index.html#skills"><span class="nav-text">Skills</span></a>
+      <a href="index.html#results"><span class="nav-text">Results</span></a>
+      <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a href="index.html#work" class="back-link">&larr; Back to all projects</a>
+    <span class="rt-brandmark"><span class="dot"></span> Ritual &middot; Concept project</span>
+    <div class="case-hero-grid">
+      <div class="case-hero-content">
+        <span class="eyebrow">Case study 04 CRM segmentation &amp; retention</span>
+        <h1>What would it take to lift a subscription vitamin brand's renewal rate? A concept CRM segmentation project.</h1>
+        <p class="lede">
+          I built a synthetic 12-month dataset modelled on a DTC subscription supplement brand
+          and ran the kind of segmentation and retention analysis I would want in place for a
+          brand at this stage: where renewal is dropping off, which channels bring subscribers
+          who stick around, and what a CRM programme built around those segments could look like.
+        </p>
+      </div>
+      <div class="case-hero-aside">
+        <div class="case-meta">
+          <div class="meta-item">
+            <span>Sector</span>
+            <strong>DTC / e-commerce, subscription wellness</strong>
+          </div>
+          <div class="meta-item">
+            <span>Brand</span>
+            <strong>Ritual (concept project, not affiliated)</strong>
+          </div>
+          <div class="meta-item">
+            <span>Role</span>
+            <strong>Marketing &amp; CRM analyst (self-directed)</strong>
+          </div>
+          <div class="meta-item">
+            <span>Tools</span>
+            <strong>Python (pandas), Chart.js</strong>
+          </div>
+        </div>
+        <div class="rt-disclaimer">
+          <strong>About this case study:</strong> Ritual is a real subscription vitamin and
+          supplement brand. This project is unsolicited concept work created for portfolio
+          purposes. It uses a synthetic dataset modelled on a subscription wellness business.
+          All figures, segments and projections are illustrative. It is not affiliated with,
+          commissioned by, or endorsed by Ritual, and does not represent Ritual's actual data,
+          strategy or results.
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. Challenge / Brief -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">01 The brief</span>
+      <h2>Subscription churn is the quiet growth killer.</h2>
+      <p>
+        For subscription supplement brands, the headline growth number is usually new
+        subscribers acquired, but the number that actually determines whether the
+        business compounds is the renewal rate: how many of those subscribers are still getting
+        a delivery in month two, month three, month six. I built a synthetic dataset modelled on
+        a subscription vitamin brand: 1,170 subscribers, 1,552 orders across 12 months,
+        across four acquisition channels, to dig into three questions: is the renewal
+        rate healthy, which channels bring subscribers who actually stick around, and which
+        subscriber segments need a different kind of CRM treatment.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Objective -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">02 The objective</span>
+      <h2>Three questions worth answering before scaling spend further.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Is ~26% second-month renewal healthy?</h3>
+        <p>Benchmark the overall renewal rate against what's typical for a subscription supplement brand, and find out whether it's a red flag or just room to improve.</p>
+      </div>
+      <div class="card">
+        <h3>Which channels bring subscribers who stick around?</h3>
+        <p>Acquisition cost is only half the story for a subscription brand: a cheap subscriber who cancels after one delivery is more expensive than an expensive one who renews for a year.</p>
+      </div>
+      <div class="card">
+        <h3>Which segments need a different CRM treatment?</h3>
+        <p>Not every subscriber should get the same lifecycle emails. Segment subscribers by behaviour and turn that into a CRM and content plan a team could actually run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Your Role -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">03 My role</span>
+      <h2>Dataset, analysis, and the CRM plan that follows from it.</h2>
+      <p>
+        As a self-directed concept project, I played every role: I built the synthetic 12-month
+        order dataset in Python, ran the renewal-rate and channel analysis, segmented
+        subscribers using an RFM-style (recency, frequency, monetary) approach, and translated
+        the four resulting segments into a CRM lifecycle and content plan, the kind of
+        handoff I'd want to deliver to a marketing team alongside the analysis itself.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Strategy -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">04 Strategy</span>
+      <h2>Rebalance acquisition, then build CRM around behaviour.</h2>
+      <p>
+        The segmentation pointed to two connected moves: where to put acquisition budget, and
+        how to treat subscribers differently once they're in.
+      </p>
+    </div>
+    <div class="grid grid-2">
+      <div class="rt-pillar-card">
+        <span class="rt-pillar-num">A</span>
+        <h3>Rebalance acquisition toward channels with sticky subscribers</h3>
+        <p>
+          Renewal rate varied hugely by channel, from 14.2% on Paid Social to 37.6% on
+          micro creator partnerships. Modelled recommendation: shift budget away from the channel
+          bringing in the most one-and-done subscribers, and restructure the creator programme
+          around the partners whose audiences actually renew.
+        </p>
+      </div>
+      <div class="rt-pillar-card">
+        <span class="rt-pillar-num">B</span>
+        <h3>Segment-specific CRM &amp; lifecycle programme</h3>
+        <p>
+          Four segments, four different jobs: deepen the relationship with Founding Subscribers,
+          nudge Building the Habit subscribers toward a second and third renewal, give Tried It
+          Once subscribers a reason to come back, and build a structured win-back flow for
+          subscribers who've Paused &amp; Lapsed.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Execution -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">05 Execution</span>
+      <h2>From raw orders to a segmentation model.</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Building the synthetic dataset</h3>
+        <p>Modelled 1,170 subscribers and 1,552 orders across 12 months and four acquisition channels: Creator Partnerships (Macro &amp; Micro), Paid Social, and Organic &amp; Referral, with realistic variation in order frequency, timing and value.</p>
+      </div>
+      <div class="card">
+        <h3>Renewal rate &amp; channel analysis</h3>
+        <p>Calculated second-month renewal rate overall and by channel, alongside CAC and ROAS trends over the 12-month window, to find where acquisition cost was rising fastest relative to subscriber quality.</p>
+      </div>
+      <div class="card">
+        <h3>RFM-based subscriber segmentation</h3>
+        <p>Segmented subscribers using a recency/frequency/monetary approach, producing four groups with very different renewal behaviour and lifetime value, from Founding Subscribers averaging 3.3 orders to Tried It Once subscribers who never came back.</p>
+      </div>
+      <div class="card">
+        <h3>From segments to action</h3>
+        <p>For each segment, defined what a CRM team should actually do differently: which flow to put them in, what the message should be, and what success looks like for that group.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Visual Assets -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">06 Visual assets</span>
+      <h2>The dashboard: renewal, channels and segments.</h2>
+      <p>A Chart.js dashboard built from the synthetic dataset, the kind of view I'd build in Looker Studio or Power BI for a real subscription brand.</p>
+    </div>
+
+    <div class="rt-stats">
+      <div class="rt-stat">
+        <strong>1,170</strong>
+        <span>Subscribers modelled</span>
+      </div>
+      <div class="rt-stat">
+        <strong>1,552</strong>
+        <span>Orders across 12 months</span>
+      </div>
+      <div class="rt-stat">
+        <strong>£51,163</strong>
+        <span>Modelled annual revenue</span>
+      </div>
+      <div class="rt-stat">
+        <strong>25.9%</strong>
+        <span>Overall renewal rate</span>
+      </div>
+    </div>
+
+    <div class="rt-charts">
+      <div class="rt-chart-card">
+        <canvas id="chart-rt-cac"></canvas>
+      </div>
+      <div class="rt-chart-card">
+        <canvas id="chart-rt-roas"></canvas>
+      </div>
+      <div class="rt-chart-note">
+        <strong>Why this matters:</strong> modelled Paid Social CAC nearly tripled over the year
+        (from £22 to £61) while its renewal rate was the lowest of all four channels at 14.2%
+        , the clearest signal in the dataset that acquisition spend needed rebalancing.
+      </div>
+      <div class="rt-chart-card">
+        <canvas id="chart-rt-segments"></canvas>
+      </div>
+      <div class="rt-chart-card">
+        <canvas id="chart-rt-revenue"></canvas>
+      </div>
+      <div class="rt-chart-card full">
+        <canvas id="chart-rt-renewal"></canvas>
+      </div>
+      <div class="rt-chart-note">
+        <strong>The renewal gap:</strong> in the model, micro creator partnerships and
+        organic/referral subscribers renewed at roughly 2.5&times; the rate of Paid Social
+        subscribers, even though Paid Social brought in the largest volume of new
+        subscribers (460 of 1,170).
+      </div>
+    </div>
+
+    <div class="rt-personas">
+      <div class="rt-persona gold">
+        <h3>Founding Subscribers</h3>
+        <div class="rt-persona-meta">29 subscribers &middot; 2.5% of base</div>
+        <div class="rt-persona-stat"><span>Share of revenue</span><strong>6.4%</strong></div>
+        <div class="rt-persona-stat"><span>Avg. orders (renewals)</span><strong>3.31</strong></div>
+        <div class="rt-persona-stat"><span>Avg. lifetime value</span><strong>£112.91</strong></div>
+        <div class="rt-persona-action">
+          <strong>CRM action</strong>
+          Loyalty &amp; referral programme: give this group early access to new product
+          lines (e.g. a synbiotic-style blend) and a reason to refer friends.
+        </div>
+      </div>
+      <div class="rt-persona mint">
+        <h3>Building the Habit</h3>
+        <div class="rt-persona-meta">102 subscribers &middot; 8.7% of base</div>
+        <div class="rt-persona-stat"><span>Share of revenue</span><strong>13.5%</strong></div>
+        <div class="rt-persona-stat"><span>Avg. orders (renewals)</span><strong>2.0</strong></div>
+        <div class="rt-persona-stat"><span>Avg. lifetime value</span><strong>£67.95</strong></div>
+        <div class="rt-persona-action">
+          <strong>CRM action</strong>
+          A "third renewal" push with content and offers timed around the second delivery to
+          nudge subscribers into a longer-term habit.
+        </div>
+      </div>
+      <div class="rt-persona clay">
+        <h3>Tried It Once</h3>
+        <div class="rt-persona-meta">867 subscribers &middot; 74.1% of base</div>
+        <div class="rt-persona-stat"><span>Share of revenue</span><strong>54.2%</strong></div>
+        <div class="rt-persona-stat"><span>Avg. orders (renewals)</span><strong>1.0</strong></div>
+        <div class="rt-persona-stat"><span>Avg. lifetime value</span><strong>£31.96</strong></div>
+        <div class="rt-persona-action">
+          <strong>CRM action</strong>
+          The biggest single opportunity. A structured "why it's worth a second month" flow
+          with education on ingredient sourcing and traceability, plus a renewal incentive.
+        </div>
+      </div>
+      <div class="rt-persona">
+        <h3>Paused &amp; Lapsed</h3>
+        <div class="rt-persona-meta">172 subscribers &middot; 14.7% of base</div>
+        <div class="rt-persona-stat"><span>Share of revenue</span><strong>25.9%</strong></div>
+        <div class="rt-persona-stat"><span>Avg. orders (renewals)</span><strong>2.24</strong></div>
+        <div class="rt-persona-stat"><span>Avg. lifetime value</span><strong>£77.03</strong></div>
+        <div class="rt-persona-action">
+          <strong>CRM action</strong>
+          Win-back flow: this group already renewed at least once, so a targeted "come
+          back" offer has the best odds of any segment.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Results & Metrics -->
+<section id="results" class="dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">07 Results</span>
+      <h2>What the model points to.</h2>
+      <p>
+        These are modelled, illustrative figures from the synthetic dataset, not Ritual's
+        real results, intended to show the kind of impact a segmentation-led CRM
+        programme could plausibly have.
+      </p>
+    </div>
+    <div class="grid grid-4">
+      <div class="stat-card">
+        <strong>4</strong>
+        <span>Subscriber segments identified</span>
+        <p>Via RFM-style analysis of 1,170 modelled subscribers</p>
+      </div>
+      <div class="stat-card">
+        <strong>23.4 pts</strong>
+        <span>Renewal-rate gap, best vs. worst channel</span>
+        <p>37.6% (Creator Micro) vs. 14.2% (Paid Social)</p>
+      </div>
+      <div class="stat-card">
+        <strong>~£9,400</strong>
+        <span>Modelled annual revenue opportunity</span>
+        <p>From rebalancing acquisition toward higher-renewal channels</p>
+      </div>
+      <div class="stat-card">
+        <strong>4</strong>
+        <span>CRM flows mapped to segments</span>
+        <p>Loyalty, habit-building, renewal education &amp; win-back</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Learnings -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">08 Learnings</span>
+      <h2>What I'd carry into a real subscription analytics project.</h2>
+    </div>
+    <ul class="learnings-list">
+      <li>
+        <span class="num">01</span>
+        <div>
+          <h3>Renewal rate matters more than acquisition volume.</h3>
+          <p>The channel bringing in the most subscribers (Paid Social, 460 of 1,170) had the worst renewal rate. A volume-first view of acquisition would have missed this entirely. The segmentation only became useful once renewal was the headline metric.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div>
+          <h3>RFM segmentation is most useful when it leads to a different action per segment.</h3>
+          <p>The segmentation itself is a starting point. The value came from forcing a concrete answer to "what does the CRM team do differently for this group", for each of the four segments.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div>
+          <h3>Synthetic data is a tool for demonstrating method, not for making claims.</h3>
+          <p>Every figure in this project is modelled. The goal wasn't to claim a specific revenue outcome. It was to show the analytical approach (renewal-rate benchmarking, channel-level CAC/ROAS, RFM segmentation) I'd bring to a real dataset.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div>
+          <h3>Next time, I'd model subscription pause/resume behaviour explicitly.</h3>
+          <p>This dataset treats "renewal" as binary. A real subscription business has pauses, skips and plan changes. Modelling those states would make the segmentation (especially "Paused &amp; Lapsed") more realistic.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 10. Tools & Skills + Next -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">09 Tools &amp; skills</span>
+      <h2>What I used to get this done.</h2>
+    </div>
+    <div style="margin-bottom:56px;">
+      <span class="tag rt-sage">Python (pandas)</span>
+      <span class="tag rt-gold">RFM segmentation</span>
+      <span class="tag rt-sage">Chart.js</span>
+      <span class="tag">CRM &amp; lifecycle planning</span>
+      <span class="tag">Cohort &amp; renewal-rate analysis</span>
+      <span class="tag">CAC / ROAS analysis</span>
+      <span class="tag">Data storytelling</span>
+      <span class="tag">DTC / subscription e-commerce</span>
+    </div>
+    <div class="case-next">
+      <div>
+        <div class="case-next-label">Next project</div>
+        <h2>Paid media for the same concept brand &rarr;</h2>
+      </div>
+      <a href="ritual-paid-media.html" class="btn btn-primary">View case study 05</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Jessica Feto. Ritual is a real brand; this case study is an unsolicited concept project created for portfolio purposes and is not affiliated with, commissioned by, or endorsed by Ritual. intellimation.ai case studies reflect real consulting work completed via Noova Data Ltd.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="ritual-crm.html">CRM Segmentation</a>
+      <a href="intellimation-linkedin.html">LinkedIn Strategy</a>
+      <a href="intellimation-gtm.html">GTM Collateral</a>
+      <a href="intellimation-events.html">Event Marketing</a>
+      <a href="ritual-paid-media.html">Paid Media</a>
+      <a href="ritual-email.html">Email Lifecycle</a>
+      <a href="ritual-dashboard.html">Analytics Dashboard</a>
+      <a href="hauslabs-social.html">Social Strategy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="assets/js/ritual-crm-dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..700&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<title>Restaurant Customer Retention Frequency &amp; Spend Analysis Concept · Jessica Feto</title>
+<meta name="description" content="Concept project: identifying the most valuable restaurant guests using customer frequency and spend analysis. Python, RFM segmentation, and CRM strategy for F&B." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Restaurant Customer Retention Analysis · Jessica Feto" />
+<meta property="og:description" content="Identifying the most valuable restaurant guests using frequency and spend analysis and designing CRM actions to retain them." />
+<meta property="og:type" content="article" />
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TKEPZ4H77"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8TKEPZ4H77');
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/intellimation.css">
+</head>
+<body class="in-page">
+
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">Jessica <span>Feto</span></a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="case-hero">
+  <div class="container">
+    <a href="index.html#work" class="back-link">&larr; Back to all projects</a>
+    <span class="in-brandmark" style="background:rgba(160,82,45,0.08); color:#a0522d;"><span class="dot" style="background:#a0522d;"></span> Food &amp; Beverage &middot; Concept Project</span>
+    <span class="eyebrow">Customer Analytics Concept</span>
+    <h1>Identified the Most Valuable Guests Using Frequency and Spend Analysis Restaurant CRM</h1>
+    <p class="lede">
+      Most restaurants know who walked through the door. Very few know which guests drove the most revenue, which ones are about to stop coming, and what a single additional visit per month from their top-20% of guests would actually be worth. This concept project applies customer frequency and spend analysis to a restaurant dataset to answer those questions and to design CRM actions that retain the guests most worth keeping.
+    </p>
+    <div class="case-meta">
+      <div class="meta-item">
+        <span>Type</span>
+        <strong>Concept project</strong>
+      </div>
+      <div class="meta-item">
+        <span>Sector</span>
+        <strong>Restaurants / Food &amp; Beverage</strong>
+      </div>
+      <div class="meta-item">
+        <span>Tools</span>
+        <strong>Python · SQL · Customer Segmentation</strong>
+      </div>
+      <div class="meta-item">
+        <span>Output</span>
+        <strong>Segmentation model · CRM action plan</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Business Question -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">01 The business question</span>
+      <h2>Who are your most valuable guests and what would it cost to lose them?</h2>
+      <p>
+        Restaurants typically measure success at the transaction level: covers, average spend per head, revenue per table. What most miss is the customer-level view the insight that 20% of guests likely drive 60–70% of repeat revenue, and that losing a single high-frequency regular has a compounding effect that isn't visible in weekly P&amp;L reporting.
+      </p>
+      <p>
+        This project builds the customer-level picture: segmenting guests by how recently they visited, how often they visit, and how much they spend then designing CRM actions for each segment.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Approach -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">02 Approach</span>
+      <h2>RFM analysis adapted for F&amp;B behaviour.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Recency</h3>
+        <p>Days since a guest's last visit. Recent visitors are more likely to return; lapsed guests need a re-engagement trigger. Recency is the strongest predictor of whether a customer will come back.</p>
+      </div>
+      <div class="card">
+        <h3>Frequency</h3>
+        <p>Number of visits in the analysis window. Frequent guests have a higher emotional connection to the restaurant and are more resistant to competitors. Frequency also flags guests who have suddenly stopped a leading indicator of churn.</p>
+      </div>
+      <div class="card">
+        <h3>Monetary</h3>
+        <p>Total spend per guest. High monetary value guests are priority retention targets. This metric also identifies guests who come often but spend little (targets for upsell) vs. guests who spend big but rarely (targets for frequency incentives).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Segments & CRM Actions -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">03 Segments &amp; CRM actions</span>
+      <h2>Four segments. Four different strategies.</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">01</span>
+        <h3>VIP Regulars</h3>
+        <p><strong>Profile:</strong> High recency, high frequency, high spend.<br><strong>CRM action:</strong> Priority reservation access, birthday/anniversary personalisation, chef's table invitations. Goal: make them feel known and valued without offering discounts they don't need.</p>
+      </div>
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">02</span>
+        <h3>Promising Guests</h3>
+        <p><strong>Profile:</strong> Recent visits, growing frequency, moderate spend.<br><strong>CRM action:</strong> Second-visit incentive (e.g., complimentary starter on third visit). Goal: establish the habit before it becomes a conscious choice.</p>
+      </div>
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">03</span>
+        <h3>At-Risk Regulars</h3>
+        <p><strong>Profile:</strong> Previously frequent, not visited recently.<br><strong>CRM action:</strong> Personalised win-back message referencing a previous visit or favourite dish. Urgency offer (limited time). Goal: bring them back before they're gone.</p>
+      </div>
+      <div class="in-pillar-card">
+        <span class="in-pillar-num">04</span>
+        <h3>Occasional Visitors</h3>
+        <p><strong>Profile:</strong> Infrequent, low-to-moderate spend.<br><strong>CRM action:</strong> Event-led re-engagement (seasonal menu launch, special occasion). Low-cost broadcast approach. Goal: convert one-off visits into occasional visits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tools & Skills -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="case-step-number">04 Tools &amp; skills</span>
+      <h2>What this project demonstrates.</h2>
+    </div>
+    <div style="margin-bottom:32px;">
+      <span class="tag in-navy">Python (pandas)</span>
+      <span class="tag in-navy">RFM analysis</span>
+      <span class="tag in-navy">Customer segmentation</span>
+      <span class="tag">SQL</span>
+      <span class="tag">CRM strategy</span>
+      <span class="tag">Retention marketing</span>
+      <span class="tag">F&amp;B / hospitality analytics</span>
+      <span class="tag">Data storytelling</span>
+    </div>
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:24px 28px; margin-bottom:56px;">
+      <p style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:var(--accent); margin:0 0 10px;">Why F&amp;B retention analytics matters</p>
+      <p style="font-size:0.9rem; color:var(--text-light); margin:0; line-height:1.6;">Acquiring a new restaurant guest costs 5–7× more than retaining an existing one. A restaurant group with 10,000 customer records in its booking or POS system is sitting on a segmentation dataset most just haven't analysed it. This project demonstrates the ability to build that analysis from raw data, produce actionable segments, and design CRM responses that a marketing or operations team can actually run with.</p>
+    </div>
+    <div class="case-next">
+      <div>
+        <div class="case-next-label">More work</div>
+        <h2>See all projects &rarr;</h2>
+      </div>
+      <a href="index.html#work" class="btn btn-primary">Back to all projects</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">JF</span>
+        <p class="footer-tagline">Marketing &amp; Data Analytics<br>Portfolio · London, UK</p>
+        <a href="mailto:codesxjessica@gmail.com" class="footer-email">codesxjessica@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Navigate</p>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#work">Case Studies</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Connect</p>
+        <ul class="footer-nav">
+          <li><a href="https://linkedin.com/in/jessicafeto" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/jessicafeto" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="mailto:codesxjessica@gmail.com">Email Me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Jessica Feto. Concept project using synthetic and public F&amp;B data.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.querySelector('.navbar');
+  if(nav) window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 60); }, {passive:true});
+})();
+(function(){
+  var btn = document.querySelector('.nav-hamburger');
+  var links = document.querySelector('.nav-links');
+  if(!btn||!links) return;
+  btn.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>noova · Brand &amp; Growth Studio</title>
+  <meta name="description" content="noova is a premium brand and growth studio in London. We don't market businesses, we build brands people remember. Strategy, identity, websites, marketing and growth." />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preload" href="assets/fonts/Canela-Thin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/img/hero-gallery.webp" as="image" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css?v=10" />
+  <meta property="og:title" content="noova · Brand &amp; Growth Studio" />
+  <meta property="og:description" content="We build brands people remember. Branding. Websites. Marketing. Growth." />
+  <meta property="og:type" content="website" />
+</head>
+
+<body class="bg-paper text-ink font-sans antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-4 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper">Skip to content</a>
+
+  <div id="cursor" aria-hidden="true"><span id="cursor-label"></span></div>
+
+  <!-- ============ Navigation ============ -->
+  <header id="site-nav" class="nav-over-hero fixed inset-x-0 top-0 z-40">
+    <nav class="mx-auto flex max-w-[100rem] items-center justify-between px-6 py-5 md:px-10 md:py-6 lg:px-16" aria-label="Main">
+      <a href="#" class="wordmark text-[1.4rem] leading-none tracking-wordmark" aria-label="noova, home">noova</a>
+      <ul class="flex items-center gap-6 text-sm md:gap-10">
+        <li class="hidden sm:block"><a class="link-line" href="#capabilities">Capabilities</a></li>
+        <li class="hidden sm:block"><a class="link-line" href="#work">Work</a></li>
+        <li class="hidden sm:block"><a class="link-line" href="#about">About</a></li>
+        <li><a class="link-line" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ Hero — full-bleed editorial ============ -->
+    <section id="hero" class="relative h-svh overflow-hidden" aria-label="Introduction">
+      <div id="hero-media" class="absolute inset-0">
+        <img src="assets/img/hero-gallery.webp"
+             srcset="assets/img/hero-gallery-800.webp 800w, assets/img/hero-gallery.webp 1122w"
+             sizes="100vw"
+             width="1122" height="1402"
+             fetchpriority="high"
+             class="h-full w-full object-cover object-[50%_38%]"
+             alt="A figure in black walking through a calm concrete gallery, carrying brand documents through soft daylight." />
+        <div class="absolute inset-0 bg-ink/40"></div>
+      </div>
+
+      <div id="hero-copy" class="relative z-10 flex h-full flex-col justify-end px-6 pb-24 text-paper md:px-10 md:pb-28 lg:px-16">
+        <p class="mask"><span class="mask-inner block text-xs uppercase tracking-[0.25em] text-paper/80">Brand &amp; growth studio&ensp;·&ensp;London</span></p>
+        <h1 class="mt-6 font-canela text-[clamp(2.6rem,6.4vw,6.5rem)] font-thin leading-[1.05] tracking-tightest">
+          <span class="mask block"><span class="mask-inner block">We don't market businesses.</span></span>
+          <span class="mask block"><span class="mask-inner block">We build brands people remember.</span></span>
+        </h1>
+        <p class="mask mt-8"><span class="mask-inner block text-sm tracking-[0.08em] text-paper/85 md:text-base">Branding&ensp;•&ensp;Websites&ensp;•&ensp;Marketing&ensp;•&ensp;Growth</span></p>
+        <p class="mask mt-10"><span class="mask-inner block">
+          <a href="#contact" data-cursor="grow" class="btn inline-block rounded-full border border-paper/70 px-8 py-4 text-sm text-paper transition-colors duration-500 hover:bg-paper hover:text-ink">Book a discovery call</a>
+        </span></p>
+      </div>
+
+      <a href="#studio" id="scroll-cue" class="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 text-paper/70 sm:block" aria-label="Scroll to explore">
+        <span class="block text-[0.65rem] uppercase tracking-[0.3em]">Scroll</span>
+        <span class="mx-auto mt-2 block h-8 w-px bg-paper/50"></span>
+      </a>
+    </section>
+
+    <!-- ============ Studio ============ -->
+    <section id="studio" class="mx-auto max-w-[100rem] px-6 py-24 md:px-10 md:py-36 lg:px-16" aria-label="Studio philosophy">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-12">
+        <div class="md:col-span-8">
+          <p data-reveal class="text-xs uppercase tracking-[0.25em] text-ink/50">The studio</p>
+          <p id="manifesto" class="mt-7 font-canela text-[clamp(2rem,4vw,3.8rem)] font-thin leading-[1.22] tracking-tightest">
+            noova is a brand and growth studio. Strategy, identity, web and marketing, designed as one system and built to last.
+          </p>
+        </div>
+        <div class="flex flex-col justify-end md:col-span-3 md:col-start-10">
+          <p data-reveal class="text-sm leading-relaxed text-ink/60">One studio. One system. No handoffs. Based in London, working anywhere.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Capabilities — editorial index ============ -->
+    <section id="capabilities" class="mx-auto max-w-[100rem] scroll-mt-24 px-6 md:px-10 lg:px-16" aria-label="Capabilities">
+      <div data-reveal class="flex items-baseline justify-between border-t border-ink/10 pt-6">
+        <h2 class="text-xs uppercase tracking-[0.25em] text-ink/50">Capabilities</h2>
+        <span class="text-xs text-ink/40">What we do</span>
+      </div>
+      <p data-reveal class="mt-8 max-w-2xl font-canela text-2xl font-thin leading-[1.25] tracking-tightest md:text-3xl">
+        Six capabilities. One system.
+      </p>
+
+      <div class="mt-12 md:mt-16">
+        <article data-reveal class="grid grid-cols-1 gap-x-10 gap-y-10 border-t border-ink/10 py-16 md:grid-cols-12 md:py-24">
+          <div class="md:col-span-4">
+            <p class="text-xs tracking-[0.2em] text-ink/40">01&ensp;&middot;&ensp;<span class="uppercase text-ink/50">Brand</span></p>
+            <h3 class="mt-6 font-canela text-4xl font-thin tracking-tightest md:text-5xl">Brand</h3>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">Build brands people remember.</p>
+          </div>
+          <div class="md:col-span-5">
+            <ul class="grid grid-cols-2 gap-x-8 text-sm leading-relaxed text-ink/70">
+              <li class="py-2.5">Brand strategy</li>
+              <li class="py-2.5">Brand positioning</li>
+              <li class="py-2.5">Brand identity</li>
+              <li class="py-2.5">Visual identity</li>
+              <li class="py-2.5">Messaging</li>
+              <li class="py-2.5">Naming</li>
+              <li class="py-2.5">Brand guidelines</li>
+              <li class="py-2.5">Rebranding</li>
+            </ul>
+          </div>
+          <figure class="md:col-span-3">
+            <div class="plx aspect-[16/9] overflow-hidden md:aspect-[4/5]">
+              <img src="assets/img/svc-identity-800.webp" loading="lazy" width="800" height="1000"
+                   class="plx-img h-full w-full object-cover"
+                   alt="A printed noova brand book resting on an embossed envelope, photographed in soft daylight." />
+            </div>
+          </figure>
+        </article>
+        <article data-reveal class="grid grid-cols-1 gap-x-10 gap-y-10 border-t border-ink/10 py-16 md:grid-cols-12 md:py-24">
+          <div class="md:col-span-4">
+            <p class="text-xs tracking-[0.2em] text-ink/40">02&ensp;&middot;&ensp;<span class="uppercase text-ink/50">Websites</span></p>
+            <h3 class="mt-6 font-canela text-4xl font-thin tracking-tightest md:text-5xl">Websites</h3>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">Design experiences that drive action.</p>
+          </div>
+          <div class="md:col-span-5">
+            <ul class="grid grid-cols-2 gap-x-8 text-sm leading-relaxed text-ink/70">
+              <li class="py-2.5">Website design</li>
+              <li class="py-2.5">Website development</li>
+              <li class="py-2.5">UX/UI design</li>
+              <li class="py-2.5">Framer</li>
+              <li class="py-2.5">Webflow</li>
+              <li class="py-2.5">Shopify</li>
+              <li class="py-2.5">Landing pages</li>
+              <li class="py-2.5">Website optimisation</li>
+            </ul>
+          </div>
+          <figure class="md:col-span-3">
+            <div class="plx aspect-[16/9] overflow-hidden md:aspect-[4/5]">
+              <img src="assets/img/svc-web-800.webp" loading="lazy" width="800" height="1000"
+                   class="plx-img h-full w-full object-cover"
+                   alt="A laptop showing a quiet website interface, resting on a boucl&eacute; sofa in natural light." />
+            </div>
+          </figure>
+        </article>
+        <article data-reveal class="grid grid-cols-1 gap-x-10 gap-y-10 border-t border-ink/10 py-16 md:grid-cols-12 md:py-24">
+          <div class="md:col-span-4">
+            <p class="text-xs tracking-[0.2em] text-ink/40">03&ensp;&middot;&ensp;<span class="uppercase text-ink/50">Creative direction</span></p>
+            <h3 class="mt-6 font-canela text-4xl font-thin tracking-tightest md:text-5xl">Creative direction</h3>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">Tell stories with intention.</p>
+          </div>
+          <div class="md:col-span-5">
+            <ul class="grid grid-cols-2 gap-x-8 text-sm leading-relaxed text-ink/70">
+              <li class="py-2.5">Art direction</li>
+              <li class="py-2.5">Content strategy</li>
+              <li class="py-2.5">Photography</li>
+              <li class="py-2.5">Product photography</li>
+              <li class="py-2.5">Editorial photography</li>
+              <li class="py-2.5">Graphic design</li>
+              <li class="py-2.5">Presentation design</li>
+              <li class="py-2.5">Campaign creative</li>
+            </ul>
+          </div>
+          <figure class="md:col-span-3">
+            <div class="plx aspect-[16/9] overflow-hidden md:aspect-[4/5]">
+              <img src="assets/img/svc-strategy-800.webp" loading="lazy" width="800" height="1000"
+                   class="plx-img h-full w-full object-cover"
+                   alt="Hands arranging printed moodboard layouts across a warm timber desk." />
+            </div>
+          </figure>
+        </article>
+        <article data-reveal class="grid grid-cols-1 gap-x-10 gap-y-10 border-t border-ink/10 py-16 md:grid-cols-12 md:py-24">
+          <div class="md:col-span-4">
+            <p class="text-xs tracking-[0.2em] text-ink/40">04&ensp;&middot;&ensp;<span class="uppercase text-ink/50">Marketing</span></p>
+            <h3 class="mt-6 font-canela text-4xl font-thin tracking-tightest md:text-5xl">Marketing</h3>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">Reach the right audience.</p>
+          </div>
+          <div class="md:col-span-5">
+            <ul class="grid grid-cols-2 gap-x-8 text-sm leading-relaxed text-ink/70">
+              <li class="py-2.5">Marketing strategy</li>
+              <li class="py-2.5">Social media</li>
+              <li class="py-2.5">Content creation</li>
+              <li class="py-2.5">Email marketing</li>
+              <li class="py-2.5">SEO</li>
+              <li class="py-2.5">Paid advertising</li>
+              <li class="py-2.5">LinkedIn marketing</li>
+              <li class="py-2.5">Campaign planning</li>
+            </ul>
+          </div>
+          <figure class="md:col-span-3">
+            <div class="plx aspect-[16/9] overflow-hidden md:aspect-[4/5]">
+              <img src="assets/img/studio-table-800.webp" loading="lazy" width="800" height="1000"
+                   class="plx-img h-full w-full object-cover"
+                   alt="A long brushed steel planning table seen from above, laid with printed campaign documents." />
+            </div>
+          </figure>
+        </article>
+        <article data-reveal class="grid grid-cols-1 gap-x-10 gap-y-10 border-t border-ink/10 py-16 md:grid-cols-12 md:py-24">
+          <div class="md:col-span-4">
+            <p class="text-xs tracking-[0.2em] text-ink/40">05&ensp;&middot;&ensp;<span class="uppercase text-ink/50">Growth</span></p>
+            <h3 class="mt-6 font-canela text-4xl font-thin tracking-tightest md:text-5xl">Growth</h3>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">Turn insight into action.</p>
+          </div>
+          <div class="md:col-span-5">
+            <ul class="grid grid-cols-2 gap-x-8 text-sm leading-relaxed text-ink/70">
+              <li class="py-2.5">Analytics</li>
+              <li class="py-2.5">GA4</li>
+              <li class="py-2.5">Looker Studio</li>
+              <li class="py-2.5">Power BI</li>
+              <li class="py-2.5">Conversion optimisation</li>
+              <li class="py-2.5">CRM</li>
+              <li class="py-2.5">Customer journeys</li>
+              <li class="py-2.5">Performance reporting</li>
+            </ul>
+          </div>
+          <figure class="md:col-span-3">
+            <div class="plx aspect-[16/9] overflow-hidden md:aspect-[4/5]">
+              <img src="assets/img/work-float-800.webp" loading="lazy" width="800" height="1000"
+                   class="plx-img h-full w-full object-cover"
+                   alt="A minimal steel desk by a window with performance reporting on a large display." />
+            </div>
+          </figure>
+        </article>
+        <article data-reveal class="grid grid-cols-1 gap-x-10 gap-y-10 border-t border-ink/10 py-16 md:grid-cols-12 md:py-24">
+          <div class="md:col-span-4">
+            <p class="text-xs tracking-[0.2em] text-ink/40">06&ensp;&middot;&ensp;<span class="uppercase text-ink/50">AI &amp; systems</span></p>
+            <h3 class="mt-6 font-canela text-4xl font-thin tracking-tightest md:text-5xl">AI &amp; systems</h3>
+            <p class="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">Work smarter. Scale faster.</p>
+          </div>
+          <div class="md:col-span-5">
+            <ul class="grid grid-cols-2 gap-x-8 text-sm leading-relaxed text-ink/70">
+              <li class="py-2.5">AI strategy</li>
+              <li class="py-2.5">AI workflow design</li>
+              <li class="py-2.5">Business automation</li>
+              <li class="py-2.5">CRM automation</li>
+              <li class="py-2.5">Internal AI systems</li>
+              <li class="py-2.5">Knowledge bases</li>
+              <li class="py-2.5">Process optimisation</li>
+              <li class="py-2.5">Intelligent workflows</li>
+            </ul>
+          </div>
+          <figure class="md:col-span-3">
+            <div class="plx aspect-[16/9] overflow-hidden md:aspect-[4/5]">
+              <img src="assets/img/studio-wide-800.webp" loading="lazy" width="800" height="1000"
+                   class="plx-img h-full w-full object-cover"
+                   alt="A calm studio interior where screens and paper sit quietly within the architecture." />
+            </div>
+          </figure>
+        </article>
+      </div>
+
+      <div data-reveal class="border-t border-ink/10 pt-10 md:pt-12">
+        <h3 class="text-xs uppercase tracking-[0.25em] text-ink/50">Industries</h3>
+        <p class="mt-4 max-w-4xl text-sm leading-loose text-ink/60">Hospitality&ensp;&middot;&ensp;Hotels&ensp;&middot;&ensp;Restaurants&ensp;&middot;&ensp;Caf&eacute;s&ensp;&middot;&ensp;Luxury brands&ensp;&middot;&ensp;Fashion&ensp;&middot;&ensp;Beauty clinics&ensp;&middot;&ensp;Aesthetic clinics&ensp;&middot;&ensp;Dentists&ensp;&middot;&ensp;Healthcare&ensp;&middot;&ensp;Property &amp; real estate&ensp;&middot;&ensp;Architecture studios&ensp;&middot;&ensp;Interior design studios&ensp;&middot;&ensp;Startups&ensp;&middot;&ensp;SaaS&ensp;&middot;&ensp;Technology&ensp;&middot;&ensp;Professional services&ensp;&middot;&ensp;Personal brands&ensp;&middot;&ensp;Premium local businesses</p>
+      </div>
+    </section>
+
+    <!-- ============ Process — scroll-drawn timeline ============ -->
+    <section id="process" class="mx-auto max-w-[100rem] scroll-mt-24 px-6 pt-24 md:px-10 md:pt-32 lg:px-16" aria-label="Process">
+      <div data-reveal class="flex items-baseline justify-between border-t border-ink/10 pt-6">
+        <h2 class="text-xs uppercase tracking-[0.25em] text-ink/50">Process</h2>
+        <span class="text-xs text-ink/40">How we work</span>
+      </div>
+
+      <div class="relative mt-14 md:mt-20">
+        <span id="process-line" class="absolute left-0 top-0 h-full w-px origin-top bg-ink/15 md:left-1/2" aria-hidden="true"></span>
+
+        <ol class="space-y-14 md:space-y-20">
+          <li data-reveal class="grid grid-cols-12">
+            <div class="col-span-11 col-start-2 pl-6 md:col-span-5 md:col-start-1 md:pl-0 md:pr-14 md:text-right">
+              <span class="text-xs text-ink/40">01</span>
+              <h3 class="mt-3 font-canela text-2xl font-thin tracking-tightest md:text-3xl">Discover</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/60 md:ml-auto md:max-w-xs">We listen first. Research, interviews and audit before any opinion.</p>
+            </div>
+          </li>
+          <li data-reveal class="grid grid-cols-12">
+            <div class="col-span-11 col-start-2 pl-6 md:col-span-5 md:col-start-8 md:pl-14">
+              <span class="text-xs text-ink/40">02</span>
+              <h3 class="mt-3 font-canela text-2xl font-thin tracking-tightest md:text-3xl">Define</h3>
+              <p class="mt-3 max-w-xs text-sm leading-relaxed text-ink/60">Strategy and positioning. Every brand starts with one idea.</p>
+            </div>
+          </li>
+          <li data-reveal class="grid grid-cols-12">
+            <div class="col-span-11 col-start-2 pl-6 md:col-span-5 md:col-start-1 md:pl-0 md:pr-14 md:text-right">
+              <span class="text-xs text-ink/40">03</span>
+              <h3 class="mt-3 font-canela text-2xl font-thin tracking-tightest md:text-3xl">Design</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/60 md:ml-auto md:max-w-xs">Identity, website and content, designed as one system.</p>
+            </div>
+          </li>
+          <li data-reveal class="grid grid-cols-12">
+            <div class="col-span-11 col-start-2 pl-6 md:col-span-5 md:col-start-8 md:pl-14">
+              <span class="text-xs text-ink/40">04</span>
+              <h3 class="mt-3 font-canela text-2xl font-thin tracking-tightest md:text-3xl">Launch</h3>
+              <p class="mt-3 max-w-xs text-sm leading-relaxed text-ink/60">A considered release, across every touchpoint at once.</p>
+            </div>
+          </li>
+          <li data-reveal class="grid grid-cols-12">
+            <div class="col-span-11 col-start-2 pl-6 md:col-span-5 md:col-start-1 md:pl-0 md:pr-14 md:text-right">
+              <span class="text-xs text-ink/40">05</span>
+              <h3 class="mt-3 font-canela text-2xl font-thin tracking-tightest md:text-3xl">Grow</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/60 md:ml-auto md:max-w-xs">We stay, measure and refine. Good brands compound.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ Selected work — client portfolio ============ -->
+    <section id="work" class="mx-auto max-w-[100rem] scroll-mt-24 px-6 pb-8 pt-24 md:px-10 md:pt-32 lg:px-16" aria-label="Selected work">
+      <div data-reveal class="flex items-baseline justify-between border-t border-ink/10 pt-6">
+        <h2 class="text-xs uppercase tracking-[0.25em] text-ink/50">Selected work</h2>
+        <span class="text-xs text-ink/40">By client</span>
+      </div>
+
+      <a href="projects/intellimation.html" data-cursor="view" data-reveal class="client-card group relative mt-16 block overflow-hidden rounded-2xl md:mt-20 md:rounded-3xl">
+        <div class="relative grid aspect-[4/5] place-items-center p-10 sm:aspect-[16/10] lg:aspect-[2/1]">
+          <img src="assets/img/logos/intellimation.png" loading="lazy" class="client-logo w-[64%] max-w-[440px]" alt="intellimation.ai logo" />
+          <div class="client-meta absolute bottom-0 left-0 p-7 md:p-9">
+            <p class="text-sm text-ink md:text-base">intellimation.ai</p>
+            <p class="mt-1 text-xs text-ink/50 md:text-sm">Vertical AI for financial services.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/ame.html" data-cursor="view" data-reveal class="client-card group relative mt-8 block overflow-hidden rounded-2xl md:mt-10 md:rounded-3xl">
+        <div class="relative grid aspect-[4/5] place-items-center p-10 sm:aspect-[16/10] lg:aspect-[2/1]">
+          <img src="assets/img/logos/ame.png" loading="lazy" class="client-logo w-[42%] max-w-[300px]" alt="AMË logo" />
+          <div class="client-meta absolute bottom-0 left-0 p-7 md:p-9">
+            <p class="text-sm text-ink md:text-base">AMË</p>
+            <p class="mt-1 text-xs text-ink/50 md:text-sm">Fashion rooted in heritage and craft.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/her-club.html" data-cursor="view" data-reveal class="client-card group relative mt-8 block overflow-hidden rounded-2xl md:mt-10 md:rounded-3xl">
+        <div class="relative grid aspect-[4/5] place-items-center p-10 sm:aspect-[16/10] lg:aspect-[2/1]">
+          <span class="client-logo client-logo-type text-center font-canela text-[clamp(2.6rem,6vw,5rem)] font-thin leading-none tracking-tightest" aria-label="Her Club Co. logo placeholder">Her Club Co.</span>
+          <div class="client-meta absolute bottom-0 left-0 p-7 md:p-9">
+            <p class="text-sm text-ink md:text-base">Her Club Co.</p>
+            <p class="mt-1 text-xs text-ink/50 md:text-sm">Community, content and brand.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/355.html" data-cursor="view" data-reveal class="client-card group relative mt-8 block overflow-hidden rounded-2xl md:mt-10 md:rounded-3xl">
+        <div class="relative grid aspect-[4/5] place-items-center p-10 sm:aspect-[16/10] lg:aspect-[2/1]">
+          <span class="client-logo client-logo-type font-canela text-[clamp(3.4rem,8vw,7rem)] font-thin leading-none tracking-tightest" aria-label="355 logo placeholder">355</span>
+          <div class="client-meta absolute bottom-0 left-0 p-7 md:p-9">
+            <p class="text-sm text-ink md:text-base">355</p>
+            <p class="mt-1 text-xs text-ink/50 md:text-sm">Case study coming soon.</p>
+          </div>
+        </div>
+      </a>
+
+      <div data-reveal class="client-card is-future relative mt-8 overflow-hidden rounded-2xl md:mt-10 md:rounded-3xl">
+        <div class="relative grid aspect-[4/5] place-items-center p-10 sm:aspect-[16/10] lg:aspect-[2/1]">
+          <span class="client-logo-type text-center font-canela text-[clamp(2rem,4.6vw,3.8rem)] font-thin leading-[1.1] tracking-tightest text-ink/60">Your brand, next.</span>
+          <div class="client-meta absolute bottom-0 left-0 p-7 md:p-9">
+            <p class="text-sm text-ink md:text-base">Future clients</p>
+            <p class="mt-1 text-xs text-ink/50 md:text-sm"><a class="link-line" href="#contact">Book a discovery call</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Statement ============ -->
+    <section class="mx-auto max-w-[100rem] px-6 py-28 md:px-10 md:py-44 lg:px-16" aria-label="Studio belief">
+      <p class="max-w-5xl font-canela text-[clamp(2.4rem,5.6vw,5.2rem)] font-thin leading-[1.08] tracking-tightest">
+        <span class="mask block"><span class="mask-inner block">When everything</span></span>
+        <span class="mask block"><span class="mask-inner block">starts to make sense.</span></span>
+      </p>
+    </section>
+
+    <!-- ============ About — editorial composition ============ -->
+    <section id="about" class="mx-auto max-w-[100rem] scroll-mt-24 px-6 pt-24 md:px-10 md:pt-32 lg:px-16" aria-label="About the founder">
+      <div data-reveal class="flex items-baseline justify-between border-t border-ink/10 pt-6">
+        <h2 class="text-xs uppercase tracking-[0.25em] text-ink/50">About</h2>
+        <span class="text-xs text-ink/40">The founder</span>
+      </div>
+
+      <div class="relative mt-16 grid grid-cols-12 md:mt-20">
+        <figure class="float-a col-span-10 col-start-1 md:col-span-6" data-cursor="view">
+          <div data-clipreveal class="plx aspect-[4/5] overflow-hidden">
+            <img src="assets/img/founder-desk.webp"
+                 srcset="assets/img/founder-desk-800.webp 800w, assets/img/founder-desk.webp 1122w"
+                 sizes="(min-width: 768px) 46vw, 85vw"
+                 width="1122" height="1402" loading="lazy"
+                 class="plx-img h-full w-full object-cover"
+                 alt="The founder of noova at a brushed steel desk, reviewing brand systems and type specimens." />
+          </div>
+        </figure>
+
+        <figure class="float-b col-span-6 col-start-7 -mt-16 hidden md:block lg:col-span-4 lg:col-start-9" data-cursor="view">
+          <div data-clipreveal class="plx aspect-[4/5] overflow-hidden">
+            <img src="assets/img/about-window.webp"
+                 srcset="assets/img/about-window-800.webp 800w, assets/img/about-window.webp 1122w"
+                 sizes="30vw"
+                 width="1122" height="1402" loading="lazy"
+                 class="plx-img h-full w-full object-cover"
+                 alt="The founder standing at a tall window overlooking the city." />
+          </div>
+        </figure>
+
+        <blockquote class="relative z-10 col-span-12 -mt-10 md:col-span-8 md:col-start-4 md:-mt-32 lg:col-start-5">
+          <p class="mask bg-transparent font-canela text-[clamp(2rem,4.2vw,4rem)] font-thin leading-[1.12] tracking-tightest">
+            <span class="mask-inner block">“Clarity creates momentum.</span>
+          </p>
+          <p class="mask font-canela text-[clamp(2rem,4.2vw,4rem)] font-thin leading-[1.12] tracking-tightest">
+            <span class="mask-inner block">Everything else follows.”</span>
+          </p>
+        </blockquote>
+
+        <div class="col-span-12 mt-12 md:col-span-5 md:col-start-7 md:mt-16">
+          <p data-reveal class="max-w-md text-sm leading-relaxed text-ink/60">
+            noova is led by Jessica Feto, a brand strategist and designer. Ten years building brands, websites and growth systems. Every engagement led personally, from the first conversation to long after launch.
+          </p>
+          <p data-reveal class="mt-8 text-sm">Jessica Feto&ensp;·&ensp;<span class="text-ink/50">Founder &amp; creative director</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Section index ============ -->
+    <nav class="mx-auto max-w-[100rem] px-6 pt-24 md:px-10 md:pt-32 lg:px-16" aria-label="Section index">
+      <ul data-reveal class="flex flex-wrap items-baseline justify-between gap-4 border-y border-ink/10 py-5 text-xs uppercase tracking-[0.2em]">
+        <li><a class="link-line" href="#capabilities">Capabilities</a></li>
+        <li><a class="link-line" href="#process">Process</a></li>
+        <li><a class="link-line" href="#work">Work</a></li>
+        <li><a class="link-line" href="#about">About</a></li>
+        <li><a class="link-line" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============ Contact ============ -->
+    <section id="contact" class="mx-auto max-w-[100rem] scroll-mt-24 px-6 pb-24 pt-24 md:px-10 md:pt-32 lg:px-16" aria-label="Contact">
+      <div data-reveal class="border-t border-ink/10 pt-6">
+        <h2 class="text-xs uppercase tracking-[0.25em] text-ink/50">Contact</h2>
+      </div>
+
+      <h3 class="mt-12 font-canela text-[clamp(2.8rem,7vw,6.8rem)] font-thin leading-[1.04] tracking-tightest">
+        <a href="#contact-form" class="group block" aria-label="Go to the contact form">
+          <span class="mask block"><span class="mask-inner block">Let's build</span></span>
+          <span class="mask block"><span class="mask-inner block">something memorable.&ensp;<span class="inline-block text-ink/30 transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:translate-x-2 group-hover:text-ink" aria-hidden="true">&#8599;</span></span></span>
+        </a>
+      </h3>
+
+      <div class="mt-16 grid grid-cols-1 gap-12 md:mt-20 md:grid-cols-12 md:gap-16">
+        <form id="contact-form" style="scroll-margin-top:7rem" action="https://formspree.io/f/xkolzzyy" method="POST" data-reveal class="rounded-2xl bg-ink p-6 text-paper sm:p-8 md:col-span-7 md:p-10">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-paper/80">Start a project</p>
+            <p class="text-xs text-paper/40">Replies within 48h</p>
+          </div>
+          <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            <div class="field">
+              <label for="f-name" class="mb-2 block text-[13px] font-medium text-paper/60">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your name"
+                     class="input-modern w-full rounded-xl px-4 py-3.5 text-[15px] text-paper outline-none placeholder:text-paper/35" />
+            </div>
+            <div class="field">
+              <label for="f-email" class="mb-2 block text-[13px] font-medium text-paper/60">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"
+                     class="input-modern w-full rounded-xl px-4 py-3.5 text-[15px] text-paper outline-none placeholder:text-paper/35" />
+            </div>
+            <div class="field sm:col-span-2">
+              <label for="f-business" class="mb-2 block text-[13px] font-medium text-paper/60">Business</label>
+              <input id="f-business" name="business" type="text" autocomplete="organization" placeholder="Your business or brand"
+                     class="input-modern w-full rounded-xl px-4 py-3.5 text-[15px] text-paper outline-none placeholder:text-paper/35" />
+            </div>
+            <div class="field sm:col-span-2">
+              <label for="f-message" class="mb-2 block text-[13px] font-medium text-paper/60">Message</label>
+              <textarea id="f-message" name="message" rows="4" placeholder="What are you building?"
+                        class="input-modern w-full resize-none rounded-xl px-4 py-3.5 text-[15px] leading-relaxed text-paper outline-none placeholder:text-paper/35"></textarea>
+            </div>
+          </div>
+          <div class="mt-8">
+            <button type="submit" data-cursor="grow" class="btn-arrow group flex w-full items-center justify-between rounded-xl bg-paper px-6 py-4 text-sm font-medium text-ink sm:w-auto sm:min-w-[280px]">
+              <span>Book a discovery call</span>
+              <span class="arrow ml-6" aria-hidden="true">→</span>
+            </button>
+            <p id="form-note" class="mt-4 text-xs text-paper/50" hidden>Opening your email client…</p>
+          </div>
+        </form>
+
+        <aside class="md:col-span-4 md:col-start-9">
+          <dl class="space-y-8 text-sm">
+            <div data-reveal>
+              <dt class="text-xs uppercase tracking-[0.2em] text-ink/50">Email</dt>
+              <dd class="mt-2"><a href="mailto:hello@noovadata.com" class="link-line-on link-line">hello@noovadata.com</a></dd>
+            </div>
+            <div data-reveal>
+              <dt class="text-xs uppercase tracking-[0.2em] text-ink/50">Instagram</dt>
+              <dd class="mt-2"><a href="https://www.instagram.com/noovadata/" target="_blank" rel="noopener" class="link-line">@noovadata</a></dd>
+            </div>
+            <div data-reveal>
+              <dt class="text-xs uppercase tracking-[0.2em] text-ink/50">LinkedIn</dt>
+              <dd class="mt-2"><a href="https://uk.linkedin.com/company/noova-data" target="_blank" rel="noopener" class="link-line">noova</a></dd>
+            </div>
+            <div data-reveal>
+              <dt class="text-xs uppercase tracking-[0.2em] text-ink/50">Location</dt>
+              <dd class="mt-2 text-ink/70">London</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="border-t border-ink/10">
+    <div class="mx-auto flex max-w-[100rem] flex-col gap-8 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-10 lg:px-16">
+      <a href="#" class="text-lg leading-none tracking-wordmark" aria-label="noova, back to top">noova</a>
+      <span class="font-canela text-2xl font-thin leading-none tracking-tightest" aria-hidden="true">oo</span>
+      <div class="flex items-center gap-8 text-xs">
+        <a href="https://www.instagram.com/noovadata/" target="_blank" rel="noopener" class="link-line">Instagram</a>
+        <a href="https://uk.linkedin.com/company/noova-data" target="_blank" rel="noopener" class="link-line">LinkedIn</a>
+        <span class="text-ink/50">© 2026 noova</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="assets/js/main.js?v=10" defer></script>
+</body>
+</html>

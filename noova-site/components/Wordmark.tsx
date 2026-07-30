@@ -1,0 +1,42 @@
+// The locked noova wordmark (Draft F, light cut) and monogram, rendered with
+// currentColor so they flip between Ink and Paper via text colour.
+
+export function Wordmark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="-2 -4 551.5 108"
+      role="img"
+      aria-label="noova"
+      className={className}
+      fill="currentColor"
+    >
+      <path d="M0 100V50A51.5 51.5 0 0 1 103 50V100H91.77V50A40.27 41.74 0 0 0 11.24 50V100Z" />
+      <path fillRule="evenodd" d="M127 50a51.5 51.5 0 1 0 103 0a51.5 51.5 0 1 0 -103 0ZM138.24 50a40.27 41.74 0 1 0 80.53 0a40.27 41.74 0 1 0 -80.53 0Z" />
+      <path fillRule="evenodd" d="M235 50a51.5 51.5 0 1 0 103 0a51.5 51.5 0 1 0 -103 0ZM246.24 50a40.27 41.74 0 1 0 80.53 0a40.27 41.74 0 1 0 -80.53 0Z" />
+      <g transform="translate(358 0)">
+        <path d="M0 0L34.25 102L68.5 0H58L34.25 70.73L10.5 0Z" />
+      </g>
+      <g transform="translate(444.5 0)">
+        <path fillRule="evenodd" d="M0 50a51.5 51.5 0 1 0 103 0a51.5 51.5 0 1 0 -103 0ZM11.24 50a40.27 41.74 0 1 0 80.53 0a40.27 41.74 0 1 0 -80.53 0Z" />
+        <path d="M91.77 0H103V100H91.77Z" />
+      </g>
+    </svg>
+  );
+}
+
+export function Monogram({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="-2 -4 215 111"
+      role="img"
+      aria-label="noova monogram"
+      className={className}
+      fill="currentColor"
+    >
+      <g transform="translate(0 1.5)">
+        <path fillRule="evenodd" d="M0 50a51.5 51.5 0 1 0 103 0a51.5 51.5 0 1 0 -103 0ZM16.05 50a35.45 37.55 0 1 0 70.9 0a35.45 37.55 0 1 0 -70.9 0Z" />
+        <path fillRule="evenodd" d="M108 50a51.5 51.5 0 1 0 103 0a51.5 51.5 0 1 0 -103 0ZM124.05 50a35.45 37.55 0 1 0 70.9 0a35.45 37.55 0 1 0 -70.9 0Z" />
+      </g>
+    </svg>
+  );
+}
