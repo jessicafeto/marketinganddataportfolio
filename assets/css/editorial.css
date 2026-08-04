@@ -204,7 +204,7 @@ body.editorial .text-center p { margin-inline: auto; }
   margin: 0;
 }
 .ed-hero__sub {
-  margin-top: 1.25rem;
+  margin: 1.25rem auto 0;
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;
   font-size: clamp(0.65rem, 1vw, 0.78rem);
