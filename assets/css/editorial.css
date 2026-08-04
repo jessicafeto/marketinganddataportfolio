@@ -27,7 +27,7 @@ body.editorial {
   overflow-x: hidden;
 }
 body.editorial a { color: inherit; text-decoration: none; }
-body.editorial p { max-width: 800px; }
+body.editorial p { max-width: 900px; }
 body.editorial .text-center p { margin-inline: auto; }
 
 /* ---------- container ---------- */
@@ -264,7 +264,7 @@ body.editorial .text-center p { margin-inline: auto; }
   text-align: center;
 }
 .ed-overview__inner {
-  max-width: 840px;
+  max-width: 920px;
   margin-inline: auto;
 }
 .ed-overview__heading {
@@ -399,7 +399,7 @@ body.editorial .text-center p { margin-inline: auto; }
 
 /* text body — centred paragraph for image-free sections */
 .ed-section__body {
-  max-width: 800px;
+  max-width: 900px;
   margin-inline: auto;
   padding-inline: clamp(1.625rem, 4vw, 3rem);
   margin-top: 2rem;
@@ -408,6 +408,9 @@ body.editorial .text-center p { margin-inline: auto; }
   line-height: 1.85;
   color: var(--ed-grey);
   text-align: center;
+}
+.ed-section__body + .ed-section__body {
+  margin-top: 1.1em;
 }
 
 /* four images 2×2 */
