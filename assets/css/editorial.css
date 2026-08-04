@@ -30,6 +30,19 @@ body.editorial a { color: inherit; text-decoration: none; }
 body.editorial p { max-width: 900px; }
 body.editorial .text-center p { margin-inline: auto; }
 
+/* editorial emphasis: weight carries hierarchy, not colour */
+.ed-overview__body,
+.ed-section__body,
+.ed-section__sub {
+  font-weight: 300;
+}
+.ed-overview__body strong,
+.ed-section__body strong,
+.ed-section__sub strong {
+  font-weight: 400;
+  color: inherit;
+}
+
 /* ---------- container ---------- */
 .ed-wrap {
   width: 100%;
@@ -40,7 +53,7 @@ body.editorial .text-center p { margin-inline: auto; }
 
 /* ---------- typography primitives ---------- */
 .ed-eyebrow {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -120,7 +133,7 @@ body.editorial .text-center p { margin-inline: auto; }
   padding-inline: clamp(1.625rem, 4vw, 3.5rem);
 }
 .ed-nav__logo {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   color: var(--ed-ink);
@@ -133,8 +146,8 @@ body.editorial .text-center p { margin-inline: auto; }
   gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 .ed-nav__links a {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -146,8 +159,8 @@ body.editorial .text-center p { margin-inline: auto; }
 .ed-nav__cta {
   border: 1px solid var(--ed-ink);
   padding: 10px 22px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -194,8 +207,8 @@ body.editorial .text-center p { margin-inline: auto; }
   padding: 0 1.5rem;
 }
 .ed-hero__title {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: clamp(2.25rem, 6vw, 5rem);
   color: #fff;
   letter-spacing: 0.08em;
@@ -205,7 +218,7 @@ body.editorial .text-center p { margin-inline: auto; }
 }
 .ed-hero__sub {
   margin: 1.25rem auto 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: clamp(0.65rem, 1vw, 0.78rem);
   letter-spacing: 0.32em;
@@ -218,9 +231,9 @@ body.editorial .text-center p { margin-inline: auto; }
   top: clamp(1.5rem, 3vh, 2.5rem);
   left: clamp(1.625rem, 4vw, 3rem);
   z-index: 3;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.7rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
@@ -238,7 +251,7 @@ body.editorial .text-center p { margin-inline: auto; }
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 9px;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -268,8 +281,8 @@ body.editorial .text-center p { margin-inline: auto; }
   margin-inline: auto;
 }
 .ed-overview__heading {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: clamp(1.75rem, 3.5vw, 2.85rem);
   color: var(--ed-ink);
   line-height: 1.2;
@@ -277,7 +290,7 @@ body.editorial .text-center p { margin-inline: auto; }
   margin: 1.75rem 0 1.75rem;
 }
 .ed-overview__body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.05rem;
   line-height: 1.85;
   color: var(--ed-grey);
@@ -305,7 +318,7 @@ body.editorial .text-center p { margin-inline: auto; }
 }
 .ed-snap-col__label {
   display: block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -315,7 +328,7 @@ body.editorial .text-center p { margin-inline: auto; }
 }
 .ed-snap-col__item {
   display: block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.92rem;
   line-height: 1.7;
   color: var(--ed-ink);
@@ -336,15 +349,15 @@ body.editorial .text-center p { margin-inline: auto; }
   padding-inline: clamp(1.625rem, 4vw, 3rem);
 }
 .ed-section__title {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: clamp(1.05rem, 1.6vw, 1.3rem);
-  font-weight: 400;
+  font-weight: 700;
   color: var(--ed-ink);
   margin: 0 0 0.55rem;
   letter-spacing: -0.01em;
 }
 .ed-section__sub {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.875rem;
   color: var(--ed-grey);
   max-width: 58ch;
@@ -388,7 +401,7 @@ body.editorial .text-center p { margin-inline: auto; }
   margin-top: 2.5rem;
 }
 .ed-section__tag {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.8rem;
   font-weight: 400;
   color: var(--ed-ink);
@@ -403,7 +416,7 @@ body.editorial .text-center p { margin-inline: auto; }
   margin-inline: auto;
   padding-inline: clamp(1.625rem, 4vw, 3rem);
   margin-top: 2rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.85;
   color: var(--ed-grey);
@@ -485,7 +498,7 @@ body.editorial .text-center p { margin-inline: auto; }
 }
 .ed-block--caption .ed-block-heading {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(1.35rem, 2.5vw, 2rem);
   color: var(--ed-ink);
   line-height: 1.25;
@@ -495,7 +508,7 @@ body.editorial .text-center p { margin-inline: auto; }
   margin-bottom: 1rem;
 }
 .ed-block--caption .ed-block-note {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   line-height: 1.8;
   color: var(--ed-grey);
@@ -535,7 +548,7 @@ body.editorial .text-center p { margin-inline: auto; }
 .ed-stat-num {
   display: block;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   color: #fff;
   line-height: 1;
@@ -544,7 +557,7 @@ body.editorial .text-center p { margin-inline: auto; }
 .ed-stat-label {
   display: block;
   margin-top: 0.75rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -568,7 +581,7 @@ body.editorial .text-center p { margin-inline: auto; }
 .ed-quote__cite {
   display: block;
   margin-top: 1.25rem;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -593,7 +606,7 @@ body.editorial .text-center p { margin-inline: auto; }
 }
 .ed-next__label {
   display: block;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
@@ -631,8 +644,8 @@ body.editorial .text-center p { margin-inline: auto; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: clamp(1.25rem, 3vw, 2.25rem);
   color: #fff;
   letter-spacing: 0.06em;
@@ -680,7 +693,7 @@ body.editorial .text-center p { margin-inline: auto; }
 }
 .ed-footer__email:hover { color: #fff; }
 .ed-footer__heading {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 0.6rem;
   text-transform: uppercase;
