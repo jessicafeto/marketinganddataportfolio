@@ -9,7 +9,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap"></noscript>
 <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 <title>Marketing Analytics &amp; Business Intelligence · Jessica Feto</title>
-<meta name="description" content="Campaign reporting, KPI dashboards, and customer insights using GA4, Power BI, Looker Studio, Excel and SQL to turn data into clear marketing decisions."/>
+<meta name="description" content="SQL analysis of a 749-question Voice of Customer repository — data modelling, KPI reporting and dashboard design built on real product marketing data from Intellimation.ai."/>
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/editorial.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TKEPZ4H77"></script>
@@ -37,7 +37,7 @@
   <div class="ed-hero__overlay" style="background:rgba(0,0,0,0.1);"></div>
   <div class="ed-hero__lockup">
     <h1 class="ed-hero__title ed-reveal">Marketing Analytics<br>&amp; Business<br>Intelligence</h1>
-    <p class="ed-hero__sub ed-reveal">Data Analytics &amp; Reporting · Cross-Client</p>
+    <p class="ed-hero__sub ed-reveal">SQL Analysis of the Voice of Customer Repository · Intellimation.ai</p>
   </div>
   <div class="ed-hero__cue" aria-hidden="true"><div class="ed-hero__cue-line"></div><span>Scroll</span></div>
   <div id="hero-end" style="position:absolute;bottom:0;left:0;height:1px;width:100%;"></div>
@@ -47,8 +47,9 @@
   <div class="ed-wrap">
     <div class="ed-overview__inner">
       <span class="ed-eyebrow grey ed-reveal">The Project</span>
-      <h2 class="ed-overview__heading ed-reveal">Turning marketing data into decisions — through dashboards, campaign reporting and customer insight work that connects activity to outcomes.</h2>
-      <p class="ed-overview__body ed-reveal">Across client and agency work I built and maintained the analytics infrastructure that makes marketing legible. <strong>GA4</strong> and Looker Studio for web and campaign performance, <strong>Power BI</strong> and Excel for business reporting, <strong>SQL</strong> for deeper data pulls. The output was always the same: a clear picture of what the numbers meant and what to do next. KPI dashboards gave stakeholders a live view; campaign reports gave teams a clean record of performance; customer insight work fed directly into content strategy and targeting decisions.</p>
+      <h2 class="ed-overview__heading ed-reveal">The same Voice of Customer repository, seen through a different lens — not who asked what, but what the data says at scale.</h2>
+      <p class="ed-overview__body ed-reveal">My <a href="enterprise-ai-product-marketing.html"><strong>Enterprise AI Product Marketing</strong></a> case study covers how I built Intellimation.ai's Voice of Customer repository from zero: capturing and categorising customer questions from every demo, POC and client meeting into a shared source of truth. This case study picks up from there — treating that repository as a dataset and querying it directly in <strong>SQL</strong> to surface patterns no single conversation could show on its own.</p>
+      <p class="ed-overview__body ed-reveal">Building the repository and analysing it were two different disciplines, done by the same person for the same programme. Every number, table and chart below comes directly from the underlying question log — nothing here is modelled, projected, or rounded up for effect.</p>
     </div>
   </div>
 </section>
@@ -58,25 +59,27 @@
     <div class="ed-snapshot__grid ed-reveal">
       <div>
         <span class="ed-snap-col__label">Scope</span>
-        <span class="ed-snap-col__item">B2B &amp; B2C</span>
-        <span class="ed-snap-col__item">Cross-industry</span>
+        <span class="ed-snap-col__item">Cross-Product</span>
+        <span class="ed-snap-col__item">Cross-Region</span>
       </div>
       <div>
-        <span class="ed-snap-col__label">Services</span>
-        <span class="ed-snap-col__item">Campaign Reporting</span>
-        <span class="ed-snap-col__item">KPI Dashboards</span>
-        <span class="ed-snap-col__item">Customer Insights</span>
-        <span class="ed-snap-col__item">Data Visualisation</span>
+        <span class="ed-snap-col__label">Method</span>
+        <span class="ed-snap-col__item">SQL Analysis</span>
+        <span class="ed-snap-col__item">Data Modelling</span>
+        <span class="ed-snap-col__item">KPI Reporting</span>
+        <span class="ed-snap-col__item">Dashboard Design</span>
       </div>
       <div>
-        <span class="ed-snap-col__label">Timeline</span>
-        <span class="ed-snap-col__item">2024 – 2026</span>
+        <span class="ed-snap-col__label">Data Range</span>
+        <span class="ed-snap-col__item">Apr 2024 – Sep 2025</span>
+        <span class="ed-snap-col__item">Repository history</span>
       </div>
       <div>
-        <span class="ed-snap-col__label">Tools</span>
-        <span class="ed-snap-col__item">GA4 · Looker Studio</span>
-        <span class="ed-snap-col__item">Power BI · Excel</span>
-        <span class="ed-snap-col__item">SQL</span>
+        <span class="ed-snap-col__label">Results</span>
+        <span class="ed-snap-col__item">749 Rows Analysed</span>
+        <span class="ed-snap-col__item">3 Pillars Benchmarked</span>
+        <span class="ed-snap-col__item">12 Regions Compared</span>
+        <a href="voice-of-customer-database.html" class="ed-snap-col__item ed-snap-col__item--link">See the source repository ↗</a>
       </div>
     </div>
   </div>
@@ -86,36 +89,289 @@
 
   <div class="ed-section ed-reveal">
     <div class="ed-section__text">
-      <h3 class="ed-section__title">Campaign Reporting</h3>
-      <p class="ed-section__sub">Tracking performance across paid, organic and owned channels — structured so teams know what to keep, cut or scale.</p>
+      <h3 class="ed-section__title">The Data Model</h3>
+      <p class="ed-section__sub">One flat question log, captured at the point of every demo, POC and client meeting. No pre-aggregation, no cleaning applied at source — that part came later, in SQL.</p>
     </div>
-    <div class="ed-section__tags">
-      <span class="ed-section__tag">GA4</span>
-      <span class="ed-section__tag">Looker Studio</span>
-      <span class="ed-section__tag">UTM Tracking</span>
-      <span class="ed-section__tag">Campaign Reporting</span>
-      <span class="ed-section__tag">Paid Social</span>
-      <span class="ed-section__tag">SEO Analytics</span>
-      <span class="ed-section__tag">Conversion Tracking</span>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">Schema — voc_questions</span>
+      <pre class="ed-code">question_id       text        -- e.g. Q-001
+log_date          date        -- meeting date
+company_type_raw  text        -- captured free-text at intake (messy)
+region            text        -- client HQ / desk region
+pillar            text        -- product line, tagged inconsistently
+sales_stage       text        -- free-text sales stage at time of capture
+question_type     text        -- Functional / Technical / Strategic / Commercial / Compliance
+question_text     text
+answer_text       text</pre>
     </div>
-    <p class="ed-section__body">Built reporting frameworks for multi-channel campaigns, connecting <strong>GA4</strong> tracking through to <strong>Looker Studio</strong> dashboards and presenting findings in a format commercial teams could act on. Coverage spanned paid social, organic search, email and LinkedIn, with UTM governance to keep attribution clean.</p>
+    <p class="ed-section__body">Company type and region were captured reliably — tagged on <strong>98%</strong> and <strong>86%</strong> of rows. Pillar, sales stage and question category were not, which is where the analysis had to start.</p>
   </div>
 
   <div class="ed-section ed-reveal">
     <div class="ed-section__text">
-      <h3 class="ed-section__title">KPI Dashboards &amp; Business Intelligence</h3>
-      <p class="ed-section__sub">Live dashboards and structured reports that connect marketing activity to business outcomes — built for stakeholders, not analysts.</p>
+      <h3 class="ed-section__title">Data Quality Before Insight</h3>
+      <p class="ed-section__sub">Before asking what the data said, I had to know how much of it could be trusted. The honest answer, for three of six fields, was: not much yet.</p>
     </div>
-    <div class="ed-section__tags">
-      <span class="ed-section__tag">Power BI</span>
-      <span class="ed-section__tag">Excel</span>
-      <span class="ed-section__tag">SQL</span>
-      <span class="ed-section__tag">KPI Design</span>
-      <span class="ed-section__tag">Data Visualisation</span>
-      <span class="ed-section__tag">Customer Insights</span>
-      <span class="ed-section__tag">Marketing Performance</span>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">SQL — tagging completeness by field</span>
+      <pre class="ed-code">SELECT
+  COUNT(*)                                            AS total_questions,
+  COUNT(pillar)                                       AS pillar_tagged,
+  COUNT(sales_stage)                                  AS stage_tagged,
+  COUNT(question_type)                                AS category_tagged,
+  ROUND(COUNT(pillar)       * 100.0 / COUNT(*), 1)    AS pct_pillar,
+  ROUND(COUNT(sales_stage)  * 100.0 / COUNT(*), 1)    AS pct_stage,
+  ROUND(COUNT(question_type)* 100.0 / COUNT(*), 1)    AS pct_category
+FROM voc_questions;</pre>
     </div>
-    <p class="ed-section__body">Designed and maintained KPI dashboards giving leadership a real-time view of marketing performance. <strong>SQL</strong> data pulls fed into <strong>Power BI</strong> and Excel models, translating raw data into meaningful business narratives. Customer insight outputs were used directly to refine targeting, messaging and content strategy.</p>
+    <div class="ed-result-wrap">
+      <table class="ed-result">
+        <caption>Result</caption>
+        <thead><tr><th>total_questions</th><th>pillar_tagged</th><th>stage_tagged</th><th>category_tagged</th><th>pct_pillar</th><th>pct_stage</th><th>pct_category</th></tr></thead>
+        <tbody><tr><td class="num">749</td><td class="num">161</td><td class="num">164</td><td class="num">228</td><td class="num">21.5%</td><td class="num">21.9%</td><td class="num">30.4%</td></tr></tbody>
+      </table>
+    </div>
+    <div class="ed-callout">
+      Fewer than <strong>1 in 4</strong> questions carried a product pillar or sales-stage tag at the point of capture, against <strong>98%</strong> for company type and <strong>86%</strong> for region. That gap — not a modelling choice — is what shaped the rest of this analysis: every pillar- and stage-level result below is a finding about the <em>tagged subset</em>, stated as such.
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Cleaning the Categorical Fields</h3>
+      <p class="ed-section__sub">Company type was captured as free text, so the same segment showed up under slightly different labels. A <code>CASE</code> statement standardised it before anything else could be trusted.</p>
+    </div>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">SQL — CASE + GROUP BY + COUNT</span>
+      <pre class="ed-code">SELECT
+  CASE
+    WHEN company_type_raw IN ('Tier 2 Regional Bank', 'Tier 2 / Regional Bank')
+      THEN 'Tier 2 / Regional Bank'
+    WHEN company_type_raw IN ('Vendor / Consulting', 'Consulting / Vendor')
+      THEN 'Consulting / Vendor'
+    WHEN company_type_raw = 'Asset Management'
+      THEN 'Asset Manager / Investment'
+    ELSE COALESCE(company_type_raw, '(untagged)')
+  END                       AS company_type,
+  COUNT(*)                  AS questions
+FROM voc_questions
+GROUP BY 1
+ORDER BY questions DESC;</pre>
+    </div>
+    <div class="ed-result-wrap">
+      <table class="ed-result">
+        <caption>Result — top segments (of 13 total)</caption>
+        <thead><tr><th>company_type</th><th>questions</th></tr></thead>
+        <tbody>
+          <tr><td>Tier 1 Bank</td><td class="num">260</td></tr>
+          <tr><td>Asset Manager / Investment</td><td class="num">223</td></tr>
+          <tr><td>Hedge Fund / Alternative</td><td class="num">105</td></tr>
+          <tr><td>Vendor / Fintech</td><td class="num">34</td></tr>
+          <tr><td>All other segments (9 categories)</td><td class="num">127</td></tr>
+        </tbody>
+      </table>
+      <p class="ed-result__note">749 total. Tier 1 Banks and Asset Managers together account for nearly two-thirds of every question logged.</p>
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Where the Volume Comes From</h3>
+      <p class="ed-section__sub">Grouping the tagged subset by product pillar and by region — the two dimensions the business cared about most.</p>
+    </div>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">SQL — GROUP BY + window function (share of tagged total)</span>
+      <pre class="ed-code">SELECT
+  pillar,
+  COUNT(*)                                              AS questions,
+  ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 1)    AS pct_of_tagged
+FROM voc_questions
+WHERE pillar IS NOT NULL
+GROUP BY pillar
+ORDER BY questions DESC;</pre>
+    </div>
+    <div class="ed-bars-wrap">
+      <div class="ed-bars__title">Questions by pillar (161 tagged)</div>
+      <div class="ed-bar-row is-top"><div class="ed-bar-row__label">Collateral Management</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:100%"></div></div><div class="ed-bar-row__value">87</div></div>
+      <div class="ed-bar-row"><div class="ed-bar-row__label">Structured Products</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:79%"></div></div><div class="ed-bar-row__value">69</div></div>
+      <div class="ed-bar-row"><div class="ed-bar-row__label">Direct Lending</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:6%"></div></div><div class="ed-bar-row__value">5</div></div>
+    </div>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">SQL — GROUP BY + RANK()</span>
+      <pre class="ed-code">SELECT
+  region,
+  COUNT(*)                                    AS questions,
+  RANK() OVER (ORDER BY COUNT(*) DESC)        AS rank
+FROM voc_questions
+WHERE region IS NOT NULL
+GROUP BY region
+ORDER BY rank;</pre>
+    </div>
+    <div class="ed-bars-wrap">
+      <div class="ed-bars__title">Questions by region (645 tagged, top 6 of 12)</div>
+      <div class="ed-bar-row is-top"><div class="ed-bar-row__label">United States</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:100%"></div></div><div class="ed-bar-row__value">338</div></div>
+      <div class="ed-bar-row"><div class="ed-bar-row__label">United Kingdom</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:54%"></div></div><div class="ed-bar-row__value">183</div></div>
+      <div class="ed-bar-row"><div class="ed-bar-row__label">Germany</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:10%"></div></div><div class="ed-bar-row__value">35</div></div>
+      <div class="ed-bar-row"><div class="ed-bar-row__label">Canada</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:6%"></div></div><div class="ed-bar-row__value">19</div></div>
+      <div class="ed-bar-row"><div class="ed-bar-row__label">Japan</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:5%"></div></div><div class="ed-bar-row__value">17</div></div>
+      <div class="ed-bar-row"><div class="ed-bar-row__label">Netherlands</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:5%"></div></div><div class="ed-bar-row__value">17</div></div>
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Which Segments Care About Which Pillar</h3>
+      <p class="ed-section__sub">Joining the cleaned company-type view back to pillar tags surfaced a pattern clear enough to write straight into messaging.</p>
+    </div>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">SQL — JOIN + CASE + GROUP BY</span>
+      <pre class="ed-code">SELECT
+  c.company_type,
+  SUM(CASE WHEN q.pillar = 'Collateral Management' THEN 1 ELSE 0 END) AS collateral_mgmt,
+  SUM(CASE WHEN q.pillar = 'Structured Products'   THEN 1 ELSE 0 END) AS structured_products,
+  SUM(CASE WHEN q.pillar = 'Direct Lending'         THEN 1 ELSE 0 END) AS direct_lending,
+  SUM(CASE WHEN q.pillar IS NULL                    THEN 1 ELSE 0 END) AS untagged
+FROM voc_questions q
+JOIN dim_company_type_clean c ON c.raw_value = q.company_type_raw
+WHERE c.company_type IN ('Tier 1 Bank','Asset Manager / Investment','Hedge Fund / Alternative')
+GROUP BY c.company_type
+ORDER BY untagged DESC;</pre>
+    </div>
+    <div class="ed-result-wrap">
+      <table class="ed-result">
+        <caption>Result</caption>
+        <thead><tr><th>company_type</th><th>collateral_mgmt</th><th>structured_products</th><th>direct_lending</th><th>untagged</th></tr></thead>
+        <tbody>
+          <tr><td>Tier 1 Bank</td><td class="num">33</td><td class="num">25</td><td class="num">4</td><td class="num">198</td></tr>
+          <tr><td>Asset Manager / Investment</td><td class="num">35</td><td class="num">0</td><td class="num">0</td><td class="num">188</td></tr>
+          <tr><td>Hedge Fund / Alternative</td><td class="num">3</td><td class="num">44</td><td class="num">0</td><td class="num">58</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ed-callout">
+      Once untagged rows are set aside, <strong>Hedge Funds' tagged questions are almost entirely about Structured Products</strong> (44 of 47), <strong>Asset Managers' are exclusively about Collateral Management</strong> (35 of 35), and <strong>Tier 1 Banks are the only segment asking across all three pillars</strong>. That's a real segment-to-pillar affinity, not an assumption — and it's the kind of pattern a single sales conversation never surfaces on its own.
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Fixing the Sales Stage Field</h3>
+      <p class="ed-section__sub">Sales stage was free text at capture — "1st", "Presentation", "Needs analysis" and a handful of values that were clearly meant for a different column entirely. A small lookup table cleaned it up.</p>
+    </div>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">SQL — LEFT JOIN to a funnel-stage lookup table</span>
+      <pre class="ed-code">-- dim_stage_bucket(raw_stage, funnel_stage) maps messy free-text
+-- stage values onto four clean funnel buckets
+SELECT
+  COALESCE(b.funnel_stage, 'Untagged') AS funnel_stage,
+  COUNT(*)                             AS questions
+FROM voc_questions q
+LEFT JOIN dim_stage_bucket b
+  ON q.sales_stage = b.raw_stage
+GROUP BY 1
+ORDER BY questions DESC;</pre>
+    </div>
+    <div class="ed-result-wrap">
+      <table class="ed-result">
+        <caption>Result</caption>
+        <thead><tr><th>funnel_stage</th><th>questions</th></tr></thead>
+        <tbody>
+          <tr><td>Untagged</td><td class="num">585</td></tr>
+          <tr><td>Presentation</td><td class="num">67</td></tr>
+          <tr><td>Discovery</td><td class="num">47</td></tr>
+          <tr><td>Qualification</td><td class="num">44</td></tr>
+          <tr><td>Miscategorised (technical/functional labels found in this field)</td><td class="num">4</td></tr>
+          <tr><td>Closed</td><td class="num">2</td></tr>
+        </tbody>
+      </table>
+      <p class="ed-result__note">The 4 "miscategorised" rows had question-category values ("Technical (deployment/integration)", "Functional (features/workflows)") entered into the sales-stage field — a genuine intake error worth flagging back to the capture process, not something to quietly merge away.</p>
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Momentum Over Time</h3>
+      <p class="ed-section__sub">A running total by quarter, using a window function over the 733 rows with a usable log date.</p>
+    </div>
+    <div class="ed-code-wrap">
+      <span class="ed-code-wrap__label">SQL — window function (running total)</span>
+      <pre class="ed-code">SELECT
+  quarter,
+  questions,
+  SUM(questions) OVER (ORDER BY quarter) AS cumulative_questions
+FROM (
+  SELECT
+    CONCAT(EXTRACT(YEAR FROM log_date), '-Q', EXTRACT(QUARTER FROM log_date)) AS quarter,
+    COUNT(*) AS questions
+  FROM voc_questions
+  WHERE log_date IS NOT NULL
+  GROUP BY 1
+) quarterly
+ORDER BY quarter;</pre>
+    </div>
+    <div class="ed-result-wrap">
+      <table class="ed-result">
+        <caption>Result (16 rows excluded — missing or malformed log_date)</caption>
+        <thead><tr><th>quarter</th><th>questions</th><th>cumulative_questions</th></tr></thead>
+        <tbody>
+          <tr><td>2024-Q2</td><td class="num">126</td><td class="num">126</td></tr>
+          <tr><td>2024-Q3</td><td class="num">219</td><td class="num">345</td></tr>
+          <tr><td>2024-Q4</td><td class="num">53</td><td class="num">398</td></tr>
+          <tr><td>2025-Q1</td><td class="num">35</td><td class="num">433</td></tr>
+          <tr><td>2025-Q2</td><td class="num">176</td><td class="num">609</td></tr>
+          <tr><td>2025-Q3</td><td class="num">124</td><td class="num">733</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ed-callout">
+      The 2024-Q3 spike is <strong>one long, detailed technical deep-dive with a single prospect</strong>, not a shift in overall inbound demand — the kind of outlier a raw growth chart would misread if you didn't check what was actually behind it before writing it into a report.
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">From Query to Dashboard</h3>
+      <p class="ed-section__sub">The version of this that actually got looked at week to week — KPI tiles up top, the two distributions that mattered underneath.</p>
+    </div>
+    <div class="ed-dashboard">
+      <div class="ed-dashboard__bar">
+        <span class="ed-dashboard__bar-title">Voice of Customer — Repository Overview</span>
+        <span class="ed-dashboard__bar-meta">Apr 2024 – Sep 2025</span>
+      </div>
+      <div class="ed-dashboard__body">
+        <div class="ed-kpi-wrap">
+          <div class="ed-kpi-grid">
+            <div class="ed-kpi"><span class="ed-kpi__value">749</span><span class="ed-kpi__label">Questions logged</span></div>
+            <div class="ed-kpi"><span class="ed-kpi__value">12</span><span class="ed-kpi__label">Regions represented</span></div>
+            <div class="ed-kpi"><span class="ed-kpi__value">3</span><span class="ed-kpi__label">Pillars tracked</span></div>
+            <div class="ed-kpi"><span class="ed-kpi__value">21.5%</span><span class="ed-kpi__label">Pillar-tagged at capture</span></div>
+          </div>
+        </div>
+        <div class="ed-dashboard__row">
+          <div class="ed-bars-wrap">
+            <div class="ed-bars__title">By pillar (tagged)</div>
+            <div class="ed-bar-row is-top"><div class="ed-bar-row__label">Collateral Mgmt</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:100%"></div></div><div class="ed-bar-row__value">87</div></div>
+            <div class="ed-bar-row"><div class="ed-bar-row__label">Structured Products</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:79%"></div></div><div class="ed-bar-row__value">69</div></div>
+            <div class="ed-bar-row"><div class="ed-bar-row__label">Direct Lending</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:6%"></div></div><div class="ed-bar-row__value">5</div></div>
+          </div>
+          <div class="ed-bars-wrap">
+            <div class="ed-bars__title">By segment (cleaned)</div>
+            <div class="ed-bar-row is-top"><div class="ed-bar-row__label">Tier 1 Bank</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:100%"></div></div><div class="ed-bar-row__value">260</div></div>
+            <div class="ed-bar-row"><div class="ed-bar-row__label">Asset Manager</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:86%"></div></div><div class="ed-bar-row__value">223</div></div>
+            <div class="ed-bar-row"><div class="ed-bar-row__label">Hedge Fund</div><div class="ed-bar-row__track"><div class="ed-bar-row__fill" style="width:40%"></div></div><div class="ed-bar-row__value">105</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">What the Analysis Was Used For</h3>
+      <p class="ed-section__sub">Not a separate deliverable — the evidence layer underneath the product marketing programme.</p>
+    </div>
+    <p class="ed-section__body">This SQL work fed directly into the programme described in the <a href="enterprise-ai-product-marketing.html">Enterprise AI Product Marketing</a> case study. Flagging how much pillar, stage and category metadata was missing led to a simpler tagging process at the point of capture going forward. Confirming which client segments asked about which pillar gave the messaging work an evidence base instead of a hunch. And tracking the repository's growth quarter over quarter kept the underlying dataset honest — including catching when a single detailed session, not a real shift in demand, explained a spike.</p>
+    <p class="ed-section__body">Two disciplines, one repository: <a href="enterprise-ai-product-marketing.html">building it</a>, and this — <strong>analysing it</strong>.</p>
   </div>
 
 </div>
@@ -155,7 +411,7 @@
         </ul>
       </div>
     </div>
-    <div class="ed-footer__bottom">© 2026 Jessica Feto</div>
+    <div class="ed-footer__bottom">© 2026 Jessica Feto · Work completed via Noova Data Ltd</div>
   </div>
 </footer>
 

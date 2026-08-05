@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice of Customer — Internal Workspace (Representative Sample)</title>
+<meta name="description" content="A representative, anonymised recreation of Intellimation.ai's internal Voice-of-Customer workspace, built for portfolio purposes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap">
+<style>
+  :root{
+    /* neutrals — ~95% of the interface */
+    --paper:#ffffff;
+    --ink:#16171b;
+    --charcoal:#2b2d33;
+    --grey:#6b7078;
+    --light:#9a9fa8;
+    --rule:#e5e7eb;
+    --rule-soft:#eef0f2;
+    --wash:#fafbfc;
+
+    /* brand accent — sampled from the intellimation.ai wordmark gradient, used flat (no gradients) */
+    --accent:#6d55a7;
+    --accent-dark:#54407f;
+    --accent-soft:#f3f1fa;
+    --accent-cyan:#15b8c9;
+    --accent-cyan-text:#0c7987;
+    --accent-cyan-soft:#eaf8fa;
+    --focus-ring:rgba(109,85,167,.28);
+    --mark-bg:#cdeef2;
+
+    --shadow-sm:0 1px 2px rgba(16,17,20,.04);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Lato','Lato Fallback',-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:14.5px;
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit;}
+  ::selection{background:var(--accent-soft);color:var(--accent-dark);}
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:none;box-shadow:0 0 0 3px var(--focus-ring);border-radius:4px;
+  }
+
+  /* ---------- shell ---------- */
+  .voc-shell{display:flex;min-height:100vh;}
+
+  .voc-back{
+    position:fixed;top:14px;left:14px;z-index:50;
+    font-size:11.5px;font-weight:600;color:var(--grey);
+    background:var(--paper);border:1px solid var(--rule);
+    padding:6px 12px;border-radius:6px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .voc-back:hover{color:var(--accent-cyan-text);border-color:var(--accent-cyan);}
+
+  /* ---------- sidebar ---------- */
+  .voc-sidebar{
+    width:260px;flex:none;
+    background:var(--wash);
+    border-right:1px solid var(--rule);
+    padding:56px 18px 24px;
+    display:flex;flex-direction:column;
+    position:sticky;top:0;height:100vh;
+  }
+  .voc-brand{display:flex;align-items:center;gap:9px;margin-bottom:22px;padding:0 6px;}
+  .voc-brand__mark{
+    width:24px;height:24px;border-radius:7px;background:var(--accent);
+    display:flex;align-items:center;justify-content:center;flex:none;
+    color:#fff;font-size:13px;font-weight:900;letter-spacing:-0.02em;
+    box-shadow:var(--shadow-sm);
+  }
+  .voc-brand__name{font-size:13.5px;font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
+  .voc-brand__sub{font-size:10.5px;color:var(--light);margin-top:1px;}
+
+  .voc-search{
+    display:flex;align-items:center;gap:7px;
+    border:1px solid var(--rule);background:var(--paper);
+    border-radius:6px;padding:8px 10px;margin-bottom:18px;
+    transition:border-color .12s ease, box-shadow .12s ease;
+  }
+  .voc-search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--focus-ring);}
+  .voc-search svg{flex:none;opacity:.5;color:var(--grey);}
+  .voc-search input{
+    border:none;outline:none;background:transparent;
+    font-family:inherit;font-size:12.5px;color:var(--ink);width:100%;
+  }
+  .voc-search input::placeholder{color:var(--light);}
+
+  .voc-nav{list-style:none;margin:0;padding:0;}
+  .voc-nav__label{
+    font-size:10px;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--light);margin:14px 6px 6px;font-weight:700;
+  }
+  .voc-nav li{margin:0 0 1px;}
+  .voc-nav a{
+    display:flex;align-items:center;gap:9px;
+    padding:6.5px 8px;border-radius:6px;font-size:13px;color:var(--charcoal);
+    border-left:2px solid transparent;
+    transition:background .12s ease, color .12s ease, border-color .12s ease;
+  }
+  .voc-nav a:hover{background:var(--rule-soft);}
+  .voc-nav a.active{background:var(--accent-soft);color:var(--accent-dark);border-left-color:var(--accent);font-weight:700;}
+  .voc-nav a svg{width:16px;height:16px;flex:none;opacity:.75;}
+  .voc-nav a.active svg{opacity:1;}
+
+  .voc-tagcloud{margin-top:16px;padding:0 6px;}
+  .voc-tagcloud__title{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--light);font-weight:700;margin-bottom:8px;}
+  .voc-tagcloud__pills{display:flex;flex-wrap:wrap;gap:6px;}
+
+  .voc-sidebar__footer{
+    margin-top:auto;padding-top:16px;border-top:1px solid var(--rule);
+    font-size:10.5px;color:var(--light);line-height:1.5;
+  }
+
+  /* ---------- main ---------- */
+  .voc-main{flex:1;min-width:0;padding:56px 56px 100px;}
+  .voc-container{max-width:900px;margin:0 auto;}
+  .voc-container--wide{max-width:1080px;}
+
+  .voc-eyebrow{
+    display:flex;align-items:center;gap:7px;
+    font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--accent-cyan-text);font-weight:700;margin-bottom:10px;
+  }
+  .voc-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-cyan);flex:none;}
+  h1.voc-h1{font-size:25px;font-weight:700;letter-spacing:-0.015em;margin:0 0 10px;color:var(--ink);}
+  .voc-lede{font-size:14px;font-weight:300;color:var(--grey);max-width:640px;margin:0 0 22px;}
+
+  /* buttons */
+  .voc-btn{
+    display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;
+    padding:8px 15px;border-radius:6px;border:1px solid var(--rule);
+    background:var(--paper);color:var(--charcoal);transition:all .12s ease;
+  }
+  .voc-btn:hover{border-color:var(--light);}
+  .voc-btn--primary{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:var(--shadow-sm);}
+  .voc-btn--primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);}
+
+  /* stat tiles */
+  .voc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-bottom:32px;box-shadow:var(--shadow-sm);}
+  .voc-stat{background:var(--paper);padding:16px 18px;}
+  .voc-stat__num{font-size:21px;font-weight:700;letter-spacing:-0.01em;color:var(--ink);}
+  .voc-stat__label{font-size:11.5px;font-weight:300;color:var(--grey);margin-top:3px;}
+
+  /* nav cards */
+  .voc-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px;}
+  .voc-card{
+    border:1px solid var(--rule);border-radius:8px;padding:16px 18px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+    display:block;
+  }
+  .voc-card:hover{border-color:var(--accent-cyan);box-shadow:var(--shadow-sm);}
+  .voc-card__title{font-size:13.5px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:7px;color:var(--ink);}
+  .voc-card__title svg{width:15px;height:15px;color:var(--accent);flex:none;}
+  .voc-card__desc{font-size:12.5px;font-weight:300;color:var(--grey);}
+
+  .voc-section-title{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--light);font-weight:700;margin:0 0 14px;}
+
+  /* activity list */
+  .voc-activity{border-top:1px solid var(--rule);}
+  .voc-activity__row{
+    display:grid;grid-template-columns:100px 1fr auto;gap:16px;align-items:center;
+    padding:12px 6px;border-bottom:1px solid var(--rule);font-size:13px;border-radius:6px;
+  }
+  .voc-activity__row:hover{background:var(--accent-cyan-soft);}
+  .voc-activity__date{color:var(--light);font-size:11.5px;font-weight:300;}
+  .voc-activity__q{color:var(--charcoal);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .voc-activity__co{color:var(--grey);font-size:12px;font-weight:300;}
+
+  /* filter bar */
+  .voc-filterbar{margin-bottom:22px;}
+  .voc-filtergroup{margin-bottom:10px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .voc-filtergroup__label{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--light);font-weight:700;width:78px;flex:none;}
+  .voc-chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .voc-chip{
+    font-size:11.5px;padding:4px 11px;border-radius:6px;border:1px solid var(--rule);
+    color:var(--grey);white-space:nowrap;transition:all .12s ease;
+  }
+  .voc-chip:hover{border-color:var(--accent-cyan);color:var(--accent-cyan-text);}
+  .voc-chip.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700;}
+  .voc-chip.active:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff;}
+
+  .voc-resultbar{display:flex;justify-content:space-between;align-items:center;margin:18px 0 6px;font-size:12px;color:var(--light);}
+  .voc-resultbar button{font-size:11.5px;color:var(--accent-cyan-text);font-weight:600;}
+  .voc-resultbar button:hover{text-decoration:underline;}
+
+  /* table */
+  .voc-table{width:100%;min-width:720px;border-collapse:collapse;table-layout:fixed;}
+  .voc-table col.c-co{width:17%;}
+  .voc-table col.c-pr{width:16%;}
+  .voc-table col.c-st{width:14%;}
+  .voc-table col.c-ca{width:14%;}
+  .voc-table col.c-re{width:12%;}
+  .voc-table col.c-q{width:27%;}
+  .voc-tablewrap{overflow-x:auto;}
+  .voc-table thead th{
+    text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--light);font-weight:700;padding:10px 12px;border-bottom:1px solid var(--rule);
+    border-right:1px solid var(--rule-soft);
+  }
+  .voc-table thead th:last-child{border-right:none;}
+  .voc-table tbody tr{border-bottom:1px solid var(--rule-soft);cursor:pointer;transition:background .1s ease;}
+  .voc-table tbody tr:hover{background:var(--accent-cyan-soft);}
+  .voc-table td{padding:11px 12px;font-size:13px;font-weight:300;vertical-align:top;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-right:1px solid var(--rule-soft);}
+  .voc-table td:last-child{border-right:none;}
+  .voc-table td.co{font-weight:600;color:var(--ink);}
+  .voc-table td.q{color:var(--grey);max-width:340px;}
+  .voc-table td.muted{color:var(--light);font-size:12px;font-weight:300;}
+
+  .voc-pill{
+    display:inline-block;font-size:10.5px;padding:2.5px 8px;border-radius:5px;
+    border:1px solid var(--rule);color:var(--charcoal);white-space:nowrap;
+  }
+  .voc-pill[data-gofilter]{cursor:pointer;transition:all .12s ease;}
+  .voc-pill[data-gofilter]:hover{border-color:var(--accent-cyan);color:var(--accent-cyan-text);}
+  .voc-pill--stage{background:var(--accent-soft);color:var(--accent-dark);border-color:var(--accent-soft);font-weight:700;}
+  .voc-pill--action{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;}
+  mark{background:var(--mark-bg);color:inherit;border-radius:2px;padding:0 1px;}
+
+  .voc-empty{padding:60px 10px;text-align:center;color:var(--light);font-size:13px;}
+
+  /* record page */
+  .voc-crumb{font-size:12px;color:var(--light);margin-bottom:22px;}
+  .voc-crumb a{color:var(--accent-cyan-text);font-weight:600;}
+  .voc-crumb a:hover{text-decoration:underline;}
+  .voc-record-q{font-size:22px;font-weight:700;letter-spacing:-0.01em;line-height:1.4;margin:0 0 28px;color:var(--ink);}
+
+  .voc-props{border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin-bottom:30px;box-shadow:var(--shadow-sm);}
+  .voc-prop{display:grid;grid-template-columns:150px 1fr;border-bottom:1px solid var(--rule);}
+  .voc-prop:last-child{border-bottom:none;}
+  .voc-prop__label{padding:11px 16px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--light);font-weight:700;background:var(--wash);border-right:1px solid var(--rule);}
+  .voc-prop__value{padding:11px 16px;font-size:13.5px;font-weight:300;color:var(--charcoal);display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+
+  .voc-block{margin-bottom:28px;}
+  .voc-block__label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--light);font-weight:700;margin-bottom:10px;}
+  .voc-block__body{font-size:14.5px;font-weight:300;line-height:1.65;color:var(--charcoal);}
+  .voc-quote{border-left:3px solid var(--rule);padding:2px 0 2px 18px;font-size:14.5px;font-weight:300;color:var(--charcoal);}
+  .voc-insight{border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:6px;padding:16px 18px;background:var(--paper);font-size:14px;font-weight:300;color:var(--charcoal);}
+  .voc-actionlist{display:flex;flex-wrap:wrap;gap:8px;}
+
+  .voc-recordnav{display:flex;justify-content:space-between;margin-top:44px;padding-top:20px;border-top:1px solid var(--rule);font-size:12.5px;}
+  .voc-recordnav a{color:var(--accent-cyan-text);font-weight:600;}
+  .voc-recordnav a:hover{text-decoration:underline;}
+
+  /* insights */
+  .voc-rank{border-top:1px solid var(--rule);margin-bottom:40px;}
+  .voc-rank__row{display:flex;align-items:center;gap:14px;padding:12px 6px;border-bottom:1px solid var(--rule);border-radius:6px;cursor:pointer;transition:background .12s ease;}
+  .voc-rank__row:hover{background:var(--accent-cyan-soft);}
+  .voc-rank__row:hover .voc-rank__name{color:var(--accent-cyan-text);}
+  .voc-rank__name{flex:1;font-size:13.5px;font-weight:700;color:var(--ink);transition:color .12s ease;}
+  .voc-rank__meta{font-size:11.5px;color:var(--light);}
+  .voc-rank__rule{flex:1;border-bottom:1px dotted var(--rule);margin:0 2px 4px;}
+  .voc-rank__count{font-size:13px;font-weight:700;width:26px;text-align:right;color:var(--grey);}
+
+  .voc-twocol{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px;}
+  .voc-minilist{border-top:1px solid var(--rule);}
+  .voc-minilist__row{display:flex;justify-content:space-between;padding:9px 6px;border-bottom:1px solid var(--rule-soft);font-size:13px;font-weight:300;border-radius:5px;cursor:pointer;transition:background .12s ease, color .12s ease;}
+  .voc-minilist__row:hover{background:var(--accent-cyan-soft);color:var(--accent-cyan-text);}
+  .voc-minilist__row span:last-child{color:var(--light);font-weight:700;}
+
+  .voc-callouts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .voc-callout{border:1px solid var(--rule);border-radius:8px;padding:16px 18px;font-size:13px;font-weight:300;color:var(--charcoal);}
+  .voc-callout__tag{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--accent-cyan-text);font-weight:700;margin-bottom:6px;display:block;}
+
+  /* tag taxonomy */
+  .voc-taxgroup{margin-bottom:30px;}
+  .voc-taxgroup__title{font-size:13px;font-weight:700;margin-bottom:10px;color:var(--ink);}
+  .voc-taxpills{display:flex;flex-wrap:wrap;gap:8px;}
+  .voc-taxpill{
+    display:flex;align-items:center;gap:7px;border:1px solid var(--rule);border-radius:6px;
+    padding:6px 12px;font-size:12px;color:var(--charcoal);cursor:pointer;transition:all .12s ease;
+  }
+  .voc-taxpill:hover{border-color:var(--accent-cyan);color:var(--accent-cyan-text);}
+  .voc-taxpill b{font-weight:900;color:var(--light);font-size:11px;}
+
+  /* insight intake form */
+  .voc-formcard{border:1px solid var(--rule);border-radius:8px;padding:22px 24px;margin-bottom:34px;background:var(--paper);box-shadow:var(--shadow-sm);}
+  .voc-formcard__title{font-size:14px;font-weight:700;margin-bottom:3px;color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .voc-formcard__title svg{width:16px;height:16px;color:var(--accent);flex:none;}
+  .voc-formcard__desc{font-size:12.5px;font-weight:300;color:var(--grey);margin-bottom:18px;}
+  .voc-formgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px 16px;margin-bottom:6px;}
+  .voc-field{display:flex;flex-direction:column;gap:6px;}
+  .voc-field--full{grid-column:1/-1;}
+  .voc-field label{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--light);}
+  .voc-input,.voc-select,.voc-textarea{
+    border:1px solid var(--rule);border-radius:6px;padding:8px 11px;font-family:inherit;font-size:13px;font-weight:300;
+    color:var(--ink);background:var(--paper);transition:border-color .12s ease, box-shadow .12s ease;width:100%;
+  }
+  .voc-textarea{resize:vertical;min-height:52px;line-height:1.5;}
+  .voc-input:focus,.voc-select:focus,.voc-textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--focus-ring);}
+  .voc-checkchips{display:flex;flex-wrap:wrap;gap:7px;}
+  .voc-checkchip{font-size:11.5px;font-weight:600;padding:5px 12px;border-radius:6px;border:1px solid var(--rule);color:var(--grey);cursor:pointer;transition:all .12s ease;user-select:none;}
+  .voc-checkchip:hover{border-color:var(--accent-cyan);color:var(--accent-cyan-text);}
+  .voc-checkchip.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .voc-form__footer{display:flex;align-items:center;gap:14px;margin-top:16px;}
+  .voc-form__msg{font-size:12px;font-weight:600;}
+  .voc-form__msg--error{color:#a5433f;}
+  .voc-form__msg--success{color:var(--accent-cyan-text);}
+
+  /* marketing actions board */
+  .voc-board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .voc-boardcol{border:1px solid var(--rule);border-radius:8px;padding:14px;background:var(--wash);}
+  .voc-boardcol__title{font-size:12px;font-weight:700;margin-bottom:3px;color:var(--ink);}
+  .voc-boardcol__count{font-size:11px;color:var(--light);margin-bottom:12px;}
+  .voc-boardcard{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:10px 12px;margin-bottom:8px;font-size:12px;cursor:pointer;transition:border-color .12s ease;}
+  .voc-boardcard:hover{border-color:var(--accent-cyan);}
+  .voc-boardcard__q{color:var(--charcoal);font-weight:300;display:block;margin-bottom:4px;line-height:1.4;}
+  .voc-boardcard__meta{color:var(--light);font-size:10.5px;font-weight:300;}
+
+  @media (max-width: 880px){
+    .voc-sidebar{display:none;}
+    .voc-main{padding:60px 20px 80px;}
+    .voc-stats{grid-template-columns:repeat(2,1fr);}
+    .voc-cards{grid-template-columns:1fr;}
+    .voc-twocol{grid-template-columns:1fr;}
+    .voc-callouts{grid-template-columns:1fr;}
+    .voc-board{grid-template-columns:1fr;}
+    .voc-formgrid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<a class="voc-back" href="enterprise-ai-product-marketing.html">← Back to case study</a>
+
+<div class="voc-shell">
+  <aside class="voc-sidebar">
+    <div class="voc-brand">
+      <div class="voc-brand__mark">i</div>
+      <div>
+        <div class="voc-brand__name">Voice of Customer</div>
+        <div class="voc-brand__sub">Product Marketing Workspace</div>
+      </div>
+    </div>
+
+    <div class="voc-search">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="sidebarSearch" type="text" placeholder="Search 749 questions…">
+    </div>
+
+    <ul class="voc-nav">
+      <div class="voc-nav__label">Workspace</div>
+      <li><a href="#home" data-view="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.5 12 4.5l8.5 7"/><path d="M5.5 10v9.5h13V10"/><path d="M9.5 19.5v-6.25h5v6.25"/></svg> Home</a></li>
+      <li><a href="#database" data-view="database"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="9" y1="9.5" x2="9" y2="19.5"/></svg> All Questions</a></li>
+      <li><a href="#insights" data-view="insights"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,14 8,14 10.3,8 13.5,17 15.8,14 20.5,14"/></svg> Insights Dashboard</a></li>
+      <li><a href="#tags" data-view="tags"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.3 3.5H6a1.5 1.5 0 0 0-1.5 1.5v6.3c0 .4.16.78.44 1.06l9.7 9.7a1.5 1.5 0 0 0 2.12 0l5.6-5.6a1.5 1.5 0 0 0 0-2.12l-9.7-9.7a1.5 1.5 0 0 0-1.06-.44Z"/><circle cx="8.75" cy="8.75" r="1.1" fill="currentColor" stroke="none"/></svg> Tag Taxonomy</a></li>
+      <li><a href="#marketing" data-view="marketing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.2v3.6a1 1 0 0 0 1 1h1.8l1.1 5.2h1.9l-1.1-5.2h1L18.5 18V6l-9.3 3.2H4.5a1 1 0 0 0-1 1Z"/><path d="M18.5 9.8a3 3 0 0 1 0 4.4"/></svg> Marketing Actions</a></li>
+    </ul>
+
+    <div class="voc-tagcloud">
+      <div class="voc-tagcloud__title">Pillars</div>
+      <div class="voc-tagcloud__pills" id="sidebarProducts"></div>
+    </div>
+
+    <div class="voc-sidebar__footer">
+      Representative sample, anonymised for portfolio use. Client names replaced with generic placeholders; all figures illustrative.
+      <div style="margin-top:8px;"><button id="resetDemoBtn" style="font-size:10.5px;font-weight:700;color:var(--accent-cyan-text);">Reset demo entries</button></div>
+    </div>
+  </aside>
+
+  <main class="voc-main" id="main"></main>
+</div>
+
+<script>
+const ICONS = {
+  database: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="1.5"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><line x1="9" y1="9.5" x2="9" y2="19.5"/></svg>',
+  insights: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5,14 8,14 10.3,8 13.5,17 15.8,14 20.5,14"/></svg>',
+  tags: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.3 3.5H6a1.5 1.5 0 0 0-1.5 1.5v6.3c0 .4.16.78.44 1.06l9.7 9.7a1.5 1.5 0 0 0 2.12 0l5.6-5.6a1.5 1.5 0 0 0 0-2.12l-9.7-9.7a1.5 1.5 0 0 0-1.06-.44Z"/><circle cx="8.75" cy="8.75" r="1.1" fill="currentColor" stroke="none"/></svg>',
+  marketing: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.2v3.6a1 1 0 0 0 1 1h1.8l1.1 5.2h1.9l-1.1-5.2h1L18.5 18V6l-9.3 3.2H4.5a1 1 0 0 0-1 1Z"/><path d="M18.5 9.8a3 3 0 0 1 0 4.4"/></svg>',
+};
+const ACTION_TYPES = ['Updated brochure','Updated sales deck','Updated website copy','Added FAQ','Created LinkedIn post','Briefed sales team','Added to demo script','Updated onboarding guide'];
+const CATEGORY_TYPES = ['Functional','Technical','Strategic','Commercial','Compliance / Risk'];
+const DATA = [{"id": "Q-001", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Technical", "date": "03 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "What is the source of the information and then process ahead", "answer": "We can source the data from anywhere: mailbox, DB etc.,; client's take on defining the scope on sources for pulling the data", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Added to demo script"]}, {"id": "Q-002", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "03 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Can the source data be from anywhere like e-mails, Database etc.,", "answer": "Yes, if it's in the scope of vector", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Updated onboarding guide"]}, {"id": "Q-003", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Technical", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "What platform is your product on AWS/Azure", "answer": "We can deploy on cloud and also on prem", "theme": "Integration Breadth", "insight": "Customers consistently ask how many source systems and file types the platform can ingest.", "actions": ["Updated onboarding guide"]}, {"id": "Q-004", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Technical", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "On prem, will vector be running on your own server", "answer": "No, but it depends on your (client's) call", "theme": "Integration Breadth", "insight": "Customers consistently ask how many source systems and file types the platform can ingest.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-006", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Technical", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Does it require a lot of processes for on prem service", "answer": "We have a list of requirements which can be shared later on for the on-prem deployment", "theme": "Deployment Flexibility", "insight": "Cloud vs. on-prem flexibility comes up in nearly every technical deep dive.", "actions": ["Updated website copy"]}, {"id": "Q-007", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Compliance / Risk", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Asked on licensing, they will perform due diligence but from on prem we can by pass that process, how flexible are you on deployment", "answer": "We are flexible with the deployment as per the client's call", "theme": "Governance & Oversight", "insight": "Risk and compliance teams want a clear audit trail before any AI output reaches production.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-008", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Lead Qualification", "category": "Technical", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "How do you connect with mailbox? What are the ways to connect?", "answer": "Connect via Graph API to mailbox; other connections possible via: FTP, SFTP, Solace, M Queues, sharepoints and flat-files", "theme": "Deployment Flexibility", "insight": "Cloud vs. on-prem flexibility comes up in nearly every technical deep dive.", "actions": ["Updated sales deck"]}, {"id": "Q-010", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Asked on the accessibility and permisions for different users?", "answer": "Explained that a system account will be generated which is a seperate IT dedicated task", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Added to demo script"]}, {"id": "Q-011", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Delivery/Implementation", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Can your system understand and has learning capability from the Oracle database? Is it automated or will it require human intervention", "answer": "Yes. For automation part: some initial training is required and then our system runs. However, finetuning will go on as per the customer's requirements", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-012", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Asked on defining relationships and level of smartness of vector in building the relationship", "answer": "It depends on Defining Schema which is a one time activity. Once a relationship is established then it will be capable to do from next time onwards", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-014", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Technical", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Would it require a lot of set-up time", "answer": "Explained that finetuning based on synthetic data>>training the model>>Optimizing>>Learning etc., process takes around 3-6 months of time. During that time you would see the benefits rising and plateauing is what will happen in 3-6 months", "theme": "Deployment Flexibility", "insight": "Cloud vs. on-prem flexibility comes up in nearly every technical deep dive.", "actions": ["Added to demo script"]}, {"id": "Q-015", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "One of the job is to look out at the info from the DB and check if the figures are correct or not from Bloomberg etc., can it be done? Have you done any similar process", "answer": "Yes, we have done similar process for one of our clients. It is possible and depends license from your end for the bloomberg", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-016", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "What if the field names are different for example Price written as PRC, will your system be able to identify and extract the right information in this case", "answer": "While training we take care of all the permutations that Price may be written in for example prc, pr, price etc.,", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-017", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Commercial", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "What are the pricing model", "answer": "Based on usecases - 1) Field wise 2)User-based 3) Flat based", "theme": "Licensing Flexibility", "insight": "Procurement teams want licensing terms that flex with usage, not fixed seat counts.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-020", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "During the valuation demo asked whether we can have a chat box feature for signaling errors etc., rather than going through the excel file of extracted data", "answer": "Chatbox feature is possible", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated sales deck"]}, {"id": "Q-021", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Asked whether the fields displayed in the PPT for valuation are defined and can we define other fields too", "answer": "Fields can be defined as per the client's call", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated onboarding guide"]}, {"id": "Q-022", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Introduction", "category": "Functional", "date": "3 July, 2024", "meeting": "Technology Deep Dive: Intellimation AI & European Asset Manager", "question": "Asked on macros in excel, is it possible", "answer": "Explained that the main challenge of the clients is extracting the data from PDf and there exists operational challenges in macros", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Added to demo script"]}, {"id": "Q-024", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Discovery", "category": "Functional", "date": "25 July, 2024", "meeting": "Demo with European Asset Manager", "question": "Will the model be able to understand if there is a slight difference in the inputs that the model has been trained on?", "answer": "Yes, and if it hasn’t been trained on the difference it would move that input to unverified que for training.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated onboarding guide"]}, {"id": "Q-025", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Discovery", "category": "Functional", "date": "25 July, 2024", "meeting": "Demo with European Asset Manager", "question": "How is the output displayed? Is it in UI?", "answer": "Answered while displaying the demo.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-026", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Discovery", "category": "Strategic", "date": "25 July, 2024", "meeting": "Demo with European Asset Manager", "question": "Do you have other modules that cover the middle-office ops?", "answer": "Yes, we do which we can cover in the next demos.", "theme": "Platform Expansion", "insight": "Buyers ask about adjacent modules early, signalling appetite for a multi-year platform relationship.", "actions": ["Updated sales deck"]}, {"id": "Q-027", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Discovery", "category": "Strategic", "date": "25 July, 2024", "meeting": "Demo with European Asset Manager", "question": "In case of the fields changes due to amendments or regulatory changes how does that affect the RFP process displayed on the demo?", "answer": "The RFP process would update automatically once the new inputs with the necessary changes are processed and the User would need to review in the unprocessed que.", "theme": "Platform Expansion", "insight": "Buyers ask about adjacent modules early, signalling appetite for a multi-year platform relationship.", "actions": ["Updated onboarding guide"]}, {"id": "Q-028", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Discovery", "category": "Functional", "date": "25 July, 2024", "meeting": "Demo with European Asset Manager", "question": "If new fields are added, then will the system process the files?", "answer": "Yes, but you need to confirm the boundaries of what fields you want to extract. Where do those file end-up? They stay in your production in a location you specify.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-030", "company": "European Asset Manager", "companyType": "Asset Manager / Investment", "region": "United States", "product": "Collateral Management", "stage": "Discovery", "category": "Functional", "date": "25 July, 2024", "meeting": "Demo with European Asset Manager", "question": "Wants to see the unstructured data and then the output we can provide", "answer": "We can cover this in the next demo around Margin Bookings.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated brochure", "Added FAQ"]}, {"id": "Q-032", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Tell us the workflow and how can we integrate the model?", "answer": "The team explained process flow, margin booking demo, dashboard, connectors (APIs, SFTP, flat files).", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-033", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Compliance / Risk", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Is the database hosted by Intellimation?", "answer": "Client’s call on maintaining the database.", "theme": "Governance & Oversight", "insight": "Risk and compliance teams want a clear audit trail before any AI output reaches production.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-034", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "How hard is it to add connector to your product?", "answer": "We already support APIs, SFTP, flat files; easy to integrate.", "theme": "Integration Breadth", "insight": "Customers consistently ask how many source systems and file types the platform can ingest.", "actions": ["Updated onboarding guide"]}, {"id": "Q-035", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Asked about the interfacing layer and the complications of it in managing the flow with the downstream systems.", "answer": "Vector is change agnostic; connectors exist; we sit behind client firewall.", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Updated website copy"]}, {"id": "Q-036", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "How are you managing the counterparties? (Margin booking demo)", "answer": "The team explained counterparty handling in dashboard + unverified calls.", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-037", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Will the product (Margin Booking) work from Day 1?", "answer": "High probability model starts with high throughput; trained with synthetic data.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated brochure", "Added FAQ"]}, {"id": "Q-038", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Is there an NLP layer or is the product custom built?", "answer": "Custom built, not Gen AI.", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Added to demo script"]}, {"id": "Q-040", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Asked to locate some values that were visible on the PDF in the extracted details section (e.g., 9% interest rate, interest payment date).", "answer": "Demonstrated during Trade Verification NLP demo.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated sales deck"]}, {"id": "Q-041", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Asked question on APIs and connectors.", "answer": "Mentioned APIs, SFTP, flat files already supported.", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Updated website copy"]}, {"id": "Q-042", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "11-Jun-24", "meeting": "Initial Meeting", "question": "Could we create the term sheets ourselves? (Mirror image of harvesting data to reconcile with internal booking)", "answer": "Yes, already did similar in pricing supplemental; this is easier than harvesting.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Added to demo script"]}, {"id": "Q-045", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Oct-24", "meeting": "Use Case Discussion", "question": "With the third party OCR (they do run into images with associated larger file sizes), how do you handle DB Data.", "answer": "We understand that data is very important, everything will be on premise and nothing will be stored on cloud", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-046", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "11-Oct-24", "meeting": "Use Case Discussion", "question": "Can we have this for loan docs?", "answer": "Yes we can, with training data we can understand the classification of any new document and incorporate this", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Updated website copy"]}, {"id": "Q-047", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Strategic", "date": "11-Oct-24", "meeting": "Use Case Discussion", "question": "Can the system ask that I don't understand this and teach me (new legal clauses).", "answer": "Yes, it can highlight and cover with additional training", "theme": "Roadmap Depth", "insight": "Prospects use roadmap questions to gauge long-term platform investment, not just current features.", "actions": ["Updated website copy"]}, {"id": "Q-048", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "11-Oct-24", "meeting": "Use Case Discussion", "question": "Can we do reverse engineer and do the trade booking.", "answer": "Yes the same system can do trade verification, trade capture and trade reconciliation.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated website copy"]}, {"id": "Q-049", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Oct-24", "meeting": "Use Case Discussion", "question": "Do we have our own embedding model?", "answer": "Yes, Trained on specific data, which finds similar embedding and removes noise.", "theme": "Integration Breadth", "insight": "Customers consistently ask how many source systems and file types the platform can ingest.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-050", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Technical", "date": "11-Oct-24", "meeting": "Use Case Discussion", "question": "Can you handle large documents?", "answer": "Yes, it can locate the areas most likely to contain the relevant information and focus its attention on them to source the right output", "theme": "Integration Breadth", "insight": "Customers consistently ask how many source systems and file types the platform can ingest.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-052", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "11-Oct-24", "meeting": "Use Case Discussion", "question": "Can the system handle optionality, knock ins / knock outs?", "answer": "Yes, begetting a convo on conditional terminology and the multi-hop approach", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-055", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "Germany", "product": "Structured Products", "stage": "Qualification", "category": "Functional", "date": "9/23/2024", "meeting": "Structured Products Discussion", "question": "Highlight within the term sheet any region where no information/data has been deducted (A’)?", "answer": "Machine will show where all the information/data comes from; A’ is just the remainder.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-056", "company": "Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Presentation", "category": "Technical", "date": "3-Apr-25", "meeting": "Trade Compass - Demos", "question": "In the practical perspective, when you face a new problem, how does the training process work? How do you set an accuracy baseline in these new areas? Are domain experts or human intervention required?", "answer": "Training involves domain experts + human-in-the-loop. Accuracy baseline is set during UAT and refined with client data.", "theme": "Deployment Flexibility", "insight": "Cloud vs. on-prem flexibility comes up in nearly every technical deep dive.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-057", "company": "Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Presentation", "category": "Technical", "date": "3-Apr-25", "meeting": "Trade Compass - Demos", "question": "How many use cases has the model been trained in? How many in Fixed Income?", "answer": "Vector trained across multiple BFSI use cases; Fixed Income coverage included.", "theme": "Deployment Flexibility", "insight": "Cloud vs. on-prem flexibility comes up in nearly every technical deep dive.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-058", "company": "Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Presentation", "category": "Functional", "date": "3-Apr-25", "meeting": "Trade Compass - Demos", "question": "If you train models on our data, would it help develop your models output elsewhere?", "answer": "Data is client-specific, isolated within firewall. No leakage between clients.", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Updated onboarding guide"]}, {"id": "Q-059", "company": "Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Presentation", "category": "Strategic", "date": "3-Apr-25", "meeting": "Trade Compass - Demos", "question": "Can you do earnings calls as long as it is a document?", "answer": "Yes, earnings calls can be processed if available in text/document format.", "theme": "Roadmap Depth", "insight": "Prospects use roadmap questions to gauge long-term platform investment, not just current features.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-060", "company": "Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Presentation", "category": "Functional", "date": "3-Apr-25", "meeting": "Trade Compass - Demos", "question": "How much manual input is required from the end user in practice?", "answer": "Minimal manual input required; exceptions handled via unprocessed queue with human verification.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-061", "company": "Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Presentation", "category": "Functional", "date": "3-Apr-25", "meeting": "Trade Compass - Demos", "question": "Can you extract based on text analysis & identify how much of it is being described by media narratives?", "answer": "NLP text analysis can identify % narrative coverage and link to drivers (news vs. data).", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-062", "company": "Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Presentation", "category": "Strategic", "date": "3-Apr-25", "meeting": "Trade Compass - Demos", "question": "Can the tool generate signals from inputs like CB commentaries, labor markets data etc. & identify sudden narrative switches that impact asset prices?", "answer": "Yes. Vector can process macro commentary, labor data, etc. and assign sentiment scores / narrative-switch alerts.", "theme": "Roadmap Depth", "insight": "Prospects use roadmap questions to gauge long-term platform investment, not just current features.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-063", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Functional", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "Confused about the polarity of the margin movement, have you explored some complexities there? Who is outgoing?", "answer": "Direction depends on sender’s perspective. Vector adapts to each org (Org A vs Org B). Context-aware.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-064", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Functional", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "If the USD was not in the latest email, but was in the below email, if it wasn’t in the below email as well, what would you do—flag it as non-STP or still read with a solution?", "answer": "Non-STP. Human touch used.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Added to demo script"]}, {"id": "Q-065", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Functional", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "So just to confirm — out of a recent batch of emails, nearly all went straight-through to downstream systems and only a handful were flagged. Can you walk me through the exception filtering and classification logic?", "answer": "Yes — exceptions are flagged and worked through using the classification logic, with a full audit trail of what was routed straight-through versus held for review.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-066", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Functional", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "So there is no human in the loop? Can we add one if needed?", "answer": "Correct. Exceptions can go through maker-checker controls.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Added to demo script"]}, {"id": "Q-067", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Strategic", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "Can you tell me how your other clients are implementing these solutions?", "answer": "Vector processes mailbox emails via rules → APIs → updates SSIs → optional maker-checker.", "theme": "Roadmap Depth", "insight": "Prospects use roadmap questions to gauge long-term platform investment, not just current features.", "actions": ["Updated brochure", "Updated website copy"]}, {"id": "Q-068", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Technical", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "How long does it take to train new document types?", "answer": "Max 4 weeks depending on document type.", "theme": "Deployment Flexibility", "insight": "Cloud vs. on-prem flexibility comes up in nearly every technical deep dive.", "actions": ["Updated website copy"]}, {"id": "Q-069", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Functional", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "What’s the kick-off process? Is it drag and drop?", "answer": "No drag & drop needed; in-built classification engine.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-070", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Technical", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "Integration with Microsoft Dynamics? Are you looking to collaborate?", "answer": "Can explore Microsoft Dynamics integration, not yet done.", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Updated brochure", "Added FAQ"]}, {"id": "Q-071", "company": "Tier 1 Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Collateral Management", "stage": "Presentation", "category": "Functional", "date": "11-Jun-25", "meeting": "Intellimation AI/Tier 1 Bank Demo", "question": "How does your solution perform when one mailbox handles multiple workflows (margin, settlement, SSI)? Can you classify & route?", "answer": "Yes. Classification engine for multiple workflows. Reported 100% accuracy. Maker-checker optional.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-072", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Commercial", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What fraction of your business uses this?", "answer": "Answer not explicitly recorded in notes.", "theme": "Pricing Transparency", "insight": "Commercial stakeholders push for clear, comparable pricing logic before committing to a POC.", "actions": ["Updated website copy"]}, {"id": "Q-073", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Strategic", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What are most clients using your product for?", "answer": "Not explicitly answered; Intellimation explained reconciliation, broker invoice processing, DDQ/RFQ, KYC, anomaly detection.", "theme": "Roadmap Depth", "insight": "Prospects use roadmap questions to gauge long-term platform investment, not just current features.", "actions": ["Updated website copy"]}, {"id": "Q-074", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Functional", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Do you have an off-the-shelf tool?", "answer": "Core reconciliation capabilities exist, customizable for use case.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated onboarding guide"]}, {"id": "Q-075", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Commercial", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Is it looking at invoices and comparing them to trade-confirm emails?", "answer": "Yes, reconciliation includes invoices vs. trade-confirm emails.", "theme": "Licensing Flexibility", "insight": "Procurement teams want licensing terms that flex with usage, not fixed seat counts.", "actions": ["Added to demo script"]}, {"id": "Q-076", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Compliance / Risk", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What percentage of your business is broker-invoice reconciliation?", "answer": "Not explicitly answered.", "theme": "Risk Controls", "insight": "Legal and risk stakeholders consistently ask how exceptions and edge cases are escalated.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-077", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Functional", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Is it an all-in-one reconciliation solution?", "answer": "Intellimation positioned as end-to-end reconciliation including anomalies, DDQ, invoices, KYC.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Briefed sales team", "Added to demo script"]}, {"id": "Q-078", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Functional", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "How could you help with FCM match report breaks and broker follow-ups?", "answer": "Intellimation.ai reconciles match reports, flags breaks, automates follow-ups.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated sales deck"]}, {"id": "Q-079", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Commercial", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What’s the general price per month for broker invoice reconciliation?", "answer": "Pricing details requested; intellimation to share clarity in slides.", "theme": "Licensing Flexibility", "insight": "Procurement teams want licensing terms that flex with usage, not fixed seat counts.", "actions": ["Updated sales deck"]}, {"id": "Q-080", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Commercial", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What’s the typical cost of the DDQ/RFQ process?", "answer": "Same as above—clarity to be shared.", "theme": "Licensing Flexibility", "insight": "Procurement teams want licensing terms that flex with usage, not fixed seat counts.", "actions": ["Updated onboarding guide"]}, {"id": "Q-081", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Commercial", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What’s the range of costs customers usually pay?", "answer": "Open; requested pricing tiers to be provided.", "theme": "Pricing Transparency", "insight": "Commercial stakeholders push for clear, comparable pricing logic before committing to a POC.", "actions": ["Updated website copy"]}, {"id": "Q-082", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Commercial", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What's the practical difference between your lowest-tier and highest-tier pricing?", "answer": "Open question — the team offered to follow up with a clearer breakdown of pricing tiers.", "theme": "Pricing Transparency", "insight": "Commercial stakeholders push for clear, comparable pricing logic before committing to a POC.", "actions": ["Updated brochure", "Added FAQ"]}, {"id": "Q-083", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Strategic", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Do you have similar clients we can speak to as references?", "answer": "Intellimation to provide reference client details.", "theme": "Platform Expansion", "insight": "Buyers ask about adjacent modules early, signalling appetite for a multi-year platform relationship.", "actions": ["Updated onboarding guide"]}, {"id": "Q-084", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Commercial", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Can you provide more clarity on costs for internal reporting?", "answer": "To be provided in follow-up deck.", "theme": "Pricing Transparency", "insight": "Commercial stakeholders push for clear, comparable pricing logic before committing to a POC.", "actions": ["Updated brochure", "Added FAQ"]}, {"id": "Q-085", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Strategic", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Could you share a ranked list of solutions (most-used vs. least-used)?", "answer": "To be provided in slides.", "theme": "Platform Expansion", "insight": "Buyers ask about adjacent modules early, signalling appetite for a multi-year platform relationship.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-086", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Technical", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "What’s the architectural setup, dedicated server or inside our network?", "answer": "Deployment preference: private cloud vs. managed service; Intellimation supports both", "theme": "Integration Breadth", "insight": "Customers consistently ask how many source systems and file types the platform can ingest.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-087", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Technical", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Would this be deployed in our private cloud?", "answer": "Yes, private-cloud deployment possible.", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Created LinkedIn post", "Updated sales deck"]}, {"id": "Q-088", "company": "Multi-Strategy Hedge Fund", "companyType": "Hedge Fund / Alternative", "region": "United States", "product": "Structured Products", "stage": "Discovery", "category": "Technical", "date": "9-Sep-25", "meeting": "Intellimation AI <> Multi-Strategy Hedge Fund", "question": "Is commission-break reconciliation the main problem statement to focus on?", "answer": "The client agreed this is the most relevant initial use case.", "theme": "Data Source Compatibility", "insight": "Technical stakeholders want concrete proof the platform handles their specific data mix.", "actions": ["Updated brochure", "Added FAQ"]}, {"id": "Q-089", "company": "Fintech Vendor", "companyType": "Vendor / Fintech", "region": "United Kingdom", "product": "Direct Lending", "stage": "Discovery", "category": "Strategic", "date": "23-Mar-25", "meeting": "Direct Lending Strategy Session", "question": "How can a messaging/collaboration platform increase stickiness against incumbents?", "answer": "Positioned Intellimation as a translation layer that turns unstructured chat and document data into structured records, focusing on KYC/CLM and Collateral Management as the highest-demand applications.", "theme": "Roadmap Depth", "insight": "Prospects use roadmap questions to gauge long-term platform investment, not just current features.", "actions": ["Updated brochure", "Added FAQ"]}, {"id": "Q-090", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Direct Lending", "stage": "Qualification", "category": "Technical", "date": "9-Jun-25", "meeting": "Direct Lending Fact-Find", "question": "When you say you ingest a data dump, do you mean Word docs, PDFs, emails, free text? Would Excel work as well?", "answer": "Yes — the platform ingests PDFs, emails, free text and Excel. It is not a generic LLM wrapper; the AI builds relationships between the input and the downstream process.", "theme": "Integration Breadth", "insight": "Customers consistently ask how many source systems and file types the platform can ingest.", "actions": ["Updated website copy"]}, {"id": "Q-091", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Direct Lending", "stage": "Qualification", "category": "Technical", "date": "9-Jun-25", "meeting": "Direct Lending Fact-Find", "question": "Under the hood, are you generating code from the input data, or running prompts against a model at inference time?", "answer": "The system builds code — the AI models construct the relationship between input and process rather than relying on prompt-only inference.", "theme": "Deployment Flexibility", "insight": "Cloud vs. on-prem flexibility comes up in nearly every technical deep dive.", "actions": ["Updated sales deck"]}, {"id": "Q-092", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Direct Lending", "stage": "Qualification", "category": "Functional", "date": "9-Jun-25", "meeting": "Direct Lending Fact-Find", "question": "Is coverage limited to traditional, publicly-priced asset classes, or does it extend to Direct Lending and Private Equity?", "answer": "Both are covered — Direct Lending and Private Equity valuations are supported alongside traditional asset classes.", "theme": "Automation Depth", "insight": "Evaluators want to know exactly where automation stops and manual review begins.", "actions": ["Updated sales deck"]}, {"id": "Q-093", "company": "Global Investment Bank", "companyType": "Tier 1 Bank", "region": "United States", "product": "Direct Lending", "stage": "Presentation", "category": "Functional", "date": "9-Jun-25", "meeting": "Direct Lending Fact-Find", "question": "Once the valuation agents process the crawled data, what does the client actually receive?", "answer": "An exportable report as an external output, plus a live dashboard view inside the platform.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated onboarding guide"]},
+{"id": "Q-100", "company": "Prime Broker", "companyType": "Broker / Custodian Services", "region": "United Kingdom", "product": "Prime Brokerage", "stage": "Presentation", "category": "Functional", "date": "14-Jul-25", "meeting": "Prime Brokerage Discovery Call", "question": "Can the platform reconcile margin calls across multiple prime brokerage accounts automatically?", "answer": "Yes — margin statements are ingested per account and reconciled against internal ledger positions, with breaks flagged for review.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated sales deck", "Added to demo script"]},
+{"id": "Q-101", "company": "Prime Broker", "companyType": "Broker / Custodian Services", "region": "United Kingdom", "product": "Prime Brokerage", "stage": "Qualification", "category": "Technical", "date": "14-Jul-25", "meeting": "Prime Brokerage Discovery Call", "question": "How do you handle securities lending recalls that come through as unstructured emails?", "answer": "Recall notices are parsed the same way as any other unstructured input — extracted, classified and routed to the relevant desk automatically.", "theme": "Data Extraction Accuracy", "insight": "Buyers consistently stress-test extraction accuracy on messy, non-standard source formats.", "actions": ["Updated brochure", "Added FAQ"]},
+{"id": "Q-102", "company": "Prime Broker", "companyType": "Broker / Custodian Services", "region": "United Kingdom", "product": "Prime Brokerage", "stage": "Discovery", "category": "Functional", "date": "21-Jul-25", "meeting": "Prime Brokerage Follow-Up", "question": "Do you support daily counterparty exposure reporting across our prime brokerage relationships?", "answer": "Yes — exposure can be aggregated across counterparties and produced as a daily report or a live dashboard view.", "theme": "Workflow Coverage", "insight": "Prospects repeatedly probe how far automated workflows extend before a human needs to step in.", "actions": ["Updated website copy"]},
+{"id": "Q-103", "company": "Prime Broker", "companyType": "Broker / Custodian Services", "region": "United Kingdom", "product": "Prime Brokerage", "stage": "Discovery", "category": "Commercial", "date": "21-Jul-25", "meeting": "Prime Brokerage Follow-Up", "question": "What's the pricing structure for a prime brokerage-specific deployment?", "answer": "The same usage-based model as other pillars — field-wise, user-based or flat licensing, depending on volume.", "theme": "Licensing Flexibility", "insight": "Procurement teams want licensing terms that flex with usage, not fixed seat counts.", "actions": ["Briefed sales team"]}];
+
+/* ---------------- state & helpers ---------------- */
+const state = { view:'home', recordId:null, filters:{product:null,stage:null,category:null,region:null,theme:null}, query:'', formMessage:null };
+const TOTAL_LOGGED = 749;
+let selectedActionsSet = new Set();
+
+function loadCustomEntries(){
+  try{
+    const raw = localStorage.getItem('voc_custom_entries');
+    if(raw){ JSON.parse(raw).forEach(r=>DATA.push(r)); }
+  }catch(e){ /* localStorage unavailable — skip */ }
+}
+function saveCustomEntries(){
+  try{
+    const custom = DATA.filter(d=>d.id.indexOf('Q-NEW-')===0);
+    localStorage.setItem('voc_custom_entries', JSON.stringify(custom));
+  }catch(e){ /* localStorage unavailable — skip */ }
+}
+function resetCustomEntries(){
+  if(!confirm('Remove any insights you\'ve logged in this demo and reload?')) return;
+  try{ localStorage.removeItem('voc_custom_entries'); }catch(e){}
+  location.hash = '#home';
+  location.reload();
+}
+
+function uniq(field){ return [...new Set(DATA.map(d=>d[field]).filter(Boolean))]; }
+function countBy(field){
+  const m = {};
+  DATA.forEach(d=>{ const v=d[field]; if(!v) return; m[v]=(m[v]||0)+1; });
+  return Object.entries(m).sort((a,b)=>b[1]-a[1]);
+}
+function esc(s){ return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function highlight(text, q){
+  if(!q) return esc(text);
+  const re = new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');
+  return esc(text).replace(re, '<mark>$1</mark>');
+}
+function matchesFilters(row){
+  const f = state.filters;
+  if(f.product && row.product!==f.product) return false;
+  if(f.stage && row.stage!==f.stage) return false;
+  if(f.category && row.category!==f.category) return false;
+  if(f.region && row.region!==f.region) return false;
+  if(f.theme && row.theme!==f.theme) return false;
+  if(state.query){
+    const q = state.query.toLowerCase();
+    const hay = (row.question+' '+row.answer+' '+row.company+' '+row.product+' '+row.category+' '+row.theme).toLowerCase();
+    if(!hay.includes(q)) return false;
+  }
+  return true;
+}
+function filteredRows(){ return DATA.filter(matchesFilters); }
+
+/* ---------------- router ---------------- */
+function parseHash(){
+  const h = location.hash.replace('#','');
+  const [view, arg] = h.split('/');
+  state.view = view || 'home';
+  state.recordId = arg || null;
+}
+window.addEventListener('hashchange', () => { parseHash(); render(); window.scrollTo(0,0); });
+
+document.getElementById('sidebarSearch').addEventListener('keydown', (e)=>{
+  if(e.key==='Enter'){
+    state.query = e.target.value.trim();
+    state.filters = {product:null,stage:null,category:null,region:null,theme:null};
+    location.hash = '#database';
+    render();
+  }
+});
+
+/* ---------------- render dispatch ---------------- */
+function render(){
+  document.querySelectorAll('.voc-nav a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.view===state.view);
+  });
+  const main = document.getElementById('main');
+  if(state.view==='home') main.innerHTML = viewHome();
+  else if(state.view==='database') main.innerHTML = viewDatabase();
+  else if(state.view==='record') main.innerHTML = viewRecord(state.recordId);
+  else if(state.view==='insights') main.innerHTML = viewInsights();
+  else if(state.view==='tags') main.innerHTML = viewTags();
+  else if(state.view==='marketing') main.innerHTML = viewMarketing();
+  else main.innerHTML = viewHome();
+  attachHandlers();
+  if(state.view==='database') renderTableOnly();
+  if(state.view==='marketing') attachMarketingForm();
+}
+
+function attachHandlers(){
+  document.querySelectorAll('[data-nav]').forEach(el=>{
+    el.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const target = el.dataset.nav;
+      if(el.dataset.reset!==undefined){ state.filters={product:null,stage:null,category:null,region:null,theme:null}; state.query=''; }
+      location.hash = target;
+    });
+  });
+  document.querySelectorAll('[data-record]').forEach(el=>{
+    el.addEventListener('click', ()=>{ location.hash = '#record/'+el.dataset.record; });
+  });
+  document.querySelectorAll('[data-filter]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const [key,val] = el.dataset.filter.split('::');
+      state.filters[key] = (state.filters[key]===val) ? null : val;
+      render();
+    });
+  });
+  document.querySelectorAll('[data-gofilter]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const [key,val] = el.dataset.gofilter.split('::');
+      state.filters = {product:null,stage:null,category:null,region:null,theme:null};
+      state.filters[key]=val; state.query='';
+      location.hash = '#database';
+    });
+  });
+  const clearBtn = document.getElementById('clearFilters');
+  if(clearBtn) clearBtn.addEventListener('click', ()=>{
+    state.filters={product:null,stage:null,category:null,region:null,theme:null}; state.query=''; render();
+  });
+  const dbSearch = document.getElementById('dbSearch');
+  if(dbSearch){
+    dbSearch.value = state.query;
+    dbSearch.addEventListener('input', (e)=>{ state.query = e.target.value; renderTableOnly(); });
+  }
+}
+
+/* ---------------- views ---------------- */
+function statTiles(){
+  const products = uniq('product').length;
+  const themes = uniq('theme').length;
+  const companies = uniq('company').length;
+  return `
+  <div class="voc-stats">
+    <div class="voc-stat"><div class="voc-stat__num">${TOTAL_LOGGED}</div><div class="voc-stat__label">Questions logged</div></div>
+    <div class="voc-stat"><div class="voc-stat__num">${products}</div><div class="voc-stat__label">Pillars</div></div>
+    <div class="voc-stat"><div class="voc-stat__num">${themes}</div><div class="voc-stat__label">Recurring themes</div></div>
+    <div class="voc-stat"><div class="voc-stat__num">${companies}</div><div class="voc-stat__label">Client profiles (anonymised)</div></div>
+  </div>`;
+}
+
+function viewHome(){
+  const recent = [...DATA].slice(-6).reverse();
+  return `
+  <div class="voc-container">
+    <div class="voc-eyebrow">Product Marketing · Internal Tool</div>
+    <h1 class="voc-h1">Voice of Customer Database</h1>
+    <p class="voc-lede">Every demo, POC and client conversation captured and categorised — the shared repository behind product positioning, sales enablement and content strategy.</p>
+    <a class="voc-btn voc-btn--primary" href="#database" data-nav="#database" data-reset style="margin-bottom:32px;">Browse all questions →</a>
+    ${statTiles()}
+    <div class="voc-section-title">Jump in</div>
+    <div class="voc-cards">
+      <a class="voc-card" href="#database" data-nav="#database" data-reset>
+        <div class="voc-card__title">${ICONS.database} All Questions</div>
+        <div class="voc-card__desc">Browse, search and filter the full database view.</div>
+      </a>
+      <a class="voc-card" href="#insights" data-nav="#insights">
+        <div class="voc-card__title">${ICONS.insights} Insights Dashboard</div>
+        <div class="voc-card__desc">Recurring themes and what they mean for positioning.</div>
+      </a>
+      <a class="voc-card" href="#tags" data-nav="#tags">
+        <div class="voc-card__title">${ICONS.tags} Tag Taxonomy</div>
+        <div class="voc-card__desc">Pillars, sales stages, categories and regions at a glance.</div>
+      </a>
+      <a class="voc-card" href="#marketing" data-nav="#marketing">
+        <div class="voc-card__title">${ICONS.marketing} Marketing Actions</div>
+        <div class="voc-card__desc">Which insights fed which brochure, deck or post.</div>
+      </a>
+    </div>
+    <div class="voc-section-title">Recently logged</div>
+    <div class="voc-activity">
+      ${recent.map(r=>`
+        <div class="voc-activity__row" data-record="${r.id}">
+          <div class="voc-activity__date">${esc(r.date)}</div>
+          <div class="voc-activity__q">${esc(r.question)}</div>
+          <div class="voc-activity__co">${esc(r.company)}</div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function chipRow(label, field, values){
+  return `
+  <div class="voc-filtergroup">
+    <div class="voc-filtergroup__label">${label}</div>
+    <div class="voc-chips">
+      ${values.map(v=>`<button class="voc-chip ${state.filters[field]===v?'active':''}" data-filter="${field}::${v}">${esc(v)}</button>`).join('')}
+    </div>
+  </div>`;
+}
+
+function viewDatabase(){
+  const rows = filteredRows();
+  const heading = state.query ? `Search results for “${esc(state.query)}”` : (state.filters.theme ? `Theme: ${esc(state.filters.theme)}` : 'All Questions');
+  return `
+  <div class="voc-container voc-container--wide">
+    <div class="voc-eyebrow">Database</div>
+    <h1 class="voc-h1">${heading}</h1>
+    <p class="voc-lede">${TOTAL_LOGGED} questions logged across demos, POCs and QBRs. Showing a representative sample of ${DATA.length}, anonymised for portfolio use.</p>
+
+    <div class="voc-search" style="max-width:360px;margin-bottom:20px;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="dbSearch" type="text" placeholder="Search this view…">
+    </div>
+
+    <div class="voc-filterbar">
+      ${chipRow('Pillar','product', uniq('product'))}
+      ${chipRow('Stage','stage', uniq('stage'))}
+      ${chipRow('Category','category', uniq('category'))}
+      ${chipRow('Region','region', uniq('region'))}
+    </div>
+
+    <div class="voc-resultbar">
+      <span id="resultCount">${rows.length} of ${DATA.length} shown</span>
+      <button id="clearFilters">Clear filters</button>
+    </div>
+
+    <div id="tableWrap"></div>
+  </div>`;
+}
+
+function tableHtml(rows){
+  if(rows.length===0){
+    return `<div class="voc-empty">No questions match these filters.</div>`;
+  }
+  return `
+  <div class="voc-tablewrap">
+  <table class="voc-table">
+    <colgroup>
+      <col class="c-co"><col class="c-pr"><col class="c-st"><col class="c-ca"><col class="c-re"><col class="c-q">
+    </colgroup>
+    <thead><tr><th>Company</th><th>Pillar</th><th>Stage</th><th>Category</th><th>Region</th><th>Question</th></tr></thead>
+    <tbody>
+      ${rows.map(r=>`
+        <tr data-record="${r.id}">
+          <td class="co">${esc(r.company)}</td>
+          <td class="muted">${esc(r.product)}</td>
+          <td><span class="voc-pill voc-pill--stage">${esc(r.stage)}</span></td>
+          <td><span class="voc-pill">${esc(r.category)}</span></td>
+          <td class="muted">${esc(r.region)}</td>
+          <td class="q">${highlight(r.question, state.query)}</td>
+        </tr>`).join('')}
+    </tbody>
+  </table>
+  </div>`;
+}
+
+function renderTableOnly(){
+  const rows = filteredRows();
+  document.getElementById('tableWrap').innerHTML = tableHtml(rows);
+  document.getElementById('resultCount').textContent = rows.length+' of '+DATA.length+' shown';
+  document.querySelectorAll('[data-record]').forEach(el=>{
+    el.addEventListener('click', ()=>{ location.hash = '#record/'+el.dataset.record; });
+  });
+}
+
+function viewRecord(id){
+  const idx = DATA.findIndex(d=>d.id===id);
+  const r = DATA[idx] || DATA[0];
+  const prev = DATA[idx-1], next = DATA[idx+1];
+  return `
+  <div class="voc-container">
+    <div class="voc-crumb"><a href="#database" data-nav="#database">← All Questions</a> &nbsp;/&nbsp; ${esc(r.id)}</div>
+    <div class="voc-eyebrow">Question</div>
+    <h1 class="voc-record-q">${esc(r.question)}</h1>
+
+    <div class="voc-props">
+      <div class="voc-prop"><div class="voc-prop__label">Meeting</div><div class="voc-prop__value">${esc(r.meeting)} · ${esc(r.date)}</div></div>
+      <div class="voc-prop"><div class="voc-prop__label">Customer</div><div class="voc-prop__value">${esc(r.company)} <span class="voc-pill">${esc(r.companyType)}</span></div></div>
+      <div class="voc-prop"><div class="voc-prop__label">Pillar</div><div class="voc-prop__value"><span class="voc-pill">${esc(r.product)}</span></div></div>
+      <div class="voc-prop"><div class="voc-prop__label">Category</div><div class="voc-prop__value"><span class="voc-pill">${esc(r.category)}</span></div></div>
+      <div class="voc-prop"><div class="voc-prop__label">Sales Stage</div><div class="voc-prop__value"><span class="voc-pill voc-pill--stage">${esc(r.stage)}</span></div></div>
+      <div class="voc-prop"><div class="voc-prop__label">Region</div><div class="voc-prop__value">${esc(r.region)}</div></div>
+    </div>
+
+    <div class="voc-block">
+      <div class="voc-block__label">Response</div>
+      <div class="voc-quote">${esc(r.answer)}</div>
+    </div>
+
+    <div class="voc-block">
+      <div class="voc-block__label">Marketing Insight</div>
+      <div class="voc-insight">${esc(r.insight)} <span class="voc-pill" style="margin-left:6px;">${esc(r.theme)}</span></div>
+    </div>
+
+    <div class="voc-block">
+      <div class="voc-block__label">Action Taken</div>
+      <div class="voc-actionlist">
+        ${r.actions.map(a=>`<span class="voc-pill voc-pill--action">${esc(a)}</span>`).join('')}
+      </div>
+    </div>
+
+    <div class="voc-recordnav">
+      ${prev ? `<a href="#record/${prev.id}" data-nav="#record/${prev.id}">← ${esc(prev.id)}</a>` : '<span></span>'}
+      ${next ? `<a href="#record/${next.id}" data-nav="#record/${next.id}">${esc(next.id)} →</a>` : '<span></span>'}
+    </div>
+  </div>`;
+}
+
+function viewInsights(){
+  const themes = countBy('theme');
+  const maxCount = themes[0][1];
+  const products = countBy('product');
+  const categories = countBy('category');
+  const callouts = [
+    {tag:'Deployment', text:'Cloud-vs-on-prem flexibility surfaces in almost every technical conversation — now a standing slide in every deck.'},
+    {tag:'Explainability', text:'Buyers want to see exception handling and audit trails before they trust automation with production data.'},
+    {tag:'Pricing', text:'Procurement consistently asks for tiered, usage-based pricing rather than flat licensing.'},
+    {tag:'Roadmap', text:'Adjacent-module questions appear early in the cycle — a signal buyers are evaluating a platform, not a point solution.'},
+  ];
+  return `
+  <div class="voc-container">
+    <div class="voc-eyebrow">Insights</div>
+    <h1 class="voc-h1">Insights Dashboard</h1>
+    <p class="voc-lede">Recurring themes surfaced across ${TOTAL_LOGGED} categorised client questions, refreshed after every demo cycle.</p>
+
+    <div class="voc-section-title">Top recurring themes</div>
+    <div class="voc-rank">
+      ${themes.map(([name,count])=>`
+        <div class="voc-rank__row" data-gofilter="theme::${name}">
+          <div class="voc-rank__name">${esc(name)}</div>
+          <div class="voc-rank__rule"></div>
+          <div class="voc-rank__count">${count}</div>
+        </div>`).join('')}
+    </div>
+
+    <div class="voc-twocol">
+      <div>
+        <div class="voc-section-title">By pillar</div>
+        <div class="voc-minilist">
+          ${products.map(([n,c])=>`<div class="voc-minilist__row" data-gofilter="product::${n}"><span>${esc(n)}</span><span>${c}</span></div>`).join('')}
+        </div>
+      </div>
+      <div>
+        <div class="voc-section-title">By question category</div>
+        <div class="voc-minilist">
+          ${categories.map(([n,c])=>`<div class="voc-minilist__row" data-gofilter="category::${n}"><span>${esc(n)}</span><span>${c}</span></div>`).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="voc-section-title">Callouts this quarter</div>
+    <div class="voc-callouts">
+      ${callouts.map(c=>`
+        <div class="voc-callout">
+          <span class="voc-callout__tag">${esc(c.tag)}</span>
+          ${esc(c.text)}
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function viewTags(){
+  const groups = [
+    {title:'Pillar', field:'product'},
+    {title:'Sales Stage', field:'stage'},
+    {title:'Question Category', field:'category'},
+    {title:'Region', field:'region'},
+  ];
+  return `
+  <div class="voc-container">
+    <div class="voc-eyebrow">Taxonomy</div>
+    <h1 class="voc-h1">Tag Taxonomy</h1>
+    <p class="voc-lede">The controlled vocabulary behind the database — every question is tagged against these four dimensions.</p>
+    ${groups.map(g=>{
+      const counts = countBy(g.field);
+      return `
+      <div class="voc-taxgroup">
+        <div class="voc-taxgroup__title">${g.title}</div>
+        <div class="voc-taxpills">
+          ${counts.map(([n,c])=>`<div class="voc-taxpill" data-gofilter="${g.field}::${n}"><b>${c}</b> ${esc(n)}</div>`).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+function viewMarketing(){
+  const byAction = {};
+  DATA.forEach(r=> r.actions.forEach(a=>{ (byAction[a] ||= []).push(r); }));
+  const order = Object.entries(byAction).sort((a,b)=>b[1].length-a[1].length);
+  const msg = state.formMessage; state.formMessage = null;
+  const productOptions = uniq('product');
+  const today = new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+  return `
+  <div class="voc-container voc-container--wide">
+    <div class="voc-eyebrow">Enablement</div>
+    <h1 class="voc-h1">Marketing Actions</h1>
+    <p class="voc-lede">How raw customer questions turned into brochures, sales decks, website copy and social content.</p>
+
+    <div class="voc-formcard">
+      <div class="voc-formcard__title">${ICONS.marketing} Log a new customer insight</div>
+      <div class="voc-formcard__desc">Heard something on a call today? Log it here — pick which asset it should update and it lands on the board immediately.</div>
+      <form id="insightForm" novalidate>
+        <div class="voc-formgrid">
+          <div class="voc-field voc-field--full">
+            <label for="fQuestion">Customer question</label>
+            <textarea id="fQuestion" class="voc-textarea" rows="2" placeholder="e.g. Can the platform reconcile against a third-party custodian feed?"></textarea>
+          </div>
+          <div class="voc-field">
+            <label for="fCompany">Customer (optional)</label>
+            <input id="fCompany" class="voc-input" type="text" placeholder="e.g. Tier 1 Bank" autocomplete="off">
+          </div>
+          <div class="voc-field">
+            <label for="fProduct">Pillar</label>
+            <select id="fProduct" class="voc-select">
+              ${productOptions.map(p=>`<option value="${esc(p)}">${esc(p)}</option>`).join('')}
+            </select>
+          </div>
+          <div class="voc-field">
+            <label for="fCategory">Question category</label>
+            <select id="fCategory" class="voc-select">
+              ${CATEGORY_TYPES.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('')}
+            </select>
+          </div>
+          <div class="voc-field">
+            <label>Logged</label>
+            <div class="voc-input" style="color:var(--light);background:var(--wash);">${today}</div>
+          </div>
+          <div class="voc-field voc-field--full">
+            <label for="fInsight">Marketing insight</label>
+            <textarea id="fInsight" class="voc-textarea" rows="2" placeholder="What does this question tell us about how buyers are thinking?"></textarea>
+          </div>
+          <div class="voc-field voc-field--full">
+            <label>Feeds into</label>
+            <div class="voc-checkchips">
+              ${ACTION_TYPES.map(a=>`<span class="voc-checkchip" data-action="${esc(a)}">${esc(a)}</span>`).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="voc-form__footer">
+          <button type="submit" class="voc-btn voc-btn--primary">Log insight →</button>
+          <span id="formMsg" class="voc-form__msg${msg?' voc-form__msg--'+msg.type:''}">${msg?esc(msg.text):''}</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="voc-board">
+      ${order.map(([action, items])=>`
+        <div class="voc-boardcol">
+          <div class="voc-boardcol__title">${esc(action)}</div>
+          <div class="voc-boardcol__count">${items.length} linked question${items.length===1?'':'s'}</div>
+          ${items.slice(0,6).map(r=>`
+            <div class="voc-boardcard" data-record="${r.id}">
+              <span class="voc-boardcard__q">${esc(r.question.length>90? r.question.slice(0,90)+'…' : r.question)}</span>
+              <span class="voc-boardcard__meta">${esc(r.company)} · ${esc(r.theme)}</span>
+            </div>`).join('')}
+          ${items.length>6 ? `<div class="voc-boardcard__meta" style="padding:4px 2px;">+${items.length-6} more</div>` : ''}
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function attachMarketingForm(){
+  const form = document.getElementById('insightForm');
+  if(!form) return;
+  selectedActionsSet = new Set();
+  form.querySelectorAll('.voc-checkchip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      const val = chip.dataset.action;
+      if(selectedActionsSet.has(val)){ selectedActionsSet.delete(val); chip.classList.remove('active'); }
+      else{ selectedActionsSet.add(val); chip.classList.add('active'); }
+    });
+  });
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const q = document.getElementById('fQuestion').value.trim();
+    const insight = document.getElementById('fInsight').value.trim();
+    const company = document.getElementById('fCompany').value.trim() || 'Internal';
+    const product = document.getElementById('fProduct').value;
+    const category = document.getElementById('fCategory').value;
+    const msgEl = document.getElementById('formMsg');
+    if(!q || !insight || selectedActionsSet.size===0){
+      msgEl.textContent = 'Add a question, an insight, and at least one action it feeds.';
+      msgEl.className = 'voc-form__msg voc-form__msg--error';
+      return;
+    }
+    const rec = {
+      id:'Q-NEW-'+Date.now(),
+      company, companyType:'Internal / Cross-functional', region:'Not recorded',
+      product, stage:'Logged internally', category,
+      date:new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}),
+      meeting:'Logged via Marketing Actions workspace',
+      question:q,
+      answer:'(Logged internally — no client-facing response recorded for this entry.)',
+      theme:'Manually logged',
+      insight, actions:[...selectedActionsSet],
+    };
+    DATA.push(rec);
+    saveCustomEntries();
+    state.formMessage = {type:'success', text:'Logged — added to the board below and to All Questions.'};
+    render();
+    document.querySelector('.voc-formcard')?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+}
+
+/* ---------------- boot ---------------- */
+loadCustomEntries();
+document.getElementById('sidebarProducts').innerHTML = uniq('product').map(p=>
+  `<span class="voc-pill" data-gofilter="product::${p}" style="cursor:pointer;">${esc(p)}</span>`
+).join('');
+document.getElementById('resetDemoBtn').addEventListener('click', resetCustomEntries);
+
+parseHash();
+render();
+document.body.addEventListener('click', (e)=>{
+  // re-attach dynamic handlers created after innerHTML swaps triggered outside render()
+});
+</script>
+</body>
+</html>
