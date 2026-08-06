@@ -427,14 +427,6 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 
-.hero-photo::before {
-  content: '';
-  position: absolute;
-  inset: -10%;
-  background: radial-gradient(ellipse at 60% 50%, rgba(138,106,84,0.13) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
-}
 
 .hero-photo img {
   display: block;
