@@ -376,6 +376,15 @@ body.editorial .text-center p { margin-inline: auto; }
   height: auto;
   display: block;
 }
+.ed-img-caption {
+  display: block;
+  text-align: center;
+  margin-top: 0.75rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--ed-light);
+}
 
 /* two images side by side */
 .ed-section__duo {
@@ -1016,6 +1025,51 @@ a.ed-snap-col__item--link:hover {
   font-family: 'Lato', sans-serif;
   font-size: 0.78rem;
   color: var(--ed-charcoal);
+}
+
+/* light funnel row — a sequence of real numbers narrowing to an outcome */
+.ed-funnel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  max-width: 1000px;
+  margin: 2.5rem auto 0;
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+.ed-funnel__cell {
+  flex: 1 1 140px;
+  text-align: center;
+  padding: 0 0.75rem;
+}
+.ed-funnel__num {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  color: var(--ed-ink);
+  line-height: 1;
+}
+.ed-funnel__cell--outcome .ed-funnel__num { color: var(--ed-oxblood); }
+.ed-funnel__label {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ed-grey);
+}
+.ed-funnel__arrow {
+  align-self: center;
+  padding-top: 0.2rem;
+  color: var(--ed-light);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+@media (max-width: 640px) {
+  .ed-funnel__arrow { display: none; }
+  .ed-funnel__cell { flex: 1 1 45%; margin-bottom: 1.5rem; }
 }
 
 /* highlights list */
