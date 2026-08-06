@@ -2,7 +2,15 @@
 
 **Document type:** Master Project Documentation (internal knowledge base — not portfolio copy)
 **Status:** Living document. Update in place as new information surfaces; do not create separate notes.
-**Last updated:** 2026-08-03, from interview session covering Context, Objectives, Role, Process, Deliverables, Results, Reflection, Evidence.
+**Last updated:** 2026-08-06, editorial pass (evidence-integrity + [[feedback-case-study-editorial-standards]] applied). Interview content below still from 2026-08-03; only the HTML changed today.
+
+**2026-08-06 editorial pass, what changed in the live HTML (this doc's content below is unaffected):**
+- Added the one-time NDA/recreation disclosure block near the top of the page (see [[feedback-case-study-evidence-sourcing]] for the standard wording).
+- Confirmed the four Figma brochure PNGs (`brochure-structured-products.png`, `-collateral-management.png`, `-direct-lending.png`, `-data-aware-ai.png`) are genuine real files, no AI involved, no disclosure needed beyond the general statement.
+- Cut two sections for redundancy under the 90-second hiring-manager test: "Marketing Collateral" (a duo of generic branded-merch photos with little distinct content) and "Real Numbers, Vertical by Vertical" (an AI-rendered table-photo of the same brochures already shown, more legibly, in the "Vertical AI Brochures" quad). Their strongest content (quantified per-vertical impact: STP rates, hours saved, margin calls/transactions processed) was folded into a new body paragraph under "Vertical AI Brochures" instead of losing it. Page went from 7 content sections to 5.
+- Split two long, comma-heavy sentences in the overview into shorter ones for reading level.
+- Added "Messaging Framework" and "Voice of Customer (VoC)" to the Services snapshot list, and "Stakeholder Management" to the Cross-functional Collaboration tags, closer keyword alignment with [[feedback-case-study-editorial-standards]]'s ATS list, all genuinely descriptive of the work already documented below.
+- Removed all em dashes from the page.
 **Company / client:** Intellimation.ai — proprietary Vertical AI platform for banking and financial services (BFSI)
 **Employment relationship:** Contractor via Noova Data Ltd
 **Engagement window:** March 2025 – December 2025
