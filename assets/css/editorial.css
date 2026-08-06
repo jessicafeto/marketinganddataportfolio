@@ -277,7 +277,7 @@ body.editorial .text-center p { margin-inline: auto; }
   text-align: center;
 }
 .ed-overview__inner {
-  max-width: 920px;
+  max-width: 1120px;
   margin-inline: auto;
 }
 .ed-overview__heading {
@@ -476,9 +476,9 @@ a.ed-snap-col__item--link:hover {
   letter-spacing: 0.03em;
 }
 
-/* text body — centred paragraph for image-free sections */
+/* text body, centred paragraph for image-free sections */
 .ed-section__body {
-  max-width: 900px;
+  max-width: 1120px;
   margin-inline: auto;
   padding-inline: clamp(1.625rem, 4vw, 3rem);
   margin-top: 2rem;
