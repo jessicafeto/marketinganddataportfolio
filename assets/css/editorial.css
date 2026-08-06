@@ -376,6 +376,23 @@ body.editorial .text-center p { margin-inline: auto; }
   height: auto;
   display: block;
 }
+/* single portfolio-wide NDA/recreation disclosure, once per project page */
+.ed-disclosure {
+  max-width: 720px;
+  margin: 2rem auto 0;
+  padding: 0.9rem clamp(1.25rem, 4vw, 2rem);
+  border-top: 1px solid var(--ed-rule);
+  border-bottom: 1px solid var(--ed-rule);
+  text-align: center;
+}
+.ed-disclosure p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ed-light);
+  margin: 0;
+}
 .ed-img-caption {
   display: block;
   text-align: center;
