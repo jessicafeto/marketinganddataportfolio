@@ -1145,9 +1145,9 @@ a.ed-snap-col__item--link:hover {
 /* recreated asset in a gallery slot — sits in the same grid as .ed-ph placeholders */
 .ed-shot { margin: 0; }
 .ed-shot__frame {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   border: 1px solid var(--ed-rule);
-  background: var(--ed-limestone);
+  background: var(--ed-paper);
   overflow: hidden;
   display: block;
   transition: border-color 0.2s var(--ed-ease);
@@ -1156,9 +1156,9 @@ a.ed-snap-col__item--link:hover {
 .ed-shot__frame img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
+  object-fit: contain;
+  object-position: center;
+  display: #fff;
 }
 .ed-shot figcaption {
   margin-top: 0.6rem;
@@ -1172,4 +1172,22 @@ a.ed-snap-col__item--link:hover {
   font-size: 0.68rem;
   color: var(--ed-light);
   font-style: italic;
+}
+/* Notion screenshots — wider, uncropped */
+.ed-notion-gallery {
+  max-width: 1200px;
+  padding-inline: 0;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.ed-notion-gallery .ed-shot__frame {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.ed-notion-gallery .ed-shot__frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top;
 }
