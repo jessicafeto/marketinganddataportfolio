@@ -48,8 +48,9 @@
   <div class="ed-wrap">
     <div class="ed-overview__inner">
       <span class="ed-eyebrow grey ed-reveal">The Project</span>
-      <h2 class="ed-overview__heading ed-reveal">Building the operational infrastructure behind effective marketing: workflows, automation, systems and the documentation that makes them stick.</h2>
-      <p class="ed-overview__body ed-reveal">Good marketing output depends on good marketing operations. Across client work and my own studio, I've designed and implemented the systems that sit behind campaigns: AI-assisted workflows that reduce repetitive work, <strong>CRM automation</strong> that keeps outreach consistent, <strong>Notion</strong>-based knowledge bases that stop information living in someone's inbox, and process documentation that means new team members can get up to speed without needing to ask. The goal is always the same: less friction, more output, nothing falling through the cracks.</p>
+      <h2 class="ed-overview__heading ed-reveal">Did COVID-19 change London's housing market differently to the rest of the UK? Two dashboards, built to answer that properly.</h2>
+      <p class="ed-overview__body ed-reveal">A comparative study of UK house price data built in <strong>Power BI</strong>, using the official UK House Price Index alongside geographic data for all 32 London boroughs. I built two separate dashboards covering the same measures across two eras, <strong>2016 to 2019</strong> and <strong>2020 to 2022</strong>, so the pre-pandemic market and the pandemic market could be read side by side rather than as one blurred trend line.</p>
+      <p class="ed-overview__body ed-reveal">The research question was specific: how did COVID-19 affect average house prices and property types across London boroughs compared with the UK as a whole? Splitting the timeline was the decision that made the answer visible, because a single continuous view flattens exactly the shift the question was asking about.</p>
     </div>
   </div>
 </section>
@@ -58,26 +59,28 @@
   <div class="ed-wrap">
     <div class="ed-snapshot__grid ed-reveal">
       <div>
-        <span class="ed-snap-col__label">Scope</span>
-        <span class="ed-snap-col__item">Agency &amp; In-house</span>
-        <span class="ed-snap-col__item">Cross-client</span>
+        <span class="ed-snap-col__label">Context</span>
+        <span class="ed-snap-col__item">Data Visualisation Project</span>
+        <span class="ed-snap-col__item">UK Housing Market</span>
       </div>
       <div>
-        <span class="ed-snap-col__label">Services</span>
-        <span class="ed-snap-col__item">AI Workflows</span>
-        <span class="ed-snap-col__item">CRM Automation</span>
-        <span class="ed-snap-col__item">Process Design</span>
-        <span class="ed-snap-col__item">Marketing Operations</span>
+        <span class="ed-snap-col__label">Method</span>
+        <span class="ed-snap-col__item">Exploratory Data Analysis</span>
+        <span class="ed-snap-col__item">Data Cleaning &amp; Modelling</span>
+        <span class="ed-snap-col__item">Dashboard Design</span>
+        <span class="ed-snap-col__item">Geospatial Mapping</span>
       </div>
       <div>
-        <span class="ed-snap-col__label">Timeline</span>
-        <span class="ed-snap-col__item">2024 – 2026</span>
+        <span class="ed-snap-col__label">Data</span>
+        <span class="ed-snap-col__item">UK House Price Index<small>Jan 1995 onward</small></span>
+        <span class="ed-snap-col__item">London Datastore<small>32 borough boundaries</small></span>
       </div>
       <div>
-        <span class="ed-snap-col__label">Tools</span>
-        <span class="ed-snap-col__item">Notion · AI Tools</span>
-        <span class="ed-snap-col__item">CRM Platforms</span>
-        <span class="ed-snap-col__item">Workflow Automation</span>
+        <span class="ed-snap-col__label">Output</span>
+        <span class="ed-snap-col__item">2 Dashboards</span>
+        <span class="ed-snap-col__item">2 Comparison Periods</span>
+        <span class="ed-snap-col__item">33 Regions Compared</span>
+        <span class="ed-snap-col__item">4 Property Types</span>
       </div>
     </div>
   </div>
@@ -87,34 +90,94 @@
 
   <div class="ed-section ed-reveal">
     <div class="ed-section__text">
-      <h3 class="ed-section__title">Workflow Design &amp; AI Automation</h3>
-      <p class="ed-section__sub">Mapping marketing processes end-to-end, then removing the parts that don't need a human.</p>
+      <h3 class="ed-section__title">The Data</h3>
+      <p class="ed-section__sub">Official government price data, joined to borough geography so the results could be read on a map rather than only in a table.</p>
     </div>
     <div class="ed-section__tags">
-      <span class="ed-section__tag">AI Workflows</span>
-      <span class="ed-section__tag">CRM Automation</span>
-      <span class="ed-section__tag">Workflow Optimisation</span>
-      <span class="ed-section__tag">Process Design</span>
-      <span class="ed-section__tag">Marketing Automation</span>
-      <span class="ed-section__tag">AI Tools</span>
+      <span class="ed-section__tag">UK House Price Index</span>
+      <span class="ed-section__tag">London Datastore</span>
+      <span class="ed-section__tag">Average Price Table</span>
+      <span class="ed-section__tag">Property Type Table</span>
+      <span class="ed-section__tag">Borough Coordinates</span>
     </div>
-    <p class="ed-section__body">Designed and implemented AI-assisted workflows that reduced time spent on content production, outreach sequencing and reporting. <strong>CRM automation</strong> kept pipeline management consistent without manual intervention. Each workflow was mapped before it was built, understanding where time was actually being lost, not where people assumed it was.</p>
+    <p class="ed-section__body">The source was the UK House Price Index published on the London Datastore, which supplies two tables. <strong>Average Price</strong> holds monthly prices across 49 columns covering every London borough and UK region. <strong>By Type</strong> holds quarterly data across 16 columns split by detached, semi-detached, terraced and flat. Both series run from January 1995, giving more than two decades of history to work against.</p>
+    <p class="ed-section__body">Price data alone cannot be mapped, so I brought in a second dataset containing latitude and longitude for each of London's 32 boroughs and modelled a relationship between the two. That join is what turned a borough name in a spreadsheet into a point on a map, and it is the step that made the geographic pattern legible at all.</p>
   </div>
 
   <div class="ed-section ed-reveal">
     <div class="ed-section__text">
-      <h3 class="ed-section__title">Marketing Operations &amp; Documentation</h3>
-      <p class="ed-section__sub">Internal systems and knowledge bases that keep marketing running whether or not the person who built it is in the room.</p>
+      <h3 class="ed-section__title">Preparing It</h3>
+      <p class="ed-section__sub">Most of the work happened before a single chart existed.</p>
+    </div>
+    <ul class="ed-highlights">
+      <li><strong>Cleaning.</strong> The raw workbook opened with headers sitting in the wrong row, so the first row was removed before anything else could be trusted. Columns irrelevant to the question were dropped and the survivors renamed.</li>
+      <li><strong>Type correction.</strong> Several price columns had imported as text rather than decimal. Left alone, they would have silently broken every calculation and chart downstream, so each was converted before modelling.</li>
+      <li><strong>Modelling.</strong> A relationship was defined between the price tables and the borough coordinate table, which is what unlocked the map view.</li>
+      <li><strong>Filtering.</strong> Two filters split the timeline into 2016 to 2019 and 2020 to 2022, creating the two comparable views the whole study rests on.</li>
+    </ul>
+    <div class="ed-callout">
+      Splitting the data into two eras rather than plotting one continuous series was the central design decision. A single trend line from 1995 to 2022 would have absorbed the pandemic into the general upward slope of UK house prices. Two dashboards forced a direct comparison and made the difference the question was actually about.
+    </div>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Before the Pandemic</h3>
+      <p class="ed-section__sub">2016 to 2019: the market London was coming from.</p>
+    </div>
+    <div class="ed-result-wrap">
+      <table class="ed-result">
+        <caption>Selected movements, 2016 to 2019</caption>
+        <thead><tr><th>Segment</th><th>Change</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>West Midlands</td><td class="num">+12.97%</td><td>Strongest regional growth in the pre-pandemic window</td></tr>
+          <tr><td>Terraced properties</td><td class="num">+2.44%</td><td>Highest-rising property type over the period</td></tr>
+          <tr><td>London</td><td class="num">+0.83%</td><td>Notably flat against regional growth elsewhere</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ed-section__body">The pre-pandemic picture already complicated the assumption that London leads the UK market. Regional growth outside the capital was substantially stronger, with the West Midlands rising almost sixteen times faster than London over the same three years. Exploratory analysis also confirmed that flats were the most commonly sold property type in both London and the rest of the UK, though London skewed far more heavily toward flats while the rest of the country skewed toward detached homes.</p>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Through the Pandemic</h3>
+      <p class="ed-section__sub">2020 to 2022: what actually changed, and what did not.</p>
+    </div>
+    <div class="ed-funnel">
+      <div class="ed-funnel__cell"><span class="ed-funnel__num">+5.52%</span><span class="ed-funnel__label">Flats, peak 2022</span></div>
+      <span class="ed-funnel__arrow">·</span>
+      <div class="ed-funnel__cell"><span class="ed-funnel__num">+5.85%</span><span class="ed-funnel__label">Inner London</span></div>
+      <span class="ed-funnel__arrow">·</span>
+      <div class="ed-funnel__cell ed-funnel__cell--outcome"><span class="ed-funnel__num">+3.36%</span><span class="ed-funnel__label">Westminster</span></div>
+    </div>
+    <p class="ed-section__body" style="margin-top:2.5rem;">Flats recorded the steepest rise of any property type between 2020 and 2022, climbing steadily to a peak of 5.52% in 2022. Inner London rose 5.85% across the same window and Westminster 3.36%, both trending upward rather than correcting.</p>
+    <p class="ed-section__body">That result runs against the widely repeated narrative of the period, which held that lockdown pushed demand out of dense city centres and toward larger homes with outdoor space. In this data, Inner London held firm and flats led the market. The London housing market stayed robust through the pandemic rather than softening, which is the finding worth carrying out of the project.</p>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Designing the Dashboards</h3>
+      <p class="ed-section__sub">Chart type chosen per question, not per preference.</p>
     </div>
     <div class="ed-section__tags">
-      <span class="ed-section__tag">Notion</span>
-      <span class="ed-section__tag">Marketing Operations</span>
-      <span class="ed-section__tag">Internal Documentation</span>
-      <span class="ed-section__tag">SOP Design</span>
-      <span class="ed-section__tag">Knowledge Management</span>
-      <span class="ed-section__tag">Marketing Systems</span>
+      <span class="ed-section__tag">Line &amp; Area Charts</span>
+      <span class="ed-section__tag">Stacked Column</span>
+      <span class="ed-section__tag">Combination Charts</span>
+      <span class="ed-section__tag">Pie Charts</span>
+      <span class="ed-section__tag">Choropleth Map</span>
     </div>
-    <p class="ed-section__body">Built <strong>Notion</strong> workspaces that function as operational hubs: campaign trackers, content calendars, brand guidelines, SOPs and reporting templates in one structured system. Documentation was written for real use: clear enough that a new team member can follow it, specific enough to be actionable. The measure of good ops is whether it works when you step back.</p>
+    <p class="ed-section__body">Each visual answered a different question. Line and area charts carried movement over time. Stacked and column charts compared regions and property types against each other. Pie charts showed the mix of property types sold in each zone. A combination column and line chart handled Inner versus Outer London, where both absolute price and rate of change mattered at once. The borough map made the geographic spread immediately readable.</p>
+    <a href="https://github.com/jessicafeto/Data-Science-Analytics-Portfolio-Jessica-Feto/tree/main/Housing%20Market%20UK%20Data%20Visualisation%20and%20Dashboard%20Design" target="_blank" rel="noopener" class="ed-section__cta">View the report and Power BI files on GitHub ↗</a>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Reflection</h3>
+      <p class="ed-section__sub">What the project taught me.</p>
+    </div>
+    <p class="ed-section__body">The analysis only worked because of the framing. Comparing two defined periods rather than plotting one long series is what let the pandemic effect separate from ordinary market growth, and that choice was made before any chart was built. Deciding what to compare is a larger part of the job than choosing how to display it.</p>
+    <p class="ed-section__body">If I extended it, I would bring in transaction volume alongside price. Price alone shows what buyers paid but not how many were buying, and a market can rise on thin volume. Adding volume would separate genuine demand from scarcity, which is the obvious limitation of what is here.</p>
   </div>
 
 </div>
