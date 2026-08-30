@@ -171,6 +171,7 @@ rfm['M_Score'] = pd.qcut(rfm['Monetary'],  5, labels=[1,2,3,4,5])</pre>
         <div class="ed-kpi"><span class="ed-kpi__value">5</span><span class="ed-kpi__label">Behavioural segments</span></div>
         <div class="ed-kpi"><span class="ed-kpi__value">5</span><span class="ed-kpi__label">Models compared</span></div>
         <div class="ed-kpi"><span class="ed-kpi__value">2</span><span class="ed-kpi__label">Leading churn predictors</span></div>
+        <div class="ed-kpi"><span class="ed-kpi__value">4</span><span class="ed-kpi__label">Style clusters identified</span></div>
       </div>
     </div>
   </div>
@@ -186,6 +187,27 @@ rfm['M_Score'] = pd.qcut(rfm['Monetary'],  5, labels=[1,2,3,4,5])</pre>
       <li><strong>Use review engagement as an early warning.</strong> Fire a content engagement trigger, not a discount, at the point someone disengages from reviews.</li>
       <li><strong>Personalise by style, not category.</strong> Style attribute proved more predictive than product category, so copy, imagery and product selection should follow style preference.</li>
     </ul>
+  </div>
+
+  <div class="ed-section ed-reveal">
+    <div class="ed-section__text">
+      <h3 class="ed-section__title">Technical Stack</h3>
+      <p class="ed-section__sub">Built end to end in a single notebook, from raw file to business recommendation.</p>
+    </div>
+    <div class="ed-section__tags">
+      <span class="ed-section__tag">Python 3.10</span>
+      <span class="ed-section__tag">pandas</span>
+      <span class="ed-section__tag">NumPy</span>
+      <span class="ed-section__tag">scikit-learn</span>
+      <span class="ed-section__tag">RandomForestClassifier</span>
+      <span class="ed-section__tag">LogisticRegression</span>
+      <span class="ed-section__tag">SVM</span>
+      <span class="ed-section__tag">matplotlib</span>
+      <span class="ed-section__tag">seaborn</span>
+      <span class="ed-section__tag">Jupyter</span>
+    </div>
+    <p class="ed-section__body">Data manipulation in pandas and NumPy, modelling and evaluation in scikit-learn, and visualisation in matplotlib and seaborn. Everything from loading the raw file through to the segment definitions and model comparison lives in one reproducible notebook.</p>
+    <a href="https://github.com/jessicafeto/Data-Science-Analytics-Portfolio-Jessica-Feto/tree/main/Strategic%20Analytics%20in%20Fashion" target="_blank" rel="noopener" class="ed-section__cta">View the full notebook on GitHub ↗</a>
   </div>
 
   <div class="ed-section ed-reveal">
