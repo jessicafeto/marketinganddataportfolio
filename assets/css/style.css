@@ -3069,7 +3069,7 @@ a.cert-item:hover .cert-title {
    ============================================================ */
 .journal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 28px;
 }
 .journal-card {
@@ -3127,26 +3127,3 @@ a.cert-item:hover .cert-title {
 }
 .journal-card:hover .journal-card__link { text-decoration: underline; }
 
-/* Journal: featured single-article layout */
-.journal-grid--feature { grid-template-columns: 1fr; }
-.journal-card--feature {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: 44px;
-  align-items: center;
-}
-.journal-card--feature .journal-card__body > :first-child { margin-top: 0; }
-.journal-card--feature h3 {
-  font-size: 1.55rem;
-  margin: 10px 0 12px;
-}
-.journal-card--feature p {
-  font-size: 1rem;
-  max-width: 48ch;
-}
-@media (max-width: 860px) {
-  .journal-card--feature { grid-template-columns: 1fr; gap: 0; }
-  .journal-card--feature .journal-card__body > :first-child { margin-top: 16px; }
-  .journal-card--feature h3 { font-size: 1.25rem; }
-  .journal-card--feature p { font-size: 0.94rem; }
-}
