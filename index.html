@@ -78,7 +78,7 @@
         </p>
         <div class="actions">
           <a href="#work" class="btn btn-dark">View Projects ↓</a>
-          <a href="assets/jessica-feto-cv.pdf" class="btn-text-link" target="_blank" rel="noopener">Download Resume ↗</a>
+          <button type="button" class="btn-text-link" data-resume-open>Download Resume ↗</button>
         </div>
       </div>
 
@@ -305,7 +305,7 @@
       <!-- Product Launch & Sales Enablement -->
       <div class="project-card" data-filters="launch">
         <div class="project-visual">
-          <img src="assets/images/cover-symphony.jpg" alt="Product Launch &amp; Sales Enablement">
+          <img src="assets/images/symphony-mockup.jpg" alt="Product Launch &amp; Sales Enablement">
         </div>
 
         <div class="project-body">
@@ -1148,6 +1148,123 @@
   } else {
     reveal();
   }
+})();
+</script>
+
+<!-- Resume request gate: the CV is sent by email rather than served as an open download -->
+<dialog class="resume-modal" id="resume-modal" aria-labelledby="resume-modal-title">
+  <button type="button" class="resume-modal__close" data-resume-close aria-label="Close">&times;</button>
+
+  <div class="resume-modal__step" data-step="form">
+    <p class="eyebrow">Resume</p>
+    <h2 id="resume-modal-title">Request a copy</h2>
+    <p class="resume-modal__sub">Tell me a little about you and I'll send my resume straight to your inbox.</p>
+
+    <form class="resume-form" novalidate>
+      <div class="form-group">
+        <label for="rf-name">Name</label>
+        <input type="text" id="rf-name" name="name" placeholder="Jane Smith" required>
+      </div>
+      <div class="form-group">
+        <label for="rf-email">Work email</label>
+        <input type="email" id="rf-email" name="email" placeholder="jane@company.com" required>
+      </div>
+      <div class="form-group">
+        <label for="rf-company">Company</label>
+        <input type="text" id="rf-company" name="company" placeholder="Company name" required>
+      </div>
+      <div class="form-group">
+        <label for="rf-role">Role you're hiring for <span class="form-optional">optional</span></label>
+        <input type="text" id="rf-role" name="role" placeholder="Marketing Analyst">
+      </div>
+
+      <input type="hidden" name="_subject" value="Resume request from the portfolio">
+      <input type="hidden" name="request" value="Resume">
+
+      <p class="resume-form__error" data-resume-error hidden></p>
+      <button type="submit" class="btn btn-dark resume-form__submit">Send me the resume →</button>
+      <p class="resume-modal__note">Your details are used only to send the resume and reply to you.</p>
+    </form>
+  </div>
+
+  <div class="resume-modal__step" data-step="done" hidden>
+    <div class="resume-modal__tick" aria-hidden="true">✓</div>
+    <h2>Check your inbox</h2>
+    <p class="resume-modal__sub">Thanks, <span data-resume-name>there</span>. My resume is on its way to <span data-resume-to>your inbox</span>. If it hasn't arrived shortly, check your spam folder or email me directly.</p>
+    <a href="mailto:jessicaxfeto@gmail.com" class="resume-modal__mail">jessicaxfeto@gmail.com</a>
+    <button type="button" class="btn btn-dark" data-resume-close>Close</button>
+  </div>
+</dialog>
+
+<script>
+/* ---------- Resume request gate ----------
+   The CV is not linked directly; visitors leave their details and it is
+   emailed to them. Posts to the same Formspree endpoint as the contact form,
+   tagged with _subject so requests are easy to spot. */
+(function () {
+  var modal = document.getElementById('resume-modal');
+  if (!modal || typeof modal.showModal !== 'function') return;
+
+  var form     = modal.querySelector('.resume-form');
+  var stepForm = modal.querySelector('[data-step="form"]');
+  var stepDone = modal.querySelector('[data-step="done"]');
+  var errorBox = modal.querySelector('[data-resume-error]');
+  var submit   = form.querySelector('button[type="submit"]');
+  var ENDPOINT = 'https://formspree.io/f/mykqjlaa';
+
+  document.querySelectorAll('[data-resume-open]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      stepForm.hidden = false;
+      stepDone.hidden = true;
+      errorBox.hidden = true;
+      modal.showModal();
+      form.querySelector('#rf-name').focus();
+    });
+  });
+
+  modal.querySelectorAll('[data-resume-close]').forEach(function (btn) {
+    btn.addEventListener('click', function () { modal.close(); });
+  });
+
+  /* click on the backdrop, outside the panel, closes */
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) modal.close();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBox.hidden = true;
+
+    if (!form.checkValidity()) {
+      errorBox.textContent = 'Please fill in your name, email and company.';
+      errorBox.hidden = false;
+      form.reportValidity();
+      return;
+    }
+
+    var data = new FormData(form);
+    submit.disabled = true;
+    submit.textContent = 'Sending…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' }
+    }).then(function (res) {
+      if (!res.ok) throw new Error('Request failed');
+      modal.querySelector('[data-resume-name]').textContent = (data.get('name') || '').split(' ')[0] || 'there';
+      modal.querySelector('[data-resume-to]').textContent = data.get('email');
+      stepForm.hidden = true;
+      stepDone.hidden = false;
+      form.reset();
+    }).catch(function () {
+      errorBox.textContent = 'Something went wrong. Please email me directly at jessicaxfeto@gmail.com.';
+      errorBox.hidden = false;
+    }).then(function () {
+      submit.disabled = false;
+      submit.textContent = 'Send me the resume →';
+    });
+  });
 })();
 </script>
 

@@ -3110,3 +3110,98 @@ a.cert-item:hover .cert-title {
 }
 .journal-card:hover .journal-card__link { text-decoration: underline; }
 
+
+/* ============================================================
+   RESUME REQUEST GATE
+   ============================================================ */
+/* the trigger is a <button> so it opens the dialog rather than
+   linking to a file; it must still read as the text link it replaced */
+button.btn-text-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.resume-modal {
+  width: min(440px, calc(100vw - 40px));
+  padding: 34px 34px 30px;
+  border: 1px solid var(--border-solid);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 30px 70px rgba(15, 15, 15, 0.18);
+}
+.resume-modal::backdrop {
+  background: rgba(20, 18, 16, 0.45);
+}
+.resume-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.resume-modal__close:hover { color: var(--ink); }
+
+.resume-modal h2 {
+  font-size: 1.5rem;
+  margin: 10px 0 8px;
+}
+.resume-modal__sub {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin: 0 0 22px;
+}
+.resume-modal .form-group { margin-bottom: 14px; }
+.form-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+.resume-form__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 6px;
+}
+.resume-form__error {
+  font-size: 0.82rem;
+  color: #9B2C2C;
+  margin: 0 0 12px;
+}
+.resume-modal__note {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 14px 0 0;
+  text-align: center;
+}
+
+.resume-modal__tick {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+.resume-modal__mail {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 22px;
+}
+.resume-modal [data-step="done"] .btn { width: 100%; justify-content: center; }
