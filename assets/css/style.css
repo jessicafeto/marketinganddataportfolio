@@ -659,6 +659,14 @@ section {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* phones: one certificate per row, so the titles stop wrapping to four lines */
+@media (max-width: 600px) {
+  .certs-col .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 section.alt {
   background: var(--bg-alt);
 }
