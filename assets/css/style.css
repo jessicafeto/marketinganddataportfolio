@@ -562,8 +562,8 @@ section {
 /* ---- Combined Skills + Certifications layout ---- */
 .skills-certs-layout {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 56px;
+  grid-template-columns: 1fr;
+  gap: 64px;
   align-items: start;
   width: 100%;
 }
@@ -583,38 +583,38 @@ section {
 
 /* Compact skill cards within combined layout */
 .skills-col .skills-grid {
-  gap: 12px;
+  gap: 18px;
 }
 
 .skills-col .skill-card {
-  padding: 16px 18px;
+  padding: 20px 22px;
 }
 
 .skills-col .skill-icon-wrap {
-  width: 34px;
-  height: 34px;
-  margin-bottom: 10px;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 12px;
 }
 
 .skills-col .skill-card h3 {
-  font-size: 0.86rem;
-  margin-bottom: 5px;
+  font-size: 0.96rem;
+  margin-bottom: 7px;
 }
 
 .skills-col .skill-card p {
-  font-size: 0.76rem;
-  line-height: 1.5;
-  margin-bottom: 10px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
 .skills-col .skill-tools {
-  padding-top: 10px;
+  padding-top: 14px;
 }
 
 /* Compact cert cards within combined layout */
 .certs-col .cert-grid {
-  grid-template-columns: 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+  gap: 14px;
 }
 
 .certs-col .cert-card {
@@ -642,8 +642,7 @@ section {
 }
 
 .certs-col .cert-tag {
-  font-size: 0.58rem;
-  padding: 2px 7px;
+  font-size: 0.7rem;
 }
 
 /* Responsive: stack on smaller screens */
@@ -1747,25 +1746,27 @@ color:var(--ink);
 
 .cert-footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 }
 
+/* plain inline list, not pills: at narrow card widths pills wrapped one
+   word per line and collided with the year */
 .cert-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  display: block;
 }
 
 .cert-tag {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--text-light);
-  background: var(--bg-alt);
-  border-radius: 999px;
-  padding: 3px 9px;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+/* the nbsp glues the separator to the word before it, so a wrap never
+   starts a line with a stray middot */
+.cert-tag:not(:last-child)::after {
+  content: " ·";
+  color: var(--border-solid);
 }
 
 .cert-year {
