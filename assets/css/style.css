@@ -3108,7 +3108,11 @@ a.cert-item:hover .cert-title {
   font-weight: 700;
   color: var(--accent-dark);
 }
-.journal-card:hover .journal-card__link { text-decoration: underline; }
+/* the whole card is an <a>, so the global a:hover underline would strike
+   through every line of text inside it */
+.journal-card:hover,
+.journal-card:hover .journal-card__link,
+.cert-card:hover { text-decoration: none; }
 
 
 /* ============================================================
