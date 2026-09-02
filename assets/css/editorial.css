@@ -1262,7 +1262,10 @@ a.ed-snap-col__item--link:hover {
 }
 
 .jr-cover {
-  margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+  width: 100%;
+  max-width: 760px;
+  margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+  padding-inline: clamp(1.625rem, 5vw, 2rem);
 }
 .jr-cover img {
   display: block;
