@@ -637,14 +637,6 @@ section {
   margin-bottom: 8px;
 }
 
-.certs-col .cert-footer {
-  gap: 4px;
-}
-
-.certs-col .cert-tag {
-  font-size: 0.7rem;
-}
-
 /* Responsive: stack on smaller screens */
 @media (max-width: 860px) {
   .skills-certs-layout {
@@ -1746,27 +1738,7 @@ color:var(--ink);
 
 .cert-footer {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-/* plain inline list, not pills: at narrow card widths pills wrapped one
-   word per line and collided with the year */
-.cert-tags {
-  display: block;
-}
-
-.cert-tag {
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: var(--text-muted);
-}
-/* the nbsp glues the separator to the word before it, so a wrap never
-   starts a line with a stray middot */
-.cert-tag:not(:last-child)::after {
-  content: " ·";
-  color: var(--border-solid);
+  align-items: center;
 }
 
 .cert-year {
