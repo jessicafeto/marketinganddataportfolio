@@ -1032,11 +1032,34 @@ color:var(--ink);
   margin: 0;
 }
 
+.experience-meta .exp-company-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0 0 4px;
+}
+
 .experience-content .exp-role {
   font-weight: 700;
   font-size: 1rem;
   color: var(--accent);
   margin: 0 0 10px;
+}
+
+/* second half of a two-part job title, e.g. Founder · Marketing & Data Consultant */
+.experience-content .exp-role-sub {
+  font-weight: 400;
+  color: var(--text-light);
+}
+.experience-content .exp-role-sub::before {
+  content: "\00b7";
+  margin: 0 0.45em 0 0.2em;
+  color: var(--text-muted);
+}
+
+/* metrics stay bold; the surrounding sentence does not */
+.experience-content p strong {
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .experience-content p {
