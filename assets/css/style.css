@@ -6,6 +6,9 @@
    ============================================================ */
 
 :root {
+  /* single source of truth for the left/right page gutter, stepped down at
+     each breakpoint so every wrapper stays aligned */
+  --gutter: 28px;
   --bg: #FFFFFF;
   --bg-alt: #FAFAFA;
   --ink: #0F0F0F;
@@ -75,7 +78,7 @@ a:hover { text-decoration: underline; }
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 var(--gutter);
 }
 
 /* ---------------- Labels / eyebrows ---------------- */
@@ -2114,13 +2117,13 @@ a.cert-item:hover .cert-title {
 
 @media (max-width: 680px) {
   .contact-section { padding: 64px 0 56px; }
-  .contact-inner { padding: 0 20px; }
+  .contact-inner { padding: 0 var(--gutter); }
   .contact-form { padding: 24px; }
 }
 
 @media (max-width: 860px) {
   .contact-section { height: auto; padding: 72px 0; }
-  .contact-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 var(--gutter); }
   .contact-sub { max-width: 100%; }
   .form-row { grid-template-columns: 1fr; }
 }
@@ -2134,7 +2137,7 @@ a.cert-item:hover .cert-title {
 .sfd-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 64px 28px 56px;
+  padding: 64px var(--gutter) 56px;
   display: flex;
   justify-content: space-between;
   gap: 40px;
@@ -2221,7 +2224,7 @@ a.cert-item:hover .cert-title {
 }
 
 @media (max-width: 680px) {
-  .sfd-inner { flex-direction: column; gap: 40px; padding: 48px 20px 40px; }
+  .sfd-inner { flex-direction: column; gap: 40px; padding: 48px var(--gutter) 40px; }
   .sfd-links { gap: 40px; }
   .sfd-bottom { flex-direction: column; gap: 6px; text-align: center; padding: 20px; }
 }
@@ -2245,9 +2248,11 @@ a.cert-item:hover .cert-title {
   .hero-text { padding-right: 36px; }
 }
 
+@media (max-width: 860px) { :root { --gutter: 24px; } }
+@media (max-width: 600px) { :root { --gutter: 22px; } }
+
 /* ---------- 860px — tablet portrait ---------- */
 @media (max-width: 860px) {
-  .container { padding: 0 20px; }
   section { padding: 72px 0; }
   .section-head { margin-bottom: 36px; }
 
@@ -2309,7 +2314,6 @@ a.cert-item:hover .cert-title {
 
 /* ---------- 600px — large phone ---------- */
 @media (max-width: 600px) {
-  .container { padding: 0 16px; }
   section { padding: 56px 0; }
   .section-head { margin-bottom: 28px; }
 
@@ -2546,7 +2550,11 @@ a.cert-item:hover .cert-title {
 /* Mobile: revert to scrollable vertical grid */
 @media (max-width: 860px) {
   #work { height: auto; overflow: visible; display: block; padding: 72px 0 !important; }
+  /* the header itself stays flush so the filter row can bleed past the right
+     edge as a scroll cue; the gutter is put back on its children instead */
   .work-header { padding: 0; }
+  .work-header .section-head { padding: 0 var(--gutter); }
+  .work-header .project-filters { padding-left: var(--gutter); padding-right: var(--gutter); }
   .projects-carousel-wrap { padding: 16px 0 0; }
   .projects-carousel-wrap::after { display: none; }
   .projects-carousel {
@@ -2565,7 +2573,7 @@ a.cert-item:hover .cert-title {
 
 /* ---- Large DevfolioX-style project rows ---- */
 .bento-wrap {
-  padding: 0 28px 20px;
+  padding: 0 var(--gutter) 20px;
   max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;
@@ -2866,7 +2874,7 @@ a.cert-item:hover .cert-title {
 @media (max-width: 680px) {
   #work { padding: 56px 0 64px; }
   .work-header .section-head h2 { font-size: 1.9rem; font-weight: 400; }
-  .bento-wrap { padding: 0 0 16px; }
+  .bento-wrap { padding: 0 var(--gutter) 16px; }
   .bento-grid .project-card { flex-direction: column; gap: 20px; padding: 40px 0; align-items: flex-start; }
   .bento-grid .project-card .project-visual { width: 100%; min-width: unset; height: auto; aspect-ratio: 4 / 3; }
   .bento-grid .project-card .project-body h3 { font-size: 1.6rem; }
