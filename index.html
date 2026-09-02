@@ -60,7 +60,7 @@
       <a href="#work">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#journal">Journal</a>
-      <a href="#contact" class="btn btn-dark btn-nav-cta">Let's Talk ↗</a>
+      <a href="#contact" class="btn btn-dark btn-nav-cta">Get in Touch ↗</a>
     </div>
   </div>
 </nav>
@@ -74,7 +74,7 @@
         <p class="hero-greeting">Hi, I'm Jessica.</p>
         <h1>I connect the dots between marketing and data.</h1>
         <p class="lede">
-          I use customer insight, creativity and analysis to understand what businesses need to say, who they need to reach and what actually works.
+          I combine creative thinking with data to solve real business problems.
         </p>
         <div class="actions">
           <a href="#work" class="btn btn-dark">View Projects ↓</a>
@@ -918,6 +918,22 @@
 </footer>
 
 <script>
+/* ---------- Re-aim cross-page anchors (index.html#contact, #work, ...) ----------
+   Most images here are lazy-loaded without width/height, so the document grows
+   after the browser's initial jump and the target ends up off screen. Aim again
+   once everything has settled. */
+(function () {
+  if (!location.hash) return;
+  var jump = function () {
+    var el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView();
+  };
+  window.addEventListener('load', function () {
+    jump();
+    setTimeout(jump, 300);
+  });
+})();
+
 /* ---------- Navbar shrink on scroll ---------- */
 (function () {
   var navbar = document.querySelector('.navbar');
