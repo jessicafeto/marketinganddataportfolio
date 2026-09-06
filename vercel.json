@@ -1,5 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/intellimation-research", "destination": "/customer-analytics-decision-intelligence", "permanent": true },
+    { "source": "/marketing-systems",      "destination": "/uk-housing-market-intelligence",          "permanent": true },
+    { "source": "/analytics-bi",           "destination": "/sql-analysis-reporting",                  "permanent": true }
+  ]
 }
